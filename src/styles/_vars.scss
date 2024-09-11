@@ -1,0 +1,54 @@
+/* colors, fonts, effects, etc. */
+
+:root {
+    --widget-scale: 0px;
+    --body-light: #FAFAF8;
+    --body-dark: #000;
+    --widget-light: #fff;
+    --widget-dark: #111312;
+    --text-light: #585954;
+    --text-dark: #8EA2AB;
+    --border-light: #E0E5D5;
+    --border-dark: #24292B;
+    --header-light: #292B23;
+    --header-dark: #fff;
+    --btn-text-light: #3E4237;
+    --nav-arrow: #A2C0D4;
+    --accent: #FDCA40;
+    --azure: #0496FF;
+    --blue: #2662F0;
+    --green: #13783e;
+    --grass: #7ED321;
+    --neon-green: #04E762;
+    --pink: #DE0D92;
+    --red: #ED0423;
+    --purple: #6665DD;
+    --salmon: #FF715B;
+    --orange: #F17105;
+    --turquoise: #34d1bf;
+    --olive: #6F8738;
+    --olive-light: #C1C200;
+    --pastel-blue: #87BFFF;
+    --electro: #29E7CD;
+    --light-gray: #FAFBFD;
+    --light-azure: #BDE0F6;
+    --haki: #B0B7A1;
+    --fb: #3B5998;
+    --black: #1B1F22;
+    --black-2: #0C0C0C;
+    --black-3: #3A3A3A;
+    --cold-white: #EDEDED;
+    --blue-gradient: linear-gradient(360deg, #0496FF 0%, #28B5E0 100%);
+    --body-font: 'Open Sans', sans-serif;
+    --heading-font: 'Montserrat', sans-serif;
+    --transition: .3s ease-in-out;
+    --main-sidebar-width: 0;
+    --header-active: 0px;
+    --card-padding: 20px;
+}
+
+@media screen and (min-width: 414px) {
+    :root {
+        --card-padding: 30px;
+    }
+}

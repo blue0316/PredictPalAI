@@ -1,0 +1,32 @@
+.cover {
+    height: 136px;
+    width: 100%;
+
+    img {
+        height: 100%;
+    }
+}
+
+.main {
+    flex-grow: 1;
+    padding: 20px 30px;
+
+    &_avatar {
+        display: none !important;
+    }
+
+    @media screen and (min-width: 360px) {
+        display: flex;
+        align-items: flex-end;
+        gap: 20px;
+        margin-top: -40px;
+        padding: 17px 30px 30px;
+
+        &_avatar {
+            display: block !important;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+        }
+    }
+}

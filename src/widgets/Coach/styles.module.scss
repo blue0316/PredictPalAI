@@ -1,0 +1,26 @@
+.lastName {
+    display: block;
+    font-weight: 300;
+}
+
+.media {
+    position: absolute;
+    bottom: 0;
+    height: 200px;
+    width: 106px;
+
+    img {
+        width: auto;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    &.ltr {
+        right: 0;
+    }
+
+    &.rtl {
+        left: 0;
+        transform: scaleX(-1);
+    }
+}

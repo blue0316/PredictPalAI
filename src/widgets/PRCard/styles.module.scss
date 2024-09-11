@@ -1,0 +1,14 @@
+.media {
+    height: 180px;
+}
+
+.main {
+    padding: 0 30px 30px;
+    margin-top: -40px;
+    text-align: center;
+
+    &_text {
+        margin: 12px auto 20px;
+        max-width: 300px;
+    }
+}

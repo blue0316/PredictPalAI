@@ -1,0 +1,31 @@
+.container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+
+    &_item {
+        height: 360px;
+    }
+
+    // iPhone SE
+    @media screen and (min-width: 375px) {
+        &_item {
+            height: 380px;
+        }
+    }
+
+    // iPhone XR
+    @media screen and (min-width: 414px) {
+        &_item {
+            height: 400px;
+        }
+    }
+
+    // tablet portrait
+    @media screen and (min-width: 768px) {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        &_item {
+            height: 460px;
+        }
+    }
+}

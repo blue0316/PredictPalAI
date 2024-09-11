@@ -1,0 +1,25 @@
+.header {
+    height: 40px;
+    background: var(--body);
+    border-radius: 4px;
+    align-items: center;
+    border-bottom: none !important;
+    padding: 0 !important;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: minmax(0, 74px) minmax(0, 100px) minmax(0, 135px);
+    text-align: center;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}

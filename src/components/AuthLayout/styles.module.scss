@@ -1,0 +1,150 @@
+.container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding: 20px;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+
+    h1 {
+        font-size: 1.625rem;
+        line-height: 1.5;
+    }
+}
+
+.form {
+    max-width: 370px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+/* Button styles */
+.btn {
+    display: inline-block;
+    width: 48%; /* Adjust width to make buttons larger */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  
+    &--sm {
+      font-size: 14px;
+      padding: 8px 16px;
+    }
+  
+    &--google {
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+  
+    &:hover {
+      background-color: #e0e0e0;
+    }
+  }
+  
+  /* Flex container for buttons */
+  .d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Add space between buttons */
+    margin-top: 20px;
+  }
+  
+  /* Google button specific styles */
+  .btn--google {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    color: #333;
+  
+    &:hover {
+      background-color: #f1f1f1;
+    }
+  }
+  
+.cover {
+    display: none;
+    position: relative;
+
+    &.light, &.dark {
+        background: transparent;
+    }
+
+    &_logo {
+        max-width: 70%;
+        max-height: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background: var(--widget);
+        border-radius: 8px;
+        position: relative;
+        z-index: 2;
+    }
+
+    &_lottie {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+    }
+    
+}
+
+// tablet landscape
+@media screen and (min-width: 1024px) {
+    .container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 0;
+    }
+
+    .cover {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        &.light {
+            background: url("../../assets/shapes.svg") no-repeat center / cover, #fff;
+        }
+
+        &.dark {
+            background: url("../../assets/shapes.svg") no-repeat center / cover, #111312;
+            box-shadow: 0 1px 8px rgba(33, 33, 33, 0.1);
+        }
+    }
+
+    .form {
+        margin: 0 auto;
+    }
+}
+
+// desktop
+@media screen and (min-width: 1366px) {
+    .cover_logo {
+        max-width: 60%;
+        max-height: 25%;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .cover_logo {
+        max-width: 55%;
+        max-height: 30%;
+    }
+}

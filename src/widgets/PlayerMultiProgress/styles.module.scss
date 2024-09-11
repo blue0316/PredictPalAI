@@ -1,0 +1,40 @@
+.info {
+    align-items: stretch;
+
+    &_separator {
+        display: block;
+        height: auto;
+        width: 1px;
+        background-color: var(--border);
+    }
+
+    &_progress {
+        color: var(--grass);
+
+        i {
+            font-size: 0.875rem;
+        }
+    }
+}
+
+.track {
+    position: relative;
+    background: var(--border);
+    height: 16px;
+    border-radius: 8px;
+
+    &_item {
+        border-radius: 8px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+
+        &.ltr:last-of-type {
+            left: -1px;
+        }
+
+        &.rtl:last-of-type {
+            right: -1px;
+        }
+    }
+}

@@ -1,0 +1,19 @@
+.title {
+    max-width: 240px;
+    width: 100%;
+}
+
+.swiper {
+    margin: 20px 0;
+    border-radius: 8px;
+    overflow: hidden;
+    max-height: 400px;
+
+    &_slide, &_slide img {
+        height: 100%;
+    }
+}
+
+.footer {
+    margin-top: 44px;
+}

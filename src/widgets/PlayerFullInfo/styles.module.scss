@@ -1,0 +1,42 @@
+.main {
+    &.ltr {
+        padding: var(--card-padding) 0 0 var(--card-padding);
+    }
+
+    &.rtl {
+        padding: var(--card-padding) var(--card-padding) 0 0;
+    }
+}
+
+.media {
+    position: absolute;
+    bottom: 0;
+    max-height: 390px;
+    width: fit-content;
+    z-index: 2;
+
+    &.ltr {
+        right: var(--card-padding);
+    }
+
+    &.rtl {
+        left: var(--card-padding);
+        transform: scaleX(-1);
+    }
+
+    img {
+        height: 100%;
+        width: auto;
+    }
+}
+
+.goal {
+    position: absolute;
+    bottom: 50px;
+    right: 0;
+    z-index: 1;
+    height: 140px;
+    width: fit-content;
+    color: #696D6E;
+    opacity: 0.4;
+}

@@ -1,0 +1,22 @@
+.thumbs {
+    position: absolute;
+    bottom: 4px;
+    left: 0;
+    width: 100%;
+    background: rgba(40, 40, 40, 0.95);
+    z-index: 3;
+    border-top: 1px solid #1B1F22;
+
+    &_slide {
+        padding: 30px 30px 34px;
+
+        @media screen and (min-width: 768px) {
+            border-left: 1px solid #1B1F22;
+        }
+    }
+}
+
+.live {
+    top: 30px;
+    left: 30px;
+}

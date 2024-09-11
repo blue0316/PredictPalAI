@@ -1,0 +1,25 @@
+html[dir="rtl"] {
+    .field-btn {
+        left: 12px;
+        right: auto;
+    }
+
+    .tab-nav {
+        :first-child {
+            border-radius: 0 4px 4px 0;
+        }
+
+        :last-child {
+            border-radius: 4px 0 0 4px;
+        }
+    }
+
+    .text-right {
+        text-align: left;
+    }
+
+    .popup_close {
+        left: 20px;
+        right: auto;
+    }
+}

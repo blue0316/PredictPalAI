@@ -1,0 +1,59 @@
+.tabs_list {
+    margin: 16px 0 24px;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.social_item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    .icon {
+        font-size: 20px;
+        color: var(--highlight);
+    }
+}
+
+.social_connect {
+    font-size: 0.75rem;
+    width: fit-content;
+    margin-left: 28px;
+    transition: color var(--transition);
+
+    &:hover, &:focus {
+        color: var(--highlight);
+    }
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+// iPhone XR
+@media screen and (min-width: 414px) {
+    .footer {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+}
+
+// tablet portrait
+@media screen and (min-width: 768px) {
+    .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer {
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+}

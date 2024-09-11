@@ -1,0 +1,12 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: var(--heading-font);
+
+    &:not(:last-child) {
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+    }
+}

@@ -1,0 +1,38 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.media {
+    width: 160px;
+    height: 160px;
+    align-self: flex-end;
+
+    // iPhone XR
+    @media screen and (min-width: 414px) {
+        width: 190px;
+        height: 190px;
+    }
+}
+
+.main {
+    height: auto;
+    max-width: calc(100% - 184px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &.ltr {
+        padding: 30px 0 30px 30px;
+    }
+
+    &.rtl {
+        padding: 30px 30px 30px 0;
+    }
+
+    &_title {
+        max-width: 100px;
+    }
+}

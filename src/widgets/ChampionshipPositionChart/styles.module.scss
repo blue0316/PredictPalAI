@@ -1,0 +1,21 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    // tablet portrait
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    // desktop
+    @media screen and (min-width: 1280px) {
+        flex-direction: column;
+    }
+
+    // desktop large
+    @media screen and (min-width: 1500px) {
+        flex-direction: row;
+    }
+}

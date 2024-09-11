@@ -1,0 +1,52 @@
+.list {
+    padding: 0 var(--card-padding);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.item {
+    height: 80px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    transition: all var(--transition);
+
+    &.selected {
+
+        &.light {
+            background-color: var(--light-gray);
+            border-color: var(--light-gray);
+        }
+
+        &.dark {
+            background-color: var(--border);
+        }
+
+        .item_media {
+            background-color: var(--widget);
+        }
+    }
+
+    &_num {
+        font-weight: 600;
+        color: var(--header);
+    }
+
+    &_media {
+        align-self: flex-start;
+        width: 27px;
+        height: 17px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--body);
+        padding: 2px 4px;
+        border-radius: 4px;
+        transition: all var(--transition);
+    }
+}

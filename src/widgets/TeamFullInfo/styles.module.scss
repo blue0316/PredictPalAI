@@ -1,0 +1,15 @@
+.container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    padding: var(--card-padding);
+    gap: 30px;
+
+    // tablet portrait
+    @media screen and (min-width: 768px) {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    }
+}
+
+.field {
+    height: 320px;
+}

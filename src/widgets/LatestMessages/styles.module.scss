@@ -1,0 +1,14 @@
+.header {
+    padding: var(--card-padding) var(--card-padding) 16px;
+}
+
+.main {
+    padding-bottom: var(--card-padding);
+
+    &_group {
+        padding: 0 var(--card-padding);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
