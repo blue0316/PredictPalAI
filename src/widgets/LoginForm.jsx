@@ -27,6 +27,7 @@ const LoginForm = () => {
   });
   const navigate = useNavigate();
   const dispatch = useDispatch(); 
+
   const onSubmit = async (data) => {
     try {
       const userCredential = await signInWithEmail(data.email, data.password);
@@ -41,7 +42,8 @@ const LoginForm = () => {
     }
   };
 
-  const handleGoogleSignIn = async () => {
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault(); 
     try {
       const userCredential = await signInWithGoogle();
       const user = userCredential.user;
@@ -119,7 +121,7 @@ const LoginForm = () => {
             Sign In Now
           </button>
           <button
-            onClick={handleGoogleSignIn}
+            onClick={handleGoogleSignIn} // Trigger Google Sign-In
             className="btn btn--sm btn--google"
           >
             <img src={GoogleIcon} alt="Google Icon" style={{ width: "20px" }} />

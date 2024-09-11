@@ -7,6 +7,9 @@ import classNames from "classnames";
 import { signInWithGoogle, registerWithEmail } from "../firebase/auth";
 import { Link, useNavigate } from "react-router-dom"; 
 import GoogleIcon from "../../src/assets/icons/google.svg";
+import { useDispatch } from "react-redux";
+import { useState } from "react";
+import { login } from "../features/users/userSlice";
 
 const SignUpForm = ({ standalone = true }) => {
   const {
@@ -27,13 +30,18 @@ const SignUpForm = ({ standalone = true }) => {
 
  
   const navigate = useNavigate(); 
+  const dispatch = useDispatch(); 
 
   const Wrapper = standalone ? Fragment : Spring;
   const wrapperProps = standalone ? {} : { className: "card card-padded" };
 
   const onSubmit = async (data) => {
     try {
-      await registerWithEmail(data.email, data.password);
+      const userCredential = await registerWithEmail(data.email, data.password);
+      const user = userCredential.user; 
+
+      dispatch(login(user));
+
       toast.success(
         `Account created! Please check your email ${data.email} to confirm your account.`
       );
@@ -43,13 +51,18 @@ const SignUpForm = ({ standalone = true }) => {
     }
   };
 
-  const handleGoogleSignIn = async () => {
+  const handleGoogleSignIn = async (e) => {
+    e.preventDefault(); 
     try {
-      await signInWithGoogle();
+      const userCredential = await signInWithGoogle();
+      const user = userCredential.user;
+
+      dispatch(login(user));
+
       toast.success("Signed in with Google successfully!");
       navigate("/Dashboard"); 
     } catch (error) {
-      toast.error(`Error signing in with Google: ${error.message}`);
+      toast.error(`Failed to sign in with Google: ${error.message}`);
     }
   };
 
