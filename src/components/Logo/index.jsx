@@ -10,10 +10,10 @@ import PropTypes from "prop-types";
 const Logo = ({ size = "md" }) => {
   return (
     <div className={`${styles.logo} ${styles[size]}`} >
+      PredictPal
       <span className={styles.logo_highlight}>
-        <span>soccer</span>
+        <span>AI</span>
       </span>
-      AI
     </div>
   );
 };
