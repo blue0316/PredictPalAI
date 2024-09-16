@@ -36,7 +36,7 @@ const LoginForm = () => {
       dispatch(login(user));
 
       toast.success("Signed in successfully!");
-      navigate("/Dashboard"); 
+      navigate("/dashboard"); 
     } catch (error) {
       toast.error(`Failed to sign in with email: ${error.message}`);
     }
@@ -51,7 +51,7 @@ const LoginForm = () => {
       dispatch(login(user));
 
       toast.success("Signed in with Google successfully!");
-      navigate("/Dashboard"); 
+      navigate("/dashboard"); 
     } catch (error) {
       toast.error(`Failed to sign in with Google: ${error.message}`);
     }
