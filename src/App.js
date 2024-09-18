@@ -45,6 +45,7 @@ import BottomNav from '@layout/BottomNav';
 import Navbar from '@layout/Navbar';
 import ShoppingCart from '@widgets/ShoppingCart';
 import ScrollToTop from '@components/ScrollToTop';
+import PrivateRoute from '@components/PrivateRoute/PrivateRoute';
 
 // pages
 const ClubSummary = lazy(() => import('@pages/ClubSummary'));
@@ -124,7 +125,6 @@ const App = () => {
                                         <Suspense fallback={<LoadingScreen/>}>
                                             <Routes>
                                                 <Route path="*" element={<PageNotFound/>}/>
-                                                <Route path="/Dashboard" element={<ClubSummary/>}/>
                                                 <Route path="/" element={
                                                     <Navigate to="/login" replace={true} />
                                                 } />
@@ -143,7 +143,8 @@ const App = () => {
                                                 <Route path="/product" element={<Product/>}/>
                                                 <Route path="/login" element={<Login/>}/>
                                                 <Route path="/sign-up" element={<SignUp/>}/>
-                                                <Route path="/settings" element={<Settings/>}/>
+                                                <Route path="/dashboard" element={<PrivateRoute><ClubSummary /></PrivateRoute>} />
+                                                <Route path="/settings" element={<PrivateRoute><Settings /></PrivateRoute>} />
                                             </Routes>
                                         </Suspense>
                                     </div>

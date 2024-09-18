@@ -8,7 +8,6 @@ import { signInWithGoogle, registerWithEmail } from "../firebase/auth";
 import { Link, useNavigate } from "react-router-dom"; 
 import GoogleIcon from "../../src/assets/icons/google.svg";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 import { login } from "../features/users/userSlice";
 
 const SignUpForm = ({ standalone = true }) => {
@@ -20,8 +19,7 @@ const SignUpForm = ({ standalone = true }) => {
     watch,
   } = useForm({
     defaultValues: {
-      firstName: "",
-      lastName: "",
+      displayName: "",
       email: "",
       password: "",
       passwordConfirm: "",
@@ -45,7 +43,7 @@ const SignUpForm = ({ standalone = true }) => {
       toast.success(
         `Account created! Please check your email ${data.email} to confirm your account.`
       );
-      navigate("/Dashboard"); 
+      navigate("/dashboard"); 
     } catch (error) {
       toast.error(`Error creating account: ${error.message}`);
     }
@@ -60,7 +58,7 @@ const SignUpForm = ({ standalone = true }) => {
       dispatch(login(user));
 
       toast.success("Signed in with Google successfully!");
-      navigate("/Dashboard"); 
+      navigate("/dashboard"); 
     } catch (error) {
       toast.error(`Failed to sign in with Google: ${error.message}`);
     }
@@ -82,18 +80,13 @@ const SignUpForm = ({ standalone = true }) => {
         >
           <input
             className={classNames("field", {
-              "field--error": errors.firstName,
+              "field--error": errors.displayName,
             })}
             type="text"
-            placeholder="First name"
-            {...register("firstName", { required: true })}
+            placeholder="Display Name"
+            {...register("displayName", { required: true })}
           />
-          <input
-            className={classNames("field", { "field--error": errors.lastName })}
-            type="text"
-            placeholder="Last name"
-            {...register("lastName", { required: true })}
-          />
+      
           <input
             className={classNames("field", { "field--error": errors.email })}
             type="text"
