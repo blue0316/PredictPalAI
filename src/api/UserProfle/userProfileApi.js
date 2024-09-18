@@ -3,7 +3,7 @@ import axiosBaseQuery from '../axiosBaseQuery';
 
 export const userProfileApi = createApi({
   reducerPath: 'userProfileApi',
-  baseQuery: axiosBaseQuery({ baseUrl: "https://predictpalaiapi.onrender.com" }),
+  baseQuery: axiosBaseQuery({ baseUrl: process.env.REACT_APP_BACKEND_URL }),
   tagTypes: ['UserProfile'],
   endpoints: (builder) => ({
     getUserProfile: builder.query({

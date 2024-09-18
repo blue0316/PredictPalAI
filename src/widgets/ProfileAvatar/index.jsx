@@ -11,7 +11,7 @@ import LazyImage from "@components/LazyImage";
 import Submenu from "@ui/Submenu";
 import useFileReader from "@hooks/useFileReader";
 import useSubmenu from "@hooks/useSubmenu";
-import user from "@assets/user.webp";
+import userPic from "@assets/user.webp";
 import placeholder from "@assets/placeholder.webp";
 
 const ProfileAvatar = () => {
@@ -73,7 +73,7 @@ const ProfileAvatar = () => {
           <div>
             <LazyImage
               className={styles.img}
-              src={file ? file : user}
+              src={file ? file : userPic}
               alt="Lottie Poole"
             />
           </div>

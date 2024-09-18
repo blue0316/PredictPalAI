@@ -8,7 +8,6 @@ import { signInWithGoogle, registerWithEmail } from "../firebase/auth";
 import { Link, useNavigate } from "react-router-dom"; 
 import GoogleIcon from "../../src/assets/icons/google.svg";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
 import { login } from "../features/users/userSlice";
 
 const SignUpForm = ({ standalone = true }) => {
