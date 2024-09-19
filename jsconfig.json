@@ -3,6 +3,7 @@
         "jsx": "react",
         "baseUrl": "./src",
         "paths": {
+            "@api/*": [ "api/*"],
             "@components/*": [ "components/*"],
             "@ui/*": [ "ui/*" ],
             "@pages/*": [ "pages/*" ],

@@ -1,24 +1,49 @@
+import { useState } from "react";
+import { useForm, Controller } from "react-hook-form";
+import { useDispatch, useSelector } from "react-redux";
+import classNames from "classnames";
+import countryList from "react-select-country-list";
+import { City } from "country-state-city";
+import { PatternFormat } from "react-number-format";
+import { toast } from "react-toastify";
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
 // styling
 import styles from "./styles.module.scss";
 
 // components
 import CustomSelect from "@ui/CustomSelect";
-import { PatternFormat } from "react-number-format";
-import { toast } from "react-toastify";
+import { useUpdateUserProfileMutation } from "@api/UserProfle/userProfileApi";
+import { profile } from "@features/users/userSlice";
+import { DatePicker } from "@mui/x-date-pickers";
 
-// hooks
-import { useForm, Controller } from "react-hook-form";
-import { useState } from "react";
-
-// utils
-import classNames from "classnames";
-import countryList from "react-select-country-list";
-import { City } from "country-state-city";
+const schema = yup.object().shape({
+  Name: yup.string().required("Name is required"),
+  Email: yup
+    .string()
+    .email("Invalid email format")
+    .required("Email is required"),
+  Phone: yup.string(),
+  DOB: yup.date(),
+  Country: yup.mixed(),
+  City: yup.mixed(),
+  Address: yup.string(),
+  PostalCode: yup
+    .string()
+    .matches(/^\d{5}(?:[-\s]\d{4})?$/, "Invalid postal code format"),
+});
 
 const Profile = () => {
-  // eslint-disable-next-line no-unused-vars
+  const userId = useSelector((state) => state.user?.user?.uid);
+  const profileData = useSelector((state) => state.user?.profile);
+
+  const dispatch = useDispatch();
+
+  const [updateUserProfile] = useUpdateUserProfileMutation();
+
+  const [loading, setLoading] = useState(false);
   const [selectedCountry, setSelectedCountry] = useState();
-  // eslint-disable-next-line no-unused-vars
   const [selectedCity, setSelectedCity] = useState();
   const [cities, setCities] = useState([]);
   const {
@@ -29,15 +54,16 @@ const Profile = () => {
     control,
   } = useForm({
     defaultValues: {
-      name: "Lottie Poole",
-      phone: "",
-      email: "",
-      birth: "",
-      country: null,
-      city: null,
-      address: "",
-      zip: "",
+      Name: profileData?.Name || "",
+      Phone: profileData?.Phone || "",
+      Email: profileData?.Email || "",
+      DOB: profileData?.DOB ? new Date(profileData?.DOB) : new Date(),
+      Country: profileData?.Country || "",
+      City: profileData?.City || "",
+      Address: profileData?.Address || "",
+      PostalCode: profileData?.PostalCode || "",
     },
+    resolver: yupResolver(schema),
   });
 
   const getCountriesOptions = () => {
@@ -55,60 +81,105 @@ const Profile = () => {
   };
 
   // do something with the form data
-  const onSubmit = (data) => {
-    toast.success("Your changes have been successfully saved!");
+  const onSubmit = async (data) => {
+    setLoading(true);
+    try {
+      const updatedProfile = await updateUserProfile({
+        userId,
+        profileData: data,
+      }).unwrap();
+      reset({
+        Name: updatedProfile.data?.Name || "",
+        Phone: updatedProfile.data?.Phone || "",
+        Email: updatedProfile.data?.Email || "",
+        DOB: updatedProfile.data?.DOB
+          ? new Date(updatedProfile.data?.DOB)
+          : new Date(),
+        Country: updatedProfile.data?.Country || "",
+        City: updatedProfile.data?.City || "",
+        Address: updatedProfile.data?.Address || "",
+        PostalCode: updatedProfile.data?.PostalCode || "",
+      });
+      await dispatch(profile(updatedProfile.data));
+      toast.success("Your changes have been successfully saved!");
+    } catch (error) {
+      console.error("Failed to update profile:", error);
+      toast.error("Failed to update your profile!");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <form className="d-flex flex-column g-20" onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.row}>
         <input
-          className={classNames("field", { "field--error": errors.name })}
+          className={classNames("field", { "field--error": errors.Name })}
           type="text"
-          defaultValue="Lottie Poole"
           placeholder="Name"
-          {...register("name", { required: true })}
+          {...register("Name", { required: true })}
         />
         <Controller
-          name="phone"
+          name="Phone"
           control={control}
           render={({ field }) => (
             <PatternFormat
-              className={classNames("field", { "field--error": errors.phone })}
+              className={classNames("field", { "field--error": errors.Phone })}
               placeholder="Phone"
               format="+1 (###) ###-####"
               mask="_"
               getInputRef={field.ref}
+              {...field}
             />
           )}
         />
       </div>
       <div className={styles.row}>
         <input
-          className={classNames("field", { "field--error": errors.email })}
+          className={classNames("field", { "field--error": errors.Email })}
           type="text"
           placeholder="Email"
-          {...register("email", { pattern: /^\S+@\S+$/i })}
+          {...register("Email", { pattern: /^\S+@\S+$/i })}
+          disabled={true}
         />
         <Controller
-          name="birth"
+          name="DOB"
           control={control}
           render={({ field }) => (
-            <PatternFormat
-              className={classNames("field", { "field--error": errors.birth })}
-              placeholder="Birth date"
-              format="##/##/####"
-              mask="_"
-              getInputRef={field.ref}
-              value={field.value}
-              onChange={field.onChange}
+            // <PatternFormat
+            //   className={classNames("field", { "field--error": errors.birth })}
+            //   placeholder="Birth date"
+            //   format="##/##/####"
+            //   mask="_"
+            //   getInputRef={field.ref}
+            //   value={field.value}
+            //   onChange={field.onChange}
+            // />
+            <DatePicker
+              className={classNames(styles.field, {
+                "field--error": errors.DOB,
+              })}
+              label="Birth date"
+              slotProps={{
+                textField: {
+                  size: "small",
+                  color: "primary",
+                  InputProps: {
+                    style: { color: "var(--text)" },
+                  },
+                  InputLabelProps: {
+                    style: { color: "var(--text)" },
+                  },
+                },
+              }}
+              {...field}
             />
           )}
         />
       </div>
       <div className={styles.row}>
         <Controller
-          name="country"
+          name="Country"
           control={control}
           render={({ field }) => {
             return (
@@ -128,7 +199,7 @@ const Profile = () => {
           }}
         />
         <Controller
-          name="city"
+          name="City"
           control={control}
           render={({ field }) => {
             return (
@@ -153,18 +224,18 @@ const Profile = () => {
           className={classNames("field", { "field--error": errors.address })}
           type="text"
           placeholder="Address"
-          {...register("address")}
+          {...register("Address")}
         />
         <input
           className={classNames("field", { "field--error": errors.zip })}
           type="text"
           placeholder="Postal code"
-          {...register("zip", { pattern: /^\d{5}(?:[-\s]\d{4})?$/i })}
+          {...register("PostalCode", { pattern: /^\d{5}(?:[-\s]\d{4})?$/i })}
         />
       </div>
       <div className={styles.footer}>
         <button className="btn" type="submit">
-          Update Profile
+          {loading ? "Updating..." : "Update Profile"}
         </button>
         <button className="btn btn--outlined" type="reset" onClick={reset}>
           Cancel

@@ -1,18 +1,25 @@
+import { useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate, NavLink } from "react-router-dom";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
+import classNames from "classnames";
+import { ClipLoader } from "react-spinners";
+
+import PasswordInput from "@components/PasswordInput";
+import ResetPasswordPopup from "@components/ResetPasswordPopup";
+import BasicCheckbox from "@ui/BasicCheckbox";
+
 import { signInWithGoogle, signInWithEmail } from "../firebase/auth";
 import GoogleIcon from "../../src/assets/icons/google.svg";
-import classNames from "classnames";
-import PasswordInput from "@components/PasswordInput";
-import BasicCheckbox from "@ui/BasicCheckbox";
-import ResetPasswordPopup from "@components/ResetPasswordPopup";
-import { login } from "../features/users/userSlice";
+import { login, profile } from "../features/users/userSlice";
+import { useCreateUserProfileMutation } from "@api/UserProfle/userProfileApi";
 
 const LoginForm = () => {
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [googleLoading, setGoogleLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -25,35 +32,67 @@ const LoginForm = () => {
       rememberMe: false,
     },
   });
+
+  const [createUserProfile] = useCreateUserProfileMutation();
+
   const navigate = useNavigate();
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
+
+  const handleCreate = async (newProfileData) => {
+    try {
+      const createdProfile = await createUserProfile(newProfileData).unwrap();
+      return createdProfile.data;
+    } catch (error) {
+      console.error("Failed to create profile:", error);
+    }
+  };
 
   const onSubmit = async (data) => {
+    setLoading(true);
     try {
       const userCredential = await signInWithEmail(data.email, data.password);
-      const user = userCredential.user; 
+      const user = userCredential.user;
+
+      const createdProfile = await handleCreate({
+        User_ID: user.uid,
+        Email: user.email,
+        Name: user.displayName,
+      });
 
       dispatch(login(user));
+      dispatch(profile(createdProfile));
 
       toast.success("Signed in successfully!");
-      navigate("/dashboard"); 
+      navigate("/dashboard");
     } catch (error) {
       toast.error(`Failed to sign in with email: ${error.message}`);
+    } finally {
+      setLoading(false);
     }
   };
 
   const handleGoogleSignIn = async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
+    setGoogleLoading(true);
     try {
       const userCredential = await signInWithGoogle();
       const user = userCredential.user;
 
+      const createdProfile = await handleCreate({
+        User_ID: user.uid,
+        Email: user.email,
+        Name: user.displayName,
+      });
+
       dispatch(login(user));
+      dispatch(profile(createdProfile));
 
       toast.success("Signed in with Google successfully!");
-      navigate("/dashboard"); 
+      navigate("/dashboard");
     } catch (error) {
       toast.error(`Failed to sign in with Google: ${error.message}`);
+    } finally {
+      setGoogleLoading(false);
     }
   };
 
@@ -112,20 +151,36 @@ const LoginForm = () => {
           </div>
         </div>
 
-        <div className="d-flex justify-content-between align-items-center">
+        <div className="d-flex justify-content-between align-items-center g-16">
           <button
-            className="btn btn--sm"
+            className="btn flex-1"
             type="submit"
             onClick={handleSubmit(onSubmit)}
+            disabled={loading} // Disable button when loading
           >
-            Sign In Now
+            {loading ? (
+              <ClipLoader size={20} color={"#ffffff"} />
+            ) : (
+              "Sign In Now"
+            )}
           </button>
           <button
             onClick={handleGoogleSignIn} // Trigger Google Sign-In
-            className="btn btn--sm btn--google"
+            className="btn btn--google flex-1"
+            disabled={googleLoading} // Disable button when loading
           >
-            <img src={GoogleIcon} alt="Google Icon" style={{ width: "20px" }} />
-            Sign in with Google
+            {googleLoading ? (
+              <ClipLoader size={20} color={"#ffffff"} />
+            ) : (
+              <>
+                <img
+                  src={GoogleIcon}
+                  alt="Google Icon"
+                  style={{ width: "20px" }}
+                />
+                Sign in with Google
+              </>
+            )}
           </button>
         </div>
       </form>
@@ -134,9 +189,9 @@ const LoginForm = () => {
         className="d-flex justify-content-center"
         style={{ marginTop: "10px" }}
       >
-        <p>
+        <p className="text-12">
           Don't have an account?{" "}
-          <NavLink to="/sign-up" className="text-link">
+          <NavLink to="/sign-up" className="text-link text-decoration-underline">
             Create an account
           </NavLink>
         </p>

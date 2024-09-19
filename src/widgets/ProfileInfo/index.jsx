@@ -1,38 +1,48 @@
 // styling
-import styles from './styles.module.scss';
+import { useSelector } from "react-redux";
+import styles from "./styles.module.scss";
 
 // components
-import Spring from '@components/Spring';
+import Spring from "@components/Spring";
 
 const ProfileInfo = () => {
-    const data = [
-        {'Full Name': 'Lottie Poole'},
-        {'Phone': '+123 45 567 88'},
-        {'E-mail': 'ligasoccer@template.com'},
-        {'Location': 'Munich, Germany'}
-    ]
+  const profileData = useSelector((state) => state.user?.profile);
+  
+  return (
+    <Spring className="card d-flex flex-column g-16 card-padded">
+      <h3>Profile info</h3>
+      <ul className="d-flex flex-column justify-content-between flex-1 g-14">
+        <li className={styles.item}>
+          <span className="text-600 text-header">Full Name</span>
+          <span className={`${styles.value} text-overflow`}>
+            {profileData.Name || "Anonymous User"}
+          </span>
+        </li>
+        <li className={styles.item}>
+          <span className="text-600 text-header">Phone</span>
+          <span className={`${styles.value} text-overflow`}>
+            {profileData.Phone || "Not registered"}
+          </span>
+        </li>
+        <li className={styles.item}>
+          <span className="text-600 text-header">Full Name</span>
+          <span className={`${styles.value} text-overflow`}>
+            {profileData.Email}
+          </span>
+        </li>
+        <li className={styles.item}>
+          <span className="text-600 text-header">Location</span>
+          <span className={`${styles.value} text-overflow`}>
+            {profileData.Country
+              ? `${profileData.City ? `${profileData.City.label}, ` : ""}${
+                  profileData.Country.label
+                }`
+              : "Not registered"}
+          </span>
+        </li>
+      </ul>
+    </Spring>
+  );
+};
 
-    return (
-        <Spring className="card d-flex flex-column g-16 card-padded">
-            <h3>Profile info</h3>
-            <ul className="d-flex flex-column justify-content-between flex-1 g-14">
-                {
-                    data.map((item, index) => {
-                        return (
-                            <li className={styles.item} key={index}>
-                                <span className="text-600 text-header">
-                                    {Object.keys(item)[0]}:
-                                </span>
-                                <span className={`${styles.value} text-overflow`}>
-                                    {Object.values(item)[0]}
-                                </span>
-                            </li>
-                        )
-                    })
-                }
-            </ul>
-        </Spring>
-    )
-}
-
-export default ProfileInfo
+export default ProfileInfo;
