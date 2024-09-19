@@ -63,7 +63,7 @@ const User = () => {
       <div className={styles.avatar}>
         <img
           className="c-pointer"
-          src={profile.Avatar || userPic}
+          src={profile?.Avatar || userPic}
           alt="user"
           onClick={handleClick}
         />
@@ -79,12 +79,12 @@ const User = () => {
       </div>
       <div className="d-flex flex-column">
         <span className="h3" style={{ letterSpacing: 0.2 }}>
-          {profile.Name || "Anonymous User"}
+          {profile?.Name || "Anonymous User"}
         </span>
-        {profile.Country && (
+        {profile?.Country && (
           <span className="text-12">{`${
-            profile.City ? `${profile.City.label}, ` : ""
-          }${profile.Country.label}`}</span>
+            profile?.City ? `${profile?.City.label}, ` : ""
+          }${profile?.Country.label}`}</span>
         )}
       </div>
       <Submenu

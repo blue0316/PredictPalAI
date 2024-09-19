@@ -43,8 +43,8 @@ const Profile = () => {
   const [updateUserProfile] = useUpdateUserProfileMutation();
 
   const [loading, setLoading] = useState(false);
-  const [selectedCountry, setSelectedCountry] = useState();
-  const [selectedCity, setSelectedCity] = useState();
+  const [, setSelectedCountry] = useState();
+  const [, setSelectedCity] = useState();
   const [cities, setCities] = useState([]);
   const {
     register,

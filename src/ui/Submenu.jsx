@@ -1,5 +1,5 @@
 // styling
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 // components
 import Menu from '@mui/material/Menu';

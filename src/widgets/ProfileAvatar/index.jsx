@@ -45,7 +45,7 @@ const ProfileAvatar = () => {
       }).unwrap();
 
       await dispatch(profile(updatedProfile.data));
-      toast.success("User description updated successfully!");
+      toast.success("User profile image updated successfully!");
     } catch (error) {
       console.error("Failed to update profile:", error);
     }
@@ -135,6 +135,11 @@ const ProfileAvatar = () => {
           <h3 className="text-overflow">
             {profileData.Name || "Anonymous User"}
           </h3>
+          {profileData.country && (
+            <span className="text-12">{`${
+              profileData.city ? `${profileData.city}, ` : ""
+            }${profileData.country}`}</span>
+          )}
           <span>
             {profileData.Country
               ? `${profileData.City ? `${profileData.City.label}, ` : ""}${

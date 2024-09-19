@@ -15,27 +15,27 @@ const ProfileInfo = () => {
         <li className={styles.item}>
           <span className="text-600 text-header">Full Name</span>
           <span className={`${styles.value} text-overflow`}>
-            {profileData.Name || "Anonymous User"}
+            {profileData?.Name || "Anonymous User"}
           </span>
         </li>
         <li className={styles.item}>
           <span className="text-600 text-header">Phone</span>
           <span className={`${styles.value} text-overflow`}>
-            {profileData.Phone || "Not registered"}
+            {profileData?.Phone || "Not registered"}
           </span>
         </li>
         <li className={styles.item}>
           <span className="text-600 text-header">Full Name</span>
           <span className={`${styles.value} text-overflow`}>
-            {profileData.Email}
+            {profileData?.Email}
           </span>
         </li>
         <li className={styles.item}>
           <span className="text-600 text-header">Location</span>
           <span className={`${styles.value} text-overflow`}>
-            {profileData.Country
-              ? `${profileData.City ? `${profileData.City.label}, ` : ""}${
-                  profileData.Country.label
+            {profileData?.Country
+              ? `${profileData?.City ? `${profileData?.City.label}, ` : ""}${
+                  profileData?.Country.label
                 }`
               : "Not registered"}
           </span>

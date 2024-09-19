@@ -1,4 +1,4 @@
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import {keyframes} from 'styled-components';
 import theme from 'styled-theming';
 import Select from 'react-select';

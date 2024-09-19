@@ -1,6 +1,6 @@
 // styling
 import styles from './styles.module.scss';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 // components
 import Spring from '@components/Spring';

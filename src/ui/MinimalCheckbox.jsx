@@ -1,5 +1,5 @@
 // styling
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 
 // utils
 import PropTypes from 'prop-types';
