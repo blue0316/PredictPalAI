@@ -8,6 +8,19 @@
     gap: 20px;
 }
 
+.field button {
+    color: var(--text);
+}
+
+.field fieldset {
+    border-color: var(--border) !important;
+    transition: border-color var(--transition);
+}
+
+.field:hover fieldset, .field:focus fieldset {
+    border-color: var(--highlight) !important;
+}
+
 .social_item {
     display: flex;
     align-items: center;
