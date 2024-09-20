@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   getStorage,
@@ -30,36 +30,45 @@ const ProfileAvatar = () => {
   const [loading, setLoading] = useState(false); // Loading state
 
   const { anchorEl, open, handleClick, handleClose } = useSubmenu();
-  const { file, setFile, handleFile } = useFileReader();
+  const { file, setFile } = useFileReader();
   const inputRef = useRef(null);
 
   const triggerInput = () => inputRef.current?.click();
 
-  const handleUpdateAvatar = async (imageUrl) => {
+  const handleUpdateAvatar = async (avatarUrl) => {
     try {
-      const updatedProfile = await updateUserProfile({
+      // Create a new object with only the fields you want to send
+      const updatedProfileData = {
+        Avatar: avatarUrl,
+      };
+
+      // Conditionally add the phone field if it is not null
+      if (profileData?.phone) {
+        updatedProfileData.Phone = profileData.phone;
+      }
+
+      const result = await updateUserProfile({
         userId,
-        profileData: {
-          Avatar: imageUrl,
-        },
+        profileData: updatedProfileData,
       }).unwrap();
 
-      await dispatch(profile(updatedProfile.data));
+      await dispatch(profile(result.data));
       toast.success("User profile image updated successfully!");
     } catch (error) {
       console.error("Failed to update profile:", error);
+      toast.error("Failed to update profile");
     }
   };
 
   const handleUpload = async (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
+    const uploadedFile = e.target.files[0];
+    if (!uploadedFile) return;
 
     setLoading(true); // Set loading to true when upload starts
 
     const storage = getStorage();
-    const storageRef = ref(storage, `avatars/${file.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, file);
+    const storageRef = ref(storage, `avatars/${userId}`);
+    const uploadTask = uploadBytesResumable(storageRef, uploadedFile);
 
     uploadTask.on(
       "state_changed",
@@ -73,13 +82,14 @@ const ProfileAvatar = () => {
         // Handle unsuccessful uploads
         console.error("Upload failed:", error);
         setLoading(false); // Set loading to false on error
+        toast.error("Failed to upload avatar");
       },
       () => {
         // Handle successful uploads on complete
         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-          setFile(downloadURL);
           console.log("File available at", downloadURL);
 
+          // Update only the avatar URL
           await handleUpdateAvatar(downloadURL);
           setLoading(false); // Set loading to false on success
         });
@@ -109,7 +119,7 @@ const ProfileAvatar = () => {
           <div>
             <LazyImage
               className={styles.img}
-              src={file ? file : profileData.Avatar || userPic}
+              src={file ? file : profileData?.Avatar || userPic}
               alt="My Avatar"
             />
           </div>
@@ -133,17 +143,17 @@ const ProfileAvatar = () => {
         </div>
         <div className="d-flex flex-column g-4">
           <h3 className="text-overflow">
-            {profileData.Name || "Anonymous User"}
+            {profileData?.Name || "Anonymous User"}
           </h3>
-          {profileData.country && (
+          {profileData?.country && (
             <span className="text-12">{`${
-              profileData.city ? `${profileData.city}, ` : ""
-            }${profileData.country}`}</span>
+              profileData?.city ? `${profileData?.city}, ` : ""
+            }${profileData?.country}`}</span>
           )}
           <span>
-            {profileData.Country
-              ? `${profileData.City ? `${profileData.City.label}, ` : ""}${
-                  profileData.Country.label
+            {profileData?.Country
+              ? `${profileData?.City ? `${profileData?.City?.label}, ` : ""}${
+                  profileData?.Country?.label
                 }`
               : "Not registered"}
           </span>

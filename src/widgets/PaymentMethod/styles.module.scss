@@ -15,9 +15,9 @@
     align-items: center;
     gap: 10px;
     transition: all var(--transition);
+    background-color: var(--background);
 
     &.selected {
-
         &.light {
             background-color: var(--light-gray);
             border-color: var(--light-gray);

@@ -39,8 +39,8 @@ import rtlPlugin from "stylis-plugin-rtl";
 import { CacheProvider } from "@emotion/react";
 import createCache from "@emotion/cache";
 
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFnsV3'
+import { LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 
 // components
 import { Route, Routes, Navigate } from "react-router-dom";
@@ -52,6 +52,10 @@ import Navbar from "@layout/Navbar";
 import ShoppingCart from "@widgets/ShoppingCart";
 import ScrollToTop from "@components/ScrollToTop";
 import PrivateRoute from "@components/PrivateRoute/PrivateRoute";
+import { onAuthStateChanged } from "firebase/auth";
+import { login, logout, authCheckComplete } from "@features/users/userSlice";
+import { useDispatch } from "react-redux";
+import { auth } from "./firebase/firebase";
 
 // pages
 const ClubSummary = lazy(() => import("@pages/ClubSummary"));
@@ -78,6 +82,23 @@ const App = () => {
   const { theme, direction } = useThemeProvider();
   const { width } = useWindowSize();
   const isAuthRoute = useAuthRoute();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        dispatch(login(user));
+      } else {
+        dispatch(logout());
+      }
+      dispatch(authCheckComplete());
+    });
+
+    // Scroll to top on route change
+    appRef.current && appRef.current.scrollTo(0, 0);
+    preventDefault();
+
+    return () => unsubscribe(); // Cleanup on unmount
+  }, [dispatch]);
 
   // Google Analytics init
   const gaKey = process.env.REACT_APP_PUBLIC_GA;

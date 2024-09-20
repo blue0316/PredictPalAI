@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -10,7 +10,7 @@ import PasswordInput from "@components/PasswordInput";
 import ResetPasswordPopup from "@components/ResetPasswordPopup";
 import BasicCheckbox from "@ui/BasicCheckbox";
 
-import { signInWithGoogle, signInWithEmail } from "../firebase/auth";
+import { signInWithGoogle, signInWithEmail, onAuthStateChanged } from "../firebase/auth";
 import GoogleIcon from "../../src/assets/icons/google.svg";
 import { login, profile } from "../features/users/userSlice";
 import { useCreateUserProfileMutation } from "@api/UserProfle/userProfileApi";
@@ -37,6 +37,28 @@ const LoginForm = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          const createdProfile = await handleCreate({
+            User_ID: user.uid,
+            Email: user.email,
+            Name: user.displayName,
+          });
+
+          dispatch(login(user));
+          dispatch(profile(createdProfile));
+          navigate("/dashboard");
+        } catch (error) {
+          console.error("Failed to create profile:", error);
+        }
+      }
+    });
+
+    return () => unsubscribe();
+  }, [dispatch]);
 
   const handleCreate = async (newProfileData) => {
     try {
@@ -156,7 +178,7 @@ const LoginForm = () => {
             className="btn flex-1"
             type="submit"
             onClick={handleSubmit(onSubmit)}
-            disabled={loading} // Disable button when loading
+            disabled={loading}
           >
             {loading ? (
               <ClipLoader size={20} color={"#ffffff"} />
@@ -165,9 +187,9 @@ const LoginForm = () => {
             )}
           </button>
           <button
-            onClick={handleGoogleSignIn} // Trigger Google Sign-In
+            onClick={handleGoogleSignIn}
             className="btn btn--google flex-1"
-            disabled={googleLoading} // Disable button when loading
+            disabled={googleLoading}
           >
             {googleLoading ? (
               <ClipLoader size={20} color={"#ffffff"} />
