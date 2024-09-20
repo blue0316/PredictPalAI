@@ -26,13 +26,13 @@ const Settings = () => {
   const widgets = {
     avatar: <ProfileAvatar userProfile={userProfile} />,
     info: <ProfileInfo userProfile={userProfile} />,
-    description: <ProfileDescription userProfile={userProfile} />,
     settings: <AccountSettings userProfile={userProfile} />,
-    payments: <PaymentMethod userProfile={userProfile} />,
-    privacy: <PrivacyPolicy userProfile={userProfile} />,
+    description: <ProfileDescription userProfile={userProfile} />,
     notifications_settings: <NotificationsSettings userProfile={userProfile} />,
-    // notifications_schedule: <NotificationsSchedule userProfile={userProfile} />,
-    // password: <ChangePassword userProfile={userProfile} />
+    notifications_schedule: <NotificationsSchedule userProfile={userProfile} />,
+    payments: <PaymentMethod userProfile={userProfile} />,
+    password: <ChangePassword userProfile={userProfile} />,
+    privacy: <PrivacyPolicy userProfile={userProfile} />,
   };
 
   return (

@@ -5,7 +5,7 @@ const LINKS = [
         pages: [
             {
                 title: 'Club summary',
-                path: '/'
+                path: '/dashboard'
             },
             {
                 title: 'Game summary',

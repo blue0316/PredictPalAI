@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useNavigate, NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -38,36 +38,14 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(async (user) => {
-      if (user) {
-        try {
-          const createdProfile = await handleCreate({
-            User_ID: user.uid,
-            Email: user.email,
-            Name: user.displayName,
-          });
-
-          dispatch(login(user));
-          dispatch(profile(createdProfile));
-          navigate("/dashboard");
-        } catch (error) {
-          console.error("Failed to create profile:", error);
-        }
-      }
-    });
-
-    return () => unsubscribe();
-  }, [dispatch]);
-
-  const handleCreate = async (newProfileData) => {
+  const handleCreate = useCallback(async (newProfileData) => {
     try {
       const createdProfile = await createUserProfile(newProfileData).unwrap();
       return createdProfile.data;
     } catch (error) {
       console.error("Failed to create profile:", error);
     }
-  };
+  }, [createUserProfile]);
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -122,6 +100,28 @@ const LoginForm = () => {
     e.preventDefault();
     setOpen(true);
   };
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          const createdProfile = await handleCreate({
+            User_ID: user.uid,
+            Email: user.email,
+            Name: user.displayName,
+          });
+
+          dispatch(login(user));
+          dispatch(profile(createdProfile));
+          navigate("/dashboard");
+        } catch (error) {
+          console.error("Failed to create profile:", error);
+        }
+      }
+    });
+
+    return () => unsubscribe();
+  }, [dispatch, handleCreate, navigate]);
 
   return (
     <>

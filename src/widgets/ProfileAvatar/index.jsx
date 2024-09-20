@@ -142,7 +142,9 @@ const ProfileAvatar = () => {
           />
         </div>
         <div className="d-flex flex-column g-4">
-          <h3 className="text-overflow">
+          <h3 className="text-overflow" style={{
+            maxWidth: "160px"
+          }}>
             {profileData?.Name || "Anonymous User"}
           </h3>
           {profileData?.country && (
