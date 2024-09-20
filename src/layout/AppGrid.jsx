@@ -40,7 +40,7 @@ const AppGrid = ({widgets, id}) => {
                         rowHeight={fontScale === 1 ? 220 : 220 + (fontScale * 3)}
                         isDraggable={false}
                         isResizable={false}
-                        margin={[25, 20]}
+                        margin={[20, 20]}
                         autoSize={true}
                         useCSSTransforms={false}
                     >

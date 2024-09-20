@@ -78,7 +78,16 @@ const User = () => {
         )}
       </div>
       <div className="d-flex flex-column">
-        <span className="h3" style={{ letterSpacing: 0.2 }}>
+        <span
+          className="h4"
+          style={{
+            maxWidth: "120px",
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            letterSpacing: 0.2,
+          }}
+        >
           {profile?.Name || "Anonymous User"}
         </span>
         {profile?.Country && (

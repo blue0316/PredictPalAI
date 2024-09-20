@@ -2,10 +2,6 @@
 import Spring from '@components/Spring';
 import Profile from '@widgets/AccountSettings/Profile';
 
-// hooks
-import {useState} from 'react';
-import {useWindowSize} from 'react-use';
-
 const AccountSettings = () => {
     return (
         <Spring className="card h-100 d-flex flex-column justify-content-between  card-padded">

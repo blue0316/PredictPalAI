@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -8,7 +8,7 @@ import classNames from "classnames";
 import PasswordInput from "@components/PasswordInput";
 import Spring from "@components/Spring";
 
-import { signInWithGoogle, registerWithEmail } from "../firebase/auth";
+import { signInWithGoogle, registerWithEmail, onAuthStateChanged } from "../firebase/auth";
 import GoogleIcon from "../../src/assets/icons/google.svg";
 import { login, profile } from "../features/users/userSlice";
 import { useCreateUserProfileMutation } from "@api/UserProfle/userProfileApi";
@@ -17,10 +17,11 @@ const SignUpForm = ({ standalone = true }) => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isValid },
     control,
     watch,
   } = useForm({
+    mode: "onChange", // Validate on change
     defaultValues: {
       displayName: "",
       email: "",
@@ -46,9 +47,35 @@ const SignUpForm = ({ standalone = true }) => {
     }
   };
 
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(async (user) => {
+      if (user) {
+        try {
+          const createdProfile = await handleCreate({
+            User_ID: user.uid,
+            Email: user.email,
+            Name: user.displayName,
+          });
+
+          dispatch(login(user));
+          dispatch(profile(createdProfile));
+          navigate("/dashboard");
+        } catch (error) {
+          console.error("Failed to create profile:", error);
+        }
+      }
+    });
+
+    return () => unsubscribe();
+  }, [dispatch]);
+
   const onSubmit = async (data) => {
     try {
-      const userCredential = await registerWithEmail(data.email, data.password);
+      const userCredential = await registerWithEmail(
+        data.email,
+        data.password,
+        data.displayName
+      );
       const user = userCredential.user;
 
       const createdProfile = await handleCreate({
@@ -110,19 +137,28 @@ const SignUpForm = ({ standalone = true }) => {
             })}
             type="text"
             placeholder="Display Name"
-            {...register("displayName", { required: true })}
+            {...register("displayName", { required: "Display Name is required" })}
           />
+          {errors.displayName && <p className="error">{errors.displayName.message}</p>}
 
           <input
             className={classNames("field", { "field--error": errors.email })}
             type="text"
             placeholder="E-mail"
-            {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+            {...register("email", {
+              required: "Email is required",
+              pattern: {
+                value: /^\S+@\S+$/i,
+                message: "Invalid email address",
+              },
+            })}
           />
+          {errors.email && <p className="error">{errors.email.message}</p>}
+
           <Controller
             control={control}
             name="password"
-            rules={{ required: true }}
+            rules={{ required: "Password is required" }}
             render={({
               field: { ref, onChange, value },
               fieldState: { error },
@@ -136,12 +172,14 @@ const SignUpForm = ({ standalone = true }) => {
               />
             )}
           />
+          {errors.password && <p className="error">{errors.password.message}</p>}
+
           <Controller
             control={control}
             name="passwordConfirm"
             rules={{
-              required: true,
-              validate: (value) => value === watch("password"),
+              required: "Password confirmation is required",
+              validate: (value) => value === watch("password") || "Passwords do not match",
             }}
             render={({
               field: { ref, onChange, value },
@@ -156,10 +194,11 @@ const SignUpForm = ({ standalone = true }) => {
               />
             )}
           />
+          {errors.passwordConfirm && <p className="error">{errors.passwordConfirm.message}</p>}
         </div>
 
         <div className="d-flex justify-content-between align-items-center g-16">
-          <button type="submit" className="btn flex-1">
+          <button type="submit" className="btn flex-1" disabled={!isValid}>
             Create account
           </button>
           <button
