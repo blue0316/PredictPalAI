@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import classNames from "classnames";
@@ -49,7 +49,7 @@ const Profile = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty, isValid },
     reset,
     control,
   } = useForm({
@@ -64,7 +64,15 @@ const Profile = () => {
       PostalCode: profileData?.PostalCode || "",
     },
     resolver: yupResolver(schema),
+    mode: "onChange", // Validate on change
   });
+
+  useEffect(() => {
+    if (userId) {
+      // Fetch or update profile logic here
+      console.log("User ID available:", userId);
+    }
+  }, [userId]);
 
   const getCountriesOptions = () => {
     let countries = countryList().getData();
@@ -80,7 +88,6 @@ const Profile = () => {
     setCities(options);
   };
 
-  // do something with the form data
   const onSubmit = async (data) => {
     setLoading(true);
     try {
@@ -146,15 +153,6 @@ const Profile = () => {
           name="DOB"
           control={control}
           render={({ field }) => (
-            // <PatternFormat
-            //   className={classNames("field", { "field--error": errors.birth })}
-            //   placeholder="Birth date"
-            //   format="##/##/####"
-            //   mask="_"
-            //   getInputRef={field.ref}
-            //   value={field.value}
-            //   onChange={field.onChange}
-            // />
             <DatePicker
               className={classNames(styles.field, {
                 "field--error": errors.DOB,
@@ -234,10 +232,10 @@ const Profile = () => {
         />
       </div>
       <div className={styles.footer}>
-        <button className="btn" type="submit">
+        <button className="btn" type="submit" disabled={!isDirty || !isValid}>
           {loading ? "Updating..." : "Update Profile"}
         </button>
-        <button className="btn btn--outlined" type="reset" onClick={reset}>
+        <button className="btn btn--outlined" type="reset" onClick={() => reset()}>
           Cancel
         </button>
       </div>

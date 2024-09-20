@@ -37,13 +37,18 @@ const ProfileDescription = () => {
   const onSubmit = async (data) => {
     setLoading(true);
     try {
+      // Extract only the Bio field
+      const bioData = { Bio: data.Bio };
+
       const updatedProfile = await updateUserProfile({
         userId,
-        profileData: data,
+        profileData: bioData,
       }).unwrap();
+
       reset({
         Bio: updatedProfile.data.Bio,
       });
+
       await dispatch(profile(updatedProfile.data));
       toast.success("User description updated successfully!");
     } catch (error) {

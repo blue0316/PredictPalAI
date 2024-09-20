@@ -17,7 +17,7 @@ const NotificationsSchedule = () => {
     }
 
     return (
-        <Spring className="card card-padded h-1 d-flex flex-column justify-content-between g-16">
+        <Spring className="card card-padded h-2  d-flex flex-column g-20">
             <div>
                 <h3>Notifications Schedule</h3>
                 <p className="text-12">Choose how often you want to receive alerts</p>
