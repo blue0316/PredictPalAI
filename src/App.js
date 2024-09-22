@@ -56,6 +56,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { login, logout, authCheckComplete } from "@features/users/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "./firebase/firebase";
+import MainPage from "@pages/MainPage/MainPage";
 
 // pages
 const ClubSummary = lazy(() => import("@pages/ClubSummary"));
@@ -156,7 +157,9 @@ const App = () => {
                           <Route path="*" element={<PageNotFound />} />
                           <Route
                             path="/"
-                            element={<Navigate to="/login" replace={true} />}
+                            // element={<Navigate to="/login" replace={true} />}
+                            element={<MainPage />}
+
                           />
                           <Route
                             path="/game-summary"
