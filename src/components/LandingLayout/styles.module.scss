@@ -1,0 +1,248 @@
+body {
+  overflow: hidden;
+}
+
+.backgroundContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url("../../assets/main-bg.webp");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  cursor: none !important;
+
+  a,
+  button {
+    cursor: none !important;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 462px;
+  margin: 0 auto;
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  text-align: center;
+  gap: 32px;
+}
+
+.title {
+  max-width: 380px;
+  font-family: var(--body-font);
+  font-size: 3rem;
+  color: white;
+  line-height: 3.5rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+
+.loremText {
+  width: 100%;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.withBg {
+  border: 1px solid var(--accent);
+  background-color: var(--accent);
+}
+
+.withBg:hover {
+  background-color: transparent;
+}
+
+.withOutBg {
+  border: 1px solid transparent;
+}
+
+.withOutBg:hover {
+  border: 1px solid var(--accent);
+}
+
+.arrowIcon {
+  width: 200px;
+  height: 20px;
+  margin: 0 0.5rem;
+}
+
+.playerImage {
+  position: absolute;
+  right: -5%;
+  bottom: -5%;
+  width: 46%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.soccerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  position: absolute;
+  bottom: -4%;
+  left: 2.5%;
+  gap: 16px;
+}
+
+.soccerTitle {
+  color: var(--widget-light);
+  font-size: 282px;
+  line-height: 1;
+  font-weight: 400;
+  font-family: "SuperchargeHalftone";
+}
+
+.soccerText {
+  color: red;
+  font-size: 2rem;
+  line-height: 1;
+  font-family: "SuperchargeHalftone";
+}
+
+.dateContainer {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  gap: 10px;
+}
+
+.dateText,
+.timeText {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.decorationBarWrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.wrapperPosOne {
+  top: 15%;
+  left: 0;
+  transform: translateX(-50%);
+}
+
+.wrapperPosTwo {
+  top: 10%;
+  right: 0;
+  transform: translateX(50%);
+}
+
+.decorationBar {
+  width: 106px;
+  height: 12px;
+  background-color: var(--accent);
+}
+
+.decorationBarTwoWrapper {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  gap: 8px;
+  transform: translate(-50%, -50%);
+}
+
+.decorationBarTwo {
+  width: 20px;
+  height: 20px;
+  border-top-width: 0;
+  border-right-width: 0;
+  border-left-width: 4px;
+  border-bottom-width: 4px;
+  border-style: solid;
+  border-color: var(--accent);
+  transform: rotate(-45deg);
+}
+
+.wrapperTwoPosOne {
+  top: 50%;
+  left: -30%;
+  transform: translateY(-50%);
+}
+
+.wrapperTwoPosTwo {
+  top: 50%;
+  right: -30%;
+  transform: translateY(-50%);
+}
+
+@keyframes bounce-keyframes {
+  0% {
+    top: translateY(0%);
+  }
+  10% {
+    transform: translateY(1%);
+  }
+  20% {
+    transform: translateY(4%);
+  }
+  30% {
+    transform: translateY(9%);
+  }
+  40% {
+    transform: translateY(16%);
+  }
+  50% {
+    transform: translateY(25%);
+  }
+  60% {
+    transform: translateY(36%);
+  }
+  70% {
+    transform: translateY(49%);
+  }
+  80% {
+    transform: translateY(64%);
+  }
+  90% {
+    transform: translateY(81%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.ball {
+  animation: bounce-keyframes 0.45s linear infinite alternate;
+}

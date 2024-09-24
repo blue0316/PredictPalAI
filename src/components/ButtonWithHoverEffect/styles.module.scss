@@ -1,0 +1,51 @@
+.btnBa {
+  color: var(--widget-light);
+  background-color: transparent;
+  padding: 16px 0;
+  width: 144px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: var(--body-font);
+  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+
+  svg {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+
+    path {
+      fill: none;
+      stroke: var(--widget-light);
+      stroke-width: 3;
+      stroke-dasharray: 500, 0;
+      transition-property: all;
+      transition-duration: 3s;
+      transition-timing-function: ease;
+    }
+  }
+
+  &:hover {
+    color: var(--red);
+
+    path {
+      stroke: var(--red);
+      stroke-dasharray: 30, 310;
+      stroke-dashoffset: 290;
+      transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+}
+
+// Copyright Text
+.copyright {
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 50px;
+  display: block;
+}
