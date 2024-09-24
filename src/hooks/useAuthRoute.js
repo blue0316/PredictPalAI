@@ -2,7 +2,7 @@ import {useLocation} from 'react-router-dom';
 import {useEffect, useState} from 'react';
 
 const useAuthRoute = () => {
-    const authRoutes = ['/login', '/sign-up'];
+    const authRoutes = ['/', '/login', '/sign-up'];
     const location = useLocation();
     const [isAuthRoute, setIsAuthRoute] = useState(false);
 

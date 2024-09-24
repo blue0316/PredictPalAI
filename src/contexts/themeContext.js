@@ -42,7 +42,7 @@ export const ThemeProvider = ({children}) => {
     }
 
     useEffect(() => {
-        page.style.setProperty('--font-scale', fontScale);
+        page.style.setProperty('--body-font-scale', fontScale);
         page.style.setProperty('--widget-scale', fontScale === 1 ? '0px' : `${fontScale * 3}px`);
         page.setAttribute('dir', direction);
         savePreferences();

@@ -1,0 +1,30 @@
+.dateContainer {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+  }
+  
+  .dayText, .timeText {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 3.5rem;
+    font-family: "4ThAndInches";
+  }
+  
+  .dateText {
+    color: white;
+    background-color: #c90d2b;
+    font-size: 3.5rem;
+    font-family: "AlfaSlabOne";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 138px;
+    height: 155px;
+    padding-top: 32px;
+  }
+  

@@ -1,17 +1,16 @@
 .sidebar {
-  background-color: #007bff;
-  width:250px;
+  background-color: #0096ff;
+  width: 260px;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between; /* Ensures space between sections */
-  padding: 20px 0;
+  padding: 80px 20px;
+  z-index: 10;
 }
 
 .logo {
-  margin-bottom: 30px;
-  padding: 0 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,19 +21,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px; /* Increased gap for spacing */
-  margin-bottom: 30px;
+  gap: 32px;
 }
 
-.navLinks a {
+.navLink {
   color: white;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
   transition: color 0.3s;
 }
 
-.navLinks a:hover {
-  color: #ffcc00;
+.navLinks a:hover, .navLink_active {
+  color:var(--red);
 }
 
 .signInButton {
@@ -54,18 +53,17 @@
 .socialLinks {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 24px;
   width: 100%;
   justify-content: center;
-  margin-bottom: 20px; /* Ensure it's at the bottom */
 }
 
 .icon {
-  width: 40px;
-  height: 40px;
+  width: 24px;
+  height: 24px;
   transition: transform 250ms;
-}
 
-a:hover .icon {
-  transform: translateY(-2px);
+  &:hover {
+    transform: translateY(-4px);
+  }
 }

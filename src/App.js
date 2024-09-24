@@ -43,7 +43,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 
 // components
-import { Route, Routes, Navigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import LoadingScreen from "@components/LoadingScreen";
 import Sidebar from "@layout/Sidebar";
@@ -56,9 +56,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { login, logout, authCheckComplete } from "@features/users/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "./firebase/firebase";
-import MainPage from "@pages/MainPage/MainPage";
 
 // pages
+const MainPage = lazy(() => import("@pages/MainPage"));
 const ClubSummary = lazy(() => import("@pages/ClubSummary"));
 const GameSummary = lazy(() => import("@pages/GameSummary"));
 const Championships = lazy(() => import("@pages/Championships"));
@@ -155,12 +155,7 @@ const App = () => {
                       <Suspense fallback={<LoadingScreen />}>
                         <Routes>
                           <Route path="*" element={<PageNotFound />} />
-                          <Route
-                            path="/"
-                            // element={<Navigate to="/login" replace={true} />}
-                            element={<MainPage />}
-
-                          />
+                          <Route path="/" element={<MainPage />} />
                           <Route
                             path="/game-summary"
                             element={<GameSummary />}
@@ -212,7 +207,8 @@ const App = () => {
                             path="/settings"
                             element={
                               <PrivateRoute>
-                                <Settings />
+                                {/* <Settings /> */}
+                                <LoadingScreen />
                               </PrivateRoute>
                             }
                           />

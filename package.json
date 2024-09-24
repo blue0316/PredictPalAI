@@ -36,6 +36,8 @@
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
     "firebase": "^10.13.1",
+    "framer-motion": "^11.5.6",
+    "gsap": "^3.12.5",
     "lottie-react": "^2.4.0",
     "moment": "^2.29.4",
     "nanoid": "^4.0.1",
