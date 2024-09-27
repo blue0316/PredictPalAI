@@ -13,9 +13,10 @@ const StyledDrawer = styled(SwipeableDrawer)`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    gap: 20px;
 
     .logo-wrapper {
-      padding-bottom: 40px;
+      padding-bottom: 24px;
     }
   }
 `;
@@ -36,7 +37,7 @@ const StyledAccordion = styled(Accordion)`
 const StyledAccordionSummary = styled(AccordionSummary)`
   padding: 0 10px !important;
   min-height: unset !important;
-  height: 40px;
+  height: 24px;
   margin: 0 -10px !important;
   border-radius: 4px !important;
   transition: background-color var(--transition);
@@ -48,7 +49,7 @@ const StyledAccordionSummary = styled(AccordionSummary)`
     justify-content: space-between;
   }
 
-  .icon-chevron-down {
+  .fa-chevron-down {
     will-change: transform;
     transition: all var(--transition);
     color: var(--text);
@@ -58,7 +59,7 @@ const StyledAccordionSummary = styled(AccordionSummary)`
   &.Mui-expanded, &.active {
     background: var(--border);
 
-    .icon-chevron-down {
+    .fa-chevron-down {
       transform: rotate(180deg);
       color: var(--header);
     }

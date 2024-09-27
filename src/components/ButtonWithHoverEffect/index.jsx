@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./styles.module.scss"; // Import SCSS
+import { Link } from "react-router-dom";
 
 const ButtonWithHoverEffect = ({ text, href }) => {
   return (
-    <a href={href} className={styles.btnBa}>
+    <Link to={href} className={styles.btnBa}>
       <svg x="0px" y="0px" viewBox="0 0 173.8 48.2">
         <g>
           <path
@@ -14,7 +15,7 @@ const ButtonWithHoverEffect = ({ text, href }) => {
         </g>
       </svg>
       {text}
-    </a>
+    </Link>
   );
 };
 

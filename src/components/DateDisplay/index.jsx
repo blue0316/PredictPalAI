@@ -3,7 +3,8 @@ import styles from "./styles.module.scss";
 
 const DateDisplay = () => {
   const currentDate = new Date();
-  const day = currentDate.toLocaleString("en-US", { weekday: "long" });
+  // Use "short" for abbreviated month names
+  const month = currentDate.toLocaleString("en-US", { month: "short" });
   const date = currentDate.getDate();
   const time = currentDate.toLocaleTimeString([], {
     hour: "2-digit",
@@ -12,7 +13,7 @@ const DateDisplay = () => {
 
   return (
     <div className={styles.dateContainer}>
-      <div className={styles.dayText}>{day.toUpperCase()}</div>
+      <div className={styles.dayText}>{month.toUpperCase()}</div>
       <div className={styles.dateText}>{date}</div>
       <div className={styles.timeText}>{time}</div>
     </div>
