@@ -1,26 +1,17 @@
 import React, { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
-import DateDisplay from "@components/DateDisplay";
 import SidebarTwo from "@layout/SideBarTwo";
 import { Helmet } from "react-helmet";
 import { gsap } from "gsap";
+import GooeyNavigation from "@layout/GooeyNavigation";
 
 const LandingLayout = ({ title, children }) => {
   const [isClicking, setIsClicking] = useState(false);
-  const [buttonHovered, setButtonHovered] = useState(false);
-
-  // Check if it is a touch device
-  const isTouchDevice = () => {
-    return "ontouchstart" in window || navigator.maxTouchPoints > 0;
-  };
 
   const move = (e) => {
-    const x = isTouchDevice()
-      ? e.touches[0].clientX - document.body.clientWidth / 2
-      : e.clientX - document.body.clientWidth / 2;
-    const y = isTouchDevice()
-      ? e.touches[0].clientY - document.body.clientHeight / 2
-      : e.clientY - document.body.clientHeight / 2;
+    console.log(e);
+    const x = e.clientX - document.body.clientWidth / 2;
+    const y = e.clientY - document.body.clientHeight / 2;
 
     // Set the cursor position using GSAP
     gsap.to("#cursor", {
@@ -52,10 +43,6 @@ const LandingLayout = ({ title, children }) => {
     setIsClicking(false);
   };
 
-  const handleButtonHover = (hovered) => {
-    setButtonHovered(hovered);
-  };
-
   useEffect(() => {
     document.addEventListener("mousemove", move);
     document.addEventListener("touchmove", move);
@@ -83,32 +70,44 @@ const LandingLayout = ({ title, children }) => {
       <style>
         {`
         #cursor {
-            position: absolute;
-            height: 12px;
-            width: 12px;
-            border-radius: 50%;
-            border: 3px solid crimson;
-            pointer-events: none;
-            transition: background-color 0.2s ease;
-            z-index: 9999;
+          position: absolute;
+          height: 12px;
+          width: 12px;
+          border-radius: 50%;
+          border: 3px solid crimson;
+          pointer-events: none;
+          transition: background-color 0.2s ease;
+          z-index: 9999;
+
+          @media (max-width: 1023px) {
+            & {
+              display: none;
+            }
+          }
         }
 
         #cursor-border {
-            position: absolute;
-            width: 32px;
-            height: 32px;
-            background-color: transparent;
-            border-radius: 50%;
-            pointer-events: none;
-            transition: all 0.2s ease-out;
-            z-index: 9999;
+          position: absolute;
+          width: 32px;
+          height: 32px;
+          background-color: transparent;
+          border-radius: 50%;
+          pointer-events: none;
+          transition: all 0.2s ease-out;
+          z-index: 9999;
+
+          @media (max-width: 1023px) {
+            & {
+              display: none;
+            }
+          }
         }
       `}
       </style>
       <div className={styles.backgroundContainer}>
         <SidebarTwo />
 
-        <div className="p-relative flex-1 h-screen">
+        <div className={styles.mainWrapper}>
           <div
             className={`${styles.decorationBarWrapper} ${styles.wrapperPosOne}`}
           >
@@ -126,6 +125,8 @@ const LandingLayout = ({ title, children }) => {
 
           {children}
         </div>
+
+        <GooeyNavigation />
 
         <div id="cursor"></div>
         <div id="cursor-border">

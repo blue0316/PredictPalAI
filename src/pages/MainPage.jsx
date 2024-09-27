@@ -3,18 +3,25 @@ import styles from "../components/LandingLayout/styles.module.scss";
 import LandingLayout from "@components/LandingLayout/LandingLayout";
 import playerImage from "../assets/player.png";
 import DateDisplay from "@components/DateDisplay";
+import { useNavigate } from "react-router-dom";
 
 const floatingAnimation = {
-  y: [0, -10, 0], // Float up and down
+  y: [0, -10, 0],
   transition: {
-    duration: 3, // Duration of the floating animation
+    duration: 3,
     ease: "easeInOut",
-    repeat: Infinity, // Repeat infinitely
-    repeatType: "loop" // Loop the animation
+    repeat: Infinity,
+    repeatType: "loop"
   },
 };
 
 const MainPage = () => {
+  const navigate = useNavigate()
+  
+  const signInNavigator = () => {
+    navigate("/login");
+  }
+
   return (
     <LandingLayout title="PredictPalAI">
       <motion.img
@@ -23,8 +30,6 @@ const MainPage = () => {
         className={styles.playerImage}
         width={878}
         height={1073}
-        // initial={{ opacity: 0, y: 20 }}
-        // animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         whileHover={{ scale: 1.05 }}
         
@@ -71,7 +76,8 @@ const MainPage = () => {
             className={`${styles.button} ${styles.withBg}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2, duration: 1 }}
+            transition={{ delay: 1, duration: 1 }}
+            onClick={signInNavigator}
           >
             Sign In
           </motion.button>
@@ -79,7 +85,7 @@ const MainPage = () => {
             className={`${styles.button} ${styles.withOutBg}`}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 2.5, duration: 1 }}
+            transition={{ delay: 1.5, duration: 1 }}
           >
             Read More
           </motion.button>

@@ -15,48 +15,58 @@ const SidebarTwo = () => {
       <div className={styles.logo}>
         <img src={logo} alt="logo" />
       </div>
-      <nav className={styles.navLinks}>
-        <Link
-          className={`${styles.navLink} ${
-            location.pathname === "/" ? styles.navLink_active : ""
-          }`}
-          to="/"
-        >
-          Home
-        </Link>
-        <Link
-          className={`${styles.navLink} ${
-            location.pathname === "/about_us" ? styles.navLink_active : ""
-          }`}
-          to="/about_us"
-        >
-          About Us
-        </Link>
-        <Link
-          className={`${styles.navLink} ${
-            location.pathname === "/how_it_works" ? styles.navLink_active : ""
-          }`}
-          to="/how_it_works"
-        >
-          How It Works
-        </Link>
-        <Link
-          className={`${styles.navLink} ${
-            location.pathname === "/faq" ? styles.navLink_active : ""
-          }`}
-          to="/faq"
-        >
-          FAQ
-        </Link>
-        <Link
-          className={`${styles.navLink} ${
-            location.pathname === "/contact_us" ? styles.navLink_active : ""
-          }`}
-          to="/contact_us"
-        >
-          Contact Us
-        </Link>
-      </nav>
+      <ul className={styles.navLinks}>
+        <li className={styles.navLinkWrapper}>
+          <Link
+            className={`${styles.navLink} ${
+              location.pathname === "/" ? styles.navLink_active : ""
+            }`}
+            to="/"
+          >
+            Home
+          </Link>
+        </li>
+        <li className={styles.navLinkWrapper}>
+          <Link
+            className={`${styles.navLink} ${
+              location.pathname === "/about-us" ? styles.navLink_active : ""
+            }`}
+            to="/about-us"
+          >
+            About Us
+          </Link>
+        </li>
+        <li className={styles.navLinkWrapper}>
+          <Link
+            className={`${styles.navLink} ${
+              location.pathname === "/how-it-works" ? styles.navLink_active : ""
+            }`}
+            to="/how-it-works"
+          >
+            How It Works
+          </Link>
+        </li>
+        <li className={styles.navLinkWrapper}>
+          <Link
+            className={`${styles.navLink} ${
+              location.pathname === "/faq" ? styles.navLink_active : ""
+            }`}
+            to="/faq"
+          >
+            FAQ
+          </Link>
+        </li>
+        <li className={styles.navLinkWrapper}>
+          <Link
+            className={`${styles.navLink} ${
+              location.pathname === "/contact-us" ? styles.navLink_active : ""
+            }`}
+            to="/contact-us"
+          >
+            Contact Us
+          </Link>
+        </li>
+      </ul>
       <ButtonWithHoverEffect href="/login" text="Sign In" />
       <div className={styles.socialLinks}>
         <a href="https://www.facebook.com" className={styles.facebook}>
