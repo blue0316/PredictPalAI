@@ -1,0 +1,30 @@
+.container {
+    position: relative;
+    min-height: unset;
+
+    &.light {
+        background: var(--accent);
+    }
+
+    &.dark {
+        background: #DFAA42;
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+
+    &_header {
+        margin: 17px 0 20px;
+    }
+
+    .club {
+        font-weight: 800;
+    }
+}
+
+.cover {
+    mix-blend-mode: screen;
+    opacity: 0.45;
+}

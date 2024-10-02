@@ -1,0 +1,40 @@
+.switch {
+    input {
+        display: none;
+    }
+
+    &_slider {
+        height: 14px;
+        width: 36px;
+        background-color: var(--border);
+        border-radius: 20px;
+        position: relative;
+        display: block;
+
+        &:before {
+            content: '';
+            box-shadow: 0 3px 1px rgba(0, 0, 0, 0.06);
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: var(--widget-light);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transition: left var(--transition), background-color var(--transition);
+            transform: translateY(-50%);
+        }
+    }
+
+    input:checked + &_slider:before {
+        left: 16px;
+    }
+
+    &.light input:checked + &_slider:before {
+        background-color: var(--grass);
+    }
+
+    &.dark input:checked + &_slider:before {
+        background-color: var(--accent);
+    }
+}

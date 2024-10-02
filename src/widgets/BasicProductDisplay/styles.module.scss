@@ -1,0 +1,32 @@
+.container {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+
+    // tablet portrait
+    @media screen and (min-width: 768px) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: minmax(0, 1fr);
+        align-items: stretch;
+    }
+}
+
+.media {
+    position: relative;
+
+    &_img img {
+        width: auto;
+        max-height: 295px;
+        height: 100%;
+        margin: 0 auto;
+    }
+}
+
+.reviews {
+    max-height: 460px;
+
+    // tablet portrait
+    @media screen and (min-width: 768px) {
+        max-height: unset;
+    }
+}

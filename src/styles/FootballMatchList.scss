@@ -1,0 +1,98 @@
+// FootballMatchList.scss
+.football-match-list {
+    background-color: #1f2937; // Tailwind 'bg-gray-900'
+    color: white; // Tailwind 'text-white'
+    border-radius: 0.5rem; // Tailwind 'rounded-lg'
+    padding: 1.5rem; // Tailwind 'p-6'
+  
+    h2 {
+      font-size: 1.125rem; // Tailwind 'text-lg'
+      margin-bottom: 1.5rem; // Tailwind 'mb-6'
+      display: flex;
+      align-items: center; // Tailwind 'flex items-center'
+    }
+  
+    .tabs {
+      display: flex;
+      gap: 1rem; // Tailwind 'space-x-4'
+      margin-bottom: 1rem; // Tailwind 'mb-4'
+      border-bottom: 1px solid #374151; // Tailwind 'border-b border-gray-700'
+      padding-bottom: 0.5rem; // Tailwind 'pb-2'
+  
+      span {
+        color: #9ca3af; // Tailwind 'text-gray-400'
+        cursor: pointer;
+  
+        &.active {
+          color: #3b82f6; // Tailwind 'text-blue-500'
+          font-weight: 600; // Tailwind 'font-semibold'
+        }
+      }
+    }
+  
+    .match {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #374151; // Tailwind 'bg-gray-800'
+      border-radius: 0.5rem; // Tailwind 'rounded-lg'
+      margin-bottom: 1.5rem; // Tailwind 'mb-6'
+      padding: 1rem; // Tailwind 'p-4'
+      transition: background-color 0.2s ease-in-out; // Tailwind 'transition duration-200 ease-in-out'
+  
+      &:hover {
+        background-color: #4b5563; // Tailwind 'hover:bg-gray-700'
+      }
+  
+      .team {
+        display: flex;
+        align-items: center; // Tailwind 'flex items-center'
+        gap: 0.5rem; // Tailwind 'space-x-2'
+  
+        img {
+          height: 2rem; // Tailwind 'h-8'
+          width: 2rem; // Tailwind 'w-8'
+        }
+  
+        span {
+          font-weight: 600; // Tailwind 'font-semibold'
+        }
+      }
+  
+      .score {
+        background-color: #2563eb; // Tailwind 'bg-blue-600'
+        padding: 0.25rem 1rem; // Tailwind 'px-4 py-1'
+        border-radius: 0.5rem; // Tailwind 'rounded-lg'
+        font-size: 1.25rem; // Tailwind 'text-lg'
+        font-weight: 700; // Tailwind 'font-bold'
+        text-align: center;
+      }
+  
+      .status {
+        background-color: #4b5563; // Tailwind 'bg-gray-700'
+        font-size: 0.75rem; // Tailwind 'text-xs'
+        padding: 0.25rem 0.75rem; // Tailwind 'px-3 py-1'
+        border-radius: 0.5rem; // Tailwind 'rounded-lg'
+      }
+  
+      .date {
+        color: #9ca3af; // Tailwind 'text-gray-400'
+        font-size: 0.875rem; // Tailwind 'text-sm'
+      }
+  
+      .icons {
+        display: flex;
+        gap: 0.5rem; // Tailwind 'space-x-2'
+  
+        button {
+          color: #9ca3af; // Tailwind 'text-gray-400'
+          transition: color 0.2s; // Tailwind 'transition duration-200'
+  
+          &:hover {
+            color: white; // Tailwind 'hover:text-white'
+          }
+        }
+      }
+    }
+  }
+  

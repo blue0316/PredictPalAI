@@ -1,0 +1,62 @@
+.header {
+    padding: 30px 30px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cover {
+    height: 190px;
+
+    img {
+        height: 100%;
+    }
+}
+
+.teams {
+    padding: 30px 30px 20px;
+    display: flex;
+    justify-content: space-between;
+
+    &_item {
+        display: flex;
+        flex-direction: column;
+
+        &:last-child {
+            text-align: right;
+            align-items: flex-end;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo, .logo img {
+            height: 50px;
+            width: auto;
+        }
+    }
+}
+
+.details {
+    padding: 20px 30px;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+
+    &_item {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+.code {
+    filter: invert(0);
+    height: 100px;
+
+    &.light {
+        filter: invert(1);
+    }
+}

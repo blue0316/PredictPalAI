@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 4px;
+
+    &.light {
+        background: var(--widget);
+        box-shadow: 0 1px 8px rgba(110, 110, 110, .1);
+    }
+
+    &.dark {
+        background: var(--border);
+    }
+}
+
+.field {
+    max-width: 220px !important;
+    height: 264px !important;
+    margin-top: 30px !important;
+
+    // tablet portrait
+    @media screen and (min-width: 768px) {
+        margin-top: 10px;
+    }
+}

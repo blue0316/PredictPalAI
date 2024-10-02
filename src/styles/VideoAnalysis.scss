@@ -1,0 +1,283 @@
+// Color variables
+$bg-gray-900: #1a1a1a;
+$bg-gray-800: #2d3748;
+$bg-gray-700: #374151;
+$bg-gray-600: #4b5563;
+$bg-gray-500: #6b7280;
+$bg-gray-400: #9ca3af;
+$bg-red-500: #ef4444;
+$bg-blue-500: #3b82f6;
+$bg-yellow-500: #fbbf24;
+$bg-yellow-600: #eab308;
+$bg-green-600: #43a047;
+$text-white: #ffffff;
+$bg-blue-600: #1e88e5;
+$bg-blue-700: #1976d2;
+
+// Main content layout
+.video-analysis {
+  display: flex;
+  height: 100vh;
+  background-color: $bg-gray-900;
+  color: $text-white;
+  margin-left: 13rem; // Leave space for the sidebar
+  margin-top: 4rem;   // Leave space for the header
+
+  .left-section {
+    flex: 1;
+    padding: 2rem 1.5rem;
+    overflow-y: auto;
+    background-color: $bg-gray-900;
+
+    // Match information block
+    .match-info {
+      background-color: $bg-gray-800;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      border-bottom: 1px solid $bg-gray-600;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .team {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+          }
+
+          span {
+            font-size: 1.25rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    // Video player section
+    .video-player {
+      background-color: black;
+      height: 20rem;
+      border-radius: 0.5rem;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .controls {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+
+        button {
+          color: $text-white;
+          font-size: 1.5rem;
+        }
+
+        input[type='range'] {
+          flex: 1;
+          margin: 0 1rem;
+        }
+      }
+    }
+
+    // Performance analysis
+    .performance-analysis {
+      margin-top: 2rem;
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+
+      .performance-graph {
+        background-color: $bg-gray-800;
+        padding: 1rem;
+        border-radius: 0.5rem;
+
+        .legend {
+          display: flex;
+          justify-content: space-between;
+
+          .team-label {
+            display: flex;
+            align-items: center;
+
+            .color-box {
+              width: 1rem;
+              height: 1rem;
+              border-radius: 50%;
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    // Team formation
+    .team-formation {
+      margin-top: 2rem;
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+
+      .formation {
+        display: flex;
+        gap: 1rem;
+
+        .team {
+          flex: 1;
+
+          .team-header {
+            display: flex;
+            align-items: center;
+
+            img {
+              width: 3rem;
+              height: 3rem;
+              border-radius: 50%;
+            }
+
+            .info {
+              margin-left: 0.5rem;
+
+              h3 {
+                margin: 0;
+              }
+            }
+          }
+
+          .formation-grid {
+            background-color: $bg-green-600;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+
+            .grid {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 0.5rem;
+
+              .player {
+                background-color: $bg-red-500;
+                padding: 0.5rem;
+                text-align: center;
+                border-radius: 0.25rem;
+              }
+            }
+          }
+        }
+      }
+
+      .generate-button {
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+
+        button {
+          background-color: $bg-blue-600;
+          padding: 0.5rem 1rem;
+          border-radius: 0.25rem;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: $bg-blue-700;
+          }
+        }
+      }
+    }
+  }
+
+  // Right sidebar for additional content
+  .right-sidebar {
+    width: 20rem;
+    background-color: $bg-gray-800;
+    padding: 1.5rem;
+    overflow-y: auto;
+
+    .man-of-the-match,
+    .team-statistics,
+    .team-lineup {
+      background-color: $bg-gray-700;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+
+      h2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+
+      .flex {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 4rem;
+          height: 4rem;
+          border-radius: 50%;
+          margin-right: 1rem;
+        }
+
+        .player-info {
+          span {
+            display: block;
+
+            &:first-child {
+              font-size: 1.25rem;
+              font-weight: bold;
+            }
+
+            &:last-child {
+              color: $bg-gray-400;
+            }
+          }
+        }
+      }
+
+      ul {
+        padding: 0;
+        list-style: none;
+
+        li {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+// Fixed Header
+.header {
+  position: fixed;
+  top: 0;
+  left: 13rem; // Offset for Sidebar
+  width: calc(100% - 13rem);
+  background-color: $bg-gray-800;
+  z-index: 1000;
+  padding: 1rem;
+}

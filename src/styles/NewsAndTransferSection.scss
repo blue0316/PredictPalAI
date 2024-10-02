@@ -1,0 +1,47 @@
+.news-transfer-section {
+    background-color: #1F2937; // Equivalent to 'bg-gray-900'
+    padding: 1.5rem; // Equivalent to 'p-6'
+    border-radius: 0.5rem; // Equivalent to 'rounded-lg'
+    margin-top: 2rem; // Equivalent to 'mt-8'
+  
+    .news-title {
+      color: white; // Equivalent to 'text-white'
+      font-size: 1.125rem; // Equivalent to 'text-lg'
+      margin-bottom: 1rem; // Equivalent to 'mb-4'
+      display: flex;
+      align-items: center; // Equivalent to 'flex items-center'
+    }
+  
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); // 5 columns
+      gap: 1.5rem; // Equivalent to 'gap-6'
+  
+      .news-card {
+        background-color: #374151; // Equivalent to 'bg-gray-800'
+        padding: 1rem; // Equivalent to 'p-4'
+        border-radius: 0.5rem; // Equivalent to 'rounded-lg'
+  
+        .news-image {
+          width: 100%; // Equivalent to 'w-full'
+          height: 8rem; // Equivalent to 'h-32'
+          object-fit: cover; // Equivalent to 'object-cover'
+          margin-bottom: 1rem; // Equivalent to 'mb-4'
+          border-radius: 0.5rem; // Equivalent to 'rounded-lg'
+        }
+  
+        .news-title-item {
+          color: white; // Equivalent to 'text-white'
+          font-size: 0.875rem; // Equivalent to 'text-sm'
+          font-weight: 500; // Equivalent to 'font-medium'
+          margin-bottom: 0.5rem; // Equivalent to 'mb-2'
+        }
+  
+        .news-date {
+          color: #A1A1A1; // Equivalent to 'text-gray-400'
+          font-size: 0.75rem; // Equivalent to 'text-xs'
+        }
+      }
+    }
+  }
+  

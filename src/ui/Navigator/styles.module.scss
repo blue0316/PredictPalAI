@@ -1,0 +1,27 @@
+.container {
+    height: 40px;
+    background: var(--body);
+    border-radius: 8px;
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.label {
+    font-family: var(--heading-font);
+    font-weight: 600;
+    color: var(--btn-text);
+}
+
+.button {
+    padding: 0 20px;
+    color: var(--nav-arrow);
+    transition: all var(--transition);
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}

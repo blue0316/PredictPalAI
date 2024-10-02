@@ -1,0 +1,54 @@
+/* colors, fonts, effects, etc. */
+
+:root {
+  --widget-scale: 0px;
+  --body-light: #fafaf8;
+  --body-dark: #000;
+  --widget-light: #fff;
+  --widget-dark: #111312;
+  --text-light: #585954;
+  --text-dark: #8ea2ab;
+  --border-light: #e0e5d5;
+  --border-dark: #24292b;
+  --header-light: #292b23;
+  --header-dark: #fff;
+  --btn-text-light: #3e4237;
+  --nav-arrow: #a2c0d4;
+  --accent: #0096ff;
+  --azure: #0496ff;
+  --blue: #2662f0;
+  --green: #13783e;
+  --grass: #7ed321;
+  --neon-green: #04e762;
+  --pink: #de0d92;
+  --red: #ff0000;
+  --purple: #6665dd;
+  --salmon: #ff715b;
+  --orange: #f17105;
+  --turquoise: #34d1bf;
+  --olive: #6f8738;
+  --olive-light: #c1c200;
+  --pastel-blue: #87bfff;
+  --electro: #29e7cd;
+  --light-gray: #fafbfd;
+  --light-azure: #bde0f6;
+  --haki: #b0b7a1;
+  --fb: #3b5998;
+  --black: #1b1f22;
+  --black-2: #0c0c0c;
+  --black-3: #3a3a3a;
+  --cold-white: #ededed;
+  --blue-gradient: linear-gradient(360deg, #0496ff 0%, #28b5e0 100%);
+  --body-font: "Montserrat", sans-serif;
+  --heading-font: "Montserrat", sans-serif;
+  --transition: 0.3s ease-in-out;
+  --main-sidebar-width: 0;
+  --header-active: 0px;
+  --card-padding: 20px;
+}
+
+@media screen and (min-width: 414px) {
+  :root {
+    --card-padding: 30px;
+  }
+}

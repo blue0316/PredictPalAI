@@ -1,0 +1,30 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 28px);
+    gap: 2px;
+    border-radius: 4px;
+    overflow: hidden;
+
+    // tablet landscape
+    @media screen and (min-width: 1024px) {
+        grid-template-columns: 62px 28px;
+    }
+
+    // desktop
+    @media screen and (min-width: 1500px) {
+        grid-template-columns: repeat(2, 28px);
+    }
+
+    // desktop large
+    @media screen and (min-width: 1920px) {
+        grid-template-columns: 62px 28px;
+    }
+}
+
+.block {
+    background: #282828;
+    color: var(--header-dark) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

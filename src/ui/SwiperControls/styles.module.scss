@@ -1,0 +1,48 @@
+.control {
+    position: absolute;
+    height: fit-content;
+    width: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    color: var(--highlight);
+    display: flex;
+    align-items: center;
+
+    &.ltr {
+        &.left {
+            left: 0;
+            padding-left: 8px;
+            justify-content: flex-start;
+        }
+
+        &.right {
+            right: 0;
+            padding-right: 8px;
+            justify-content: flex-end;
+        }
+    }
+
+    &.rtl {
+        &.left {
+            right: 0;
+            padding-right: 8px;
+            justify-content: flex-start;
+        }
+
+        &.right {
+            left: 0;
+            padding-left: 8px;
+            justify-content: flex-end;
+        }
+    }
+
+    button {
+        opacity: .5;
+        transition: opacity var(--transition);
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

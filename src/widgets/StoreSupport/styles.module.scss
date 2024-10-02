@@ -1,0 +1,13 @@
+.main {
+    padding: var(--card-padding) var(--card-padding) 24px;
+}
+
+.footer {
+    padding: var(--card-padding) var(--card-padding);
+    border-top: 1px solid var(--border);
+
+    // iPhone XR
+    @media  screen and (min-width: 414px) {
+        padding-top: 24px;
+    }
+}

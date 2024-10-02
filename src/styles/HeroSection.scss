@@ -1,0 +1,131 @@
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+    .welcome-section, .upcoming-matches, .subscription-section {
+      flex: 1;
+      margin: 0 0.75rem;
+      background-color: #2d3748;
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+  
+    .welcome-section {
+      .player-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+  
+        .player-image {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 50%;
+        }
+      }
+  
+      .user-info {
+        text-align: center;
+  
+        h2 {
+          font-size: 1.25rem;
+          font-weight: bold;
+  
+          span {
+            color: #ff0000;
+          }
+        }
+  
+        h3 {
+          font-size: 1rem;
+          margin-top: 0.5rem;
+        }
+  
+        p {
+          font-size: 0.75rem;
+          color: #a0aec0;
+          margin-top: 0.5rem;
+        }
+      }
+    }
+  
+    .upcoming-matches {
+      h2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+  
+      .match {
+        margin-bottom: 1rem;
+  
+        .teams {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 0.5rem;
+  
+          img {
+            width: 2rem;
+            height: 2rem;
+          }
+  
+          .score {
+            font-size: 0.875rem;
+          }
+        }
+  
+        .countdown {
+          text-align: right;
+  
+          p {
+            font-size: 0.875rem;
+            margin-bottom: 0.25rem;
+          }
+  
+          .units {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #a0aec0;
+          }
+        }
+      }
+  
+      .divider {
+        border-top: 1px solid #4a5568;
+        margin: 1rem 0;
+      }
+    }
+  
+    .subscription-section {
+      h2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+      }
+  
+      .premium {
+        color: #fbbf24;
+        font-weight: bold;
+        margin-bottom: 1rem;
+      }
+  
+      .rewards {
+        p {
+          font-size: 0.875rem;
+          margin-bottom: 0.25rem;
+        }
+  
+        .amount {
+          font-size: 1.5rem;
+          font-weight: bold;
+          color: #fbbf24;
+        }
+      }
+    }
+  }

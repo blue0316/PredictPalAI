@@ -1,0 +1,17 @@
+.header {
+    flex-direction: column;
+    gap: 10px;
+
+    @media screen and (min-width: 375px) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.main {
+    padding: 4px 4px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}

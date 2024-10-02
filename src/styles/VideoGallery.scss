@@ -1,0 +1,309 @@
+.video-gallery-container {
+    padding-top: 5rem;
+    padding-left: 16rem;
+    padding-right: 2rem;
+    background-color: #1f2937;
+    color: white;
+    min-height: 100vh;
+  
+    .match-summary {
+      background-color: #374151;
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+      .stadium-name h2 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: 1rem;
+      }
+  
+      .team-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+  
+        .team {
+          text-align: center;
+          position: relative;
+          z-index: 10;
+  
+          &-logo {
+            height: 8rem;
+            width: 8rem;
+            background-size: cover;
+            background-position: center;
+          }
+  
+          .team-flag {
+            font-size: 3rem;
+          }
+  
+          .team-name {
+            margin-top: 0.75rem;
+            font-size: 1.125rem;
+            padding: 0.625rem;
+            border-radius: 0.3125rem;
+            color: white;
+            background-size: cover;
+          }
+  
+          .team-score {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-top: 0.5rem;
+          }
+  
+          .goals {
+            margin-top: 0.5rem;
+  
+            .goal {
+              font-size: 0.875rem;
+              color: #9ca3af;
+              padding: 0.3125rem;
+              border-radius: 0.3125rem;
+              background-size: cover;
+            }
+          }
+        }
+  
+        .full-time {
+          font-size: 3rem;
+          font-weight: 800;
+          letter-spacing: 0.15rem;
+          position: relative;
+          z-index: 10;
+        }
+  
+        .background-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to right, black, #374151, transparent);
+          opacity: 0.6;
+          border-radius: 0.5rem;
+          z-index: 0;
+        }
+      }
+    }
+  
+    .content-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      border: 1px solid #4b5563;
+      border-radius: 0.5rem;
+      background-color: #374151;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+      .upload-area {
+        flex: 1;
+        border: 2px dotted #3b82f6;
+        border-radius: 0.5rem;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #374151;
+        transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  
+        &:hover {
+          background-color: #4b5563;
+          border-color: #60a5fa;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+  
+        .upload-icon {
+          margin-bottom: 1rem;
+          color: #3b82f6;
+          transition: color 0.2s;
+  
+          &:hover {
+            color: #60a5fa;
+          }
+        }
+  
+        p {
+          text-align: center;
+          color: #9ca3af;
+        }
+      }
+  
+      .top-video {
+        flex: 1;
+        border: 1px solid #3b82f6;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        background-color: #374151;
+        transition: box-shadow 0.2s;
+  
+        &:hover {
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+  
+        .video-thumbnail img {
+          width: 100%;
+          height: 9rem;
+          object-fit: cover;
+          border-radius: 0.5rem;
+          transition: transform 0.2s;
+  
+          &:hover {
+            transform: scale(1.05);
+          }
+        }
+  
+        h3 {
+          font-size: 1.25rem;
+          font-weight: bold;
+          text-align: center;
+          margin-bottom: 0.5rem;
+        }
+      }
+  
+      .video-contest-statistic {
+        flex: 1;
+        border: 1px solid #3b82f6;
+        border-radius: 0.5rem;
+        background-color: #374151;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  
+        h3 {
+          font-size: 0.875rem;
+          font-weight: bold;
+          margin-bottom: 0.5rem;
+        }
+  
+        .stat {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          color: #9ca3af;
+          font-size: 0.875rem;
+          margin-bottom: 1rem;
+  
+          .bar {
+            width: 6rem;
+            height: 0.5rem;
+            background-color: #4b5563;
+            border-radius: 0.25rem;
+            overflow: hidden;
+  
+            .progress {
+              height: 100%;
+              border-radius: 0.25rem;
+  
+              &.green {
+                background-color: #10b981;
+              }
+  
+              &.blue {
+                background-color: #3b82f6;
+              }
+            }
+          }
+  
+          .value {
+            color: white;
+          }
+        }
+      }
+    }
+  
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 1.5rem;
+  
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+  
+      @media (min-width: 1024px) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+  
+      .video-card {
+        border: 1px solid #3b82f6;
+        border-radius: 0.5rem;
+        overflow: hidden;
+        background-color: #374151;
+        transition: box-shadow 0.2s;
+  
+        &:hover {
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+  
+        img {
+          width: 100%;
+          height: 9rem;
+          object-fit: cover;
+          border-radius: 0.5rem;
+        }
+  
+        h3 {
+          font-size: 1.125rem;
+          font-weight: bold;
+          text-align: center;
+          margin-top: 0.5rem;
+        }
+  
+        .video-description {
+          padding: 1rem;
+          text-align: center;
+          color: #9ca3af;
+  
+          p {
+            font-size: 0.875rem;
+          }
+  
+          button {
+            margin-top: 0.5rem;
+            color: #3b82f6;
+            text-decoration: underline;
+  
+            &:hover {
+              color: #60a5fa;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .team-logo {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    width: 100px; // Adjust as needed
+    height: 100px; // Adjust as needed
+    border-radius: 50%; // Makes it circular, if needed
+    overflow: hidden;
+  
+    // Adding a tint/shade effect
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.4); // Adjust the RGBA for the desired tint or shade (0.4 is the opacity)
+      z-index: 1;
+    }
+  }
+  
+  // To ensure the content is above the tint
+  .team-name,
+  .team-flag,
+  .team-score {
+    position: relative;
+    z-index: 2;
+  }
+  

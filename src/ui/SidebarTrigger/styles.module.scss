@@ -1,0 +1,22 @@
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 18px;
+
+    &_line {
+        width: 20px;
+        height: 2.4px;
+        background: var(--highlight);
+        border-radius: 4px;
+        position: relative;
+        right: 0;
+        transition: right var(--transition);
+    }
+
+    &.active {
+        .burger_line:nth-of-type(2) {
+            right: -4px;
+        }
+    }
+}

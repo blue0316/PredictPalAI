@@ -1,0 +1,68 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 13rem;
+    height: 100vh;
+    background-color: #1A1A1A;
+    color: hsl(218, 11%, 65%);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    
+    z-index: 1000; // Ensures sidebar is on top of other elements
+
+  
+    .logo-section {
+      padding: 1.5rem;
+      text-align: center;
+      
+      .logo {
+        height: 2rem;
+      }
+    }
+  
+    .nav-section {
+      flex: 1;
+  
+      .nav-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+  
+        .nav-header {
+          text-transform: uppercase;
+          font-size: 0.75rem;
+          color: #FFFFFF;
+          padding: 1rem 1.5rem 0.5rem;
+        }
+  
+        .nav-item {
+          display: flex;
+          align-items: center;
+          padding: 0.75rem 1.5rem;
+          color: #9CA3AF;
+          transition: background-color 0.2s;
+  
+          &:hover {
+            background-color: #2D3748;
+          }
+  
+          .nav-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            margin-right: 1rem;
+          }
+  
+          .nav-item-title {
+            flex: 1;
+            color: #60A5FA;
+          }
+  
+          .nav-favorite-icon {
+            color: #FBBF24;
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,75 @@
+// FollowClub.scss
+.follow-club {
+    background-color: #1f2937; // Tailwind 'bg-gray-900'
+    padding: 1.5rem; // Tailwind 'p-6'
+    border-radius: 0.5rem; // Tailwind 'rounded-lg'
+    margin-top: 2rem; // Tailwind 'mt-8'
+    position: relative;
+  
+    h2 {
+      color: white; // Tailwind 'text-white'
+      font-size: 1.125rem; // Tailwind 'text-lg'
+      margin-bottom: 1rem; // Tailwind 'mb-4'
+      display: flex;
+      align-items: center; // Tailwind 'flex items-center'
+    }
+  
+    .club-container {
+      display: flex;
+      align-items: center; // Tailwind 'flex items-center'
+      position: relative;
+  
+      .scroll-btn {
+        background-color: #374151; // Tailwind 'bg-gray-700'
+        padding: 0.5rem; // Tailwind 'p-2'
+        border-radius: 9999px; // Tailwind 'rounded-full'
+        color: white; // Tailwind 'text-white'
+        position: absolute;
+        outline: none; // Tailwind 'focus:outline-none'
+  
+        &.left {
+          left: 0;
+        }
+  
+        &.right {
+          right: 0;
+        }
+      }
+  
+      .scroll-container {
+        display: flex;
+        overflow-x: auto;
+        padding: 1rem; // Tailwind 'p-4'
+        background-color: #374151; // Tailwind 'bg-gray-800'
+        border-radius: 0.5rem; // Tailwind 'rounded-lg'
+        gap: 1.5rem; // Tailwind 'space-x-6'
+  
+        .club {
+          flex: none; // Tailwind 'flex-none'
+  
+          .club-logo {
+            width: 4rem; // Tailwind 'w-16'
+            height: 4rem; // Tailwind 'h-16'
+            border-radius: 9999px; // Tailwind 'rounded-full'
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid transparent; // Tailwind 'border-2 border-transparent'
+            cursor: pointer;
+  
+            &.selected {
+              border-color: #3b82f6; // Tailwind 'border-blue-500'
+            }
+  
+            img {
+              width: 3rem; // Tailwind 'w-12'
+              height: 3rem; // Tailwind 'h-12'
+              border-radius: 9999px; // Tailwind 'rounded-full'
+              object-fit: cover; // Tailwind 'object-cover'
+            }
+          }
+        }
+      }
+    }
+  }
+  

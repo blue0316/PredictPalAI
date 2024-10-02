@@ -1,0 +1,58 @@
+.radio {
+
+    input {
+        display: none;
+    }
+
+    label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        gap: 6px;
+        height: 40px;
+        min-width: 40px;
+        border: 1px solid var(--border);
+        padding: 0 12px;
+        color: var(--highlight);
+        border-radius: 8px;
+        transition: var(--transition);
+
+        i {
+            display: none;
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+
+        &:hover, &:focus {
+            border-color: var(--highlight);
+        }
+    }
+
+    input:checked + label i {
+        display: block;
+        opacity: 1;
+    }
+
+    &.light {
+        input:checked + label {
+            background-color: var(--grass);
+            color: var(--widget);
+            text-shadow: 0 0 1px var(--widget);
+            border-color: var(--grass);
+        }
+    }
+
+    &.dark {
+        input:checked + label {
+            background-color: var(--accent);
+            color: var(--widget);
+            text-shadow: 0 0 1px var(--widget);
+            border-color: var(--accent);
+        }
+    }
+
+    &.disabled {
+        opacity: 0.5;
+    }
+}

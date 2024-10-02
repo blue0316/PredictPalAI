@@ -1,0 +1,66 @@
+.card {
+    min-height: unset;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.container {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+}
+
+.wrapper {
+    aspect-ratio: 1 / 1;
+    width: 90px;
+    position: relative;
+}
+
+.title {
+    display: none;
+}
+
+.img {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+}
+
+.button {
+    position: absolute;
+    bottom: 0;
+    right: -6px;
+    background: var(--accent);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--widget);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--header-light);
+    will-change: transform;
+    transition: transform var(--transition);
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+// iPhone SE
+@media screen and (min-width: 375px) {
+    .container {
+        flex-direction: row;
+        gap: 30px;
+        text-align: left;
+    }
+
+    .wrapper {
+        width: 124px;
+    }
+
+    .title {
+        display: block;
+    }
+}

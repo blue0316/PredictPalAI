@@ -1,0 +1,25 @@
+.grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+
+    // desktop
+    @media screen and (min-width: 1280px) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(0, 1fr));
+
+        & > div:last-child {
+            display: none;
+        }
+    }
+
+    // desktop large
+    @media screen and (min-width: 1500px) {
+        grid-template-columns: minmax(0, 1fr);
+
+        & > div:last-child {
+            display: flex;
+        }
+    }
+}

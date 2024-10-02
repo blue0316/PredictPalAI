@@ -1,0 +1,14 @@
+// DashboardPage.scss
+.dashboard-page {
+    display: flex;
+  
+    main {
+      padding-top: 5rem; // 20 in Tailwind is 5rem
+      padding-left: 16rem; // 64 in Tailwind is 16rem
+      padding-right: 2rem; // 8 in Tailwind is 2rem
+      background-color: #1f2937; // Tailwind 'bg-gray-900'
+      color: #fff; // Tailwind 'text-white'
+      min-height: 100vh; // Tailwind 'min-h-screen'
+    }
+  }
+  

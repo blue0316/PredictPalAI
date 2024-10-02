@@ -1,0 +1,41 @@
+.container {
+    color: var(--text);
+    background: var(--widget);
+    padding: 0 15px;
+    border-top: 2px solid var(--border);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.button {
+    font-size: 18px;
+    transition: color var(--transition);
+    color: var(--highlight);
+
+    &:hover {
+        color: var(--header);
+    }
+}
+
+.menu_item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:not(:last-child) {
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 8px;
+    }
+
+    &:last-child {
+        margin-top: -8px;
+    }
+}

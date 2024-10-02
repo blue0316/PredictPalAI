@@ -1,0 +1,70 @@
+.mobile-app-section {
+    padding: 1.5rem; // Equivalent to Tailwind's 'p-6'
+    margin-top: 2rem; // Equivalent to Tailwind's 'mt-8'
+    background: linear-gradient(to right, black, #4B5563, #4B5563); // Equivalent to Tailwind's gradient
+    border-radius: 0.5rem; // Equivalent to 'rounded-lg'
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); // Shadow effect
+    border: 1px solid #4B5563; // Equivalent to Tailwind's border-gray-700
+  width: 100%;
+    .platform-label {
+      color: #60A5FA; // Equivalent to Tailwind's 'text-blue-400'
+      font-size: 1.125rem; // Equivalent to 'text-lg'
+      font-weight: 600; // Equivalent to 'font-semibold'
+      margin-bottom: 0.5rem; // Equivalent to 'mb-2'
+    }
+  
+    .promo-container {
+      background-color: #1F2937; // Equivalent to 'bg-gray-900'
+      padding: 2.5rem; // Equivalent to 'p-4'
+      border-radius: 0.5rem; // Equivalent to 'rounded-lg'
+      display: flex; // Using flexbox for layout
+  
+      .promo-text {
+        flex: 1;
+        padding-right: 1.5rem; // Equivalent to 'pr-4'
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+        justify-content: center;
+  
+        .promo-description {
+          font-size: 1.125rem; // Equivalent to 'text-lg'
+          font-weight: 600; // Equivalent to 'font-semibold'
+          color: white; // Equivalent to 'text-white'
+          text-align: justify;
+          line-height: 1.25; // Equivalent to 'leading-tight'
+        }
+  
+        .app-store-links {
+          flex:1;
+            margin-top: 1.5rem; // Equivalent to 'mt-2'
+          display: flex;
+  
+          .app-store-icon {
+            height: 2.5rem; // Equivalent to 'h-6'
+            margin-right: 0.5rem; // Equivalent to 'mr-2'
+  
+            &:last-child {
+              margin-right: 0; // Remove margin for last icon
+            }
+          }
+        }
+      }
+  
+      .app-preview {
+        flex: 1; // More space for the preview
+        padding-left: 1rem; // Equivalent to 'pl-4'
+        display: flex;
+        align-items: center;
+  
+        .app-screenshot {
+          height: auto;
+          max-height: 520px; // Equivalent to 'max-h-[520px]'
+          width: 100%; // Equivalent to 'w-full'
+          object-fit: cover; // Equivalent to 'object-cover'
+          border-radius: 0.5rem; // Equivalent to 'rounded-lg'
+        }
+      }
+    }
+  }
+  

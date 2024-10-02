@@ -1,0 +1,132 @@
+.container {
+    height: 350px;
+    max-width: 300px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+}
+
+.field {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    height: 100%;
+    width: 100% !important;
+    object-fit: contain;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+
+.player {
+    position: absolute;
+    width: 57px;
+    height: 57px;
+    border-radius: 50%;
+    border: 1px solid #E0E5D4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--widget-light);
+    }
+
+    &_num {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        color: var(--header-light) !important;
+        box-shadow: 0 2px 16px rgba(75, 85, 110, 0.2);
+    }
+
+    &.compact {
+        width: 40px;
+        height: 40px;
+
+        .player_img {
+            width: 33px;
+            height: 33px;
+        }
+
+        .player_num {
+            width: 14px;
+            height: 14px;
+            font-size: 10px;
+        }
+    }
+
+    &[data-role="left-winger"] {
+        top: 10%;
+        left: 0;
+    }
+
+    &[data-role="right-winger"] {
+        top: 10%;
+        right: 0;
+    }
+
+    &[data-role="center-forward"] {
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &[data-role="keeper"] {
+        bottom: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &[data-role="center-midfielder-right"] {
+        top: 36%;
+        right: 23%;
+    }
+
+    &[data-role="center-midfielder-left"] {
+        top: 36%;
+        left: 23%;
+    }
+
+    &[data-role="center-midfielder-center"] {
+        top: 20%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    &[data-role="full-back-right"] {
+        top: 50%;
+        right: 0;
+    }
+
+    &[data-role="full-back-left"] {
+        top: 50%;
+        left: 0;
+    }
+
+    &[data-role="center-back-right"] {
+        top: 55%;
+        right: 23%;
+    }
+
+    &[data-role="center-back-left"] {
+        top: 55%;
+        left: 23%;
+    }
+}

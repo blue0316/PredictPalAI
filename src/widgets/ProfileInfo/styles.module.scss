@@ -1,0 +1,35 @@
+.item {
+    display: flex;
+    flex-direction: column;
+
+    .value {
+        text-align: left;
+    }
+
+    // iPhone XR
+    @media screen and (min-width: 414px) {
+        display: grid;
+        grid-template-columns: minmax(0, 120px) minmax(0, calc(100% - 120px))
+    }
+
+    // tablet portrait
+    @media screen and (min-width: 768px) {
+        grid-template-columns: minmax(0, 100px) minmax(0, calc(100% - 100px))
+    }
+
+    // tablet landscape
+    @media screen and (min-width: 1024px) {
+        grid-template-columns: minmax(0, 140px) minmax(0, calc(100% - 140px));
+
+        .value {
+            text-align: right;
+        }
+    }
+
+    // desktop
+    @media screen and (min-width: 1280px) {
+        .value {
+            text-align: left;
+        }
+    }
+}

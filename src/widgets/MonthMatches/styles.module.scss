@@ -1,0 +1,110 @@
+.navigator {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: 4px;
+    position: relative;
+
+    &.light {
+        background: var(--body);
+    }
+
+    &.dark {
+        background: var(--border);
+    }
+
+    .slide {
+        width: fit-content;
+        height: 60px;
+        align-self: center;
+    }
+
+    &_item {
+        text-align: center;
+        width: 48px;
+        height: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1 0 auto;
+        border-radius: 4px;
+        background-color: transparent;
+        transition: background-color var(--transition);
+        cursor: pointer;
+        align-self: center;
+
+        &.active,
+        &:hover {
+            background-color: var(--widget);
+        }
+
+        .day {
+            color: var(--highlight);
+        }
+
+        &.ltr {
+            margin-right: 10px;
+            margin-left: 0 !important;
+        }
+
+        &.rtl {
+            margin-right: 10px;
+            margin-left: 0 !important;
+        }
+    }
+}
+
+.scroll {
+    height: 460px;
+    overflow-y: auto;
+    display: flex;
+    width: 100%;
+
+    &_track {
+        padding: 0 var(--card-padding);
+    }
+}
+
+.card {
+    padding: var(--card-padding);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+// tablet portrait
+@media screen and (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+        height: 500px;
+
+        &.ltr {
+            padding: 0 30px 0 10px;
+        }
+
+        &.rtl {
+            padding: 0 10px 0 30px;
+        }
+    }
+
+    .scroll {
+        height: 500px;
+
+        &_track {
+            &.ltr {
+                padding: 0 10px 0 30px;
+            }
+
+            &.rtl {
+                padding: 0 30px 0 10px;
+            }
+        }
+    }
+}

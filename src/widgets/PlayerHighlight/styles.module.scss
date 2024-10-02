@@ -1,0 +1,55 @@
+.container {
+    background: var(--accent);
+    position: relative;
+}
+
+.bg {
+    mix-blend-mode: overlay;
+    opacity: .28;
+
+    &_text {
+        position: absolute;
+        height: 140px;
+        width: auto;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+        color: #fff;
+    }
+}
+
+.player {
+    position: absolute;
+    height: 100%;
+    width: auto;
+    right: 0;
+    bottom: 0;
+    display: none;
+
+    // iPhone XR
+    @media screen and (min-width: 414px) {
+        display: block;
+    }
+
+    &.rtl {
+        left: 0;
+        right: auto;
+        transform: scaleX(-1);
+    }
+}
+
+.main {
+    position: relative;
+    z-index: 2;
+
+    &_label {
+        &.light {}
+        &.dark {
+            color: #313131 !important;
+        }
+    }
+}
+
+.name {
+    margin: 10px 0 4px;
+}

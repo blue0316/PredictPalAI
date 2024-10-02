@@ -1,0 +1,34 @@
+.footer {
+    padding: 28px 30px;
+}
+
+.card {
+    display: block;
+    width: 12px;
+    height: 17px;
+    border-radius: 2px;
+
+    &_wrapper {
+        transform: scaleX(-1);
+        display: flex;
+    }
+
+    &.red {
+        background: #E0162E;
+        border: 2px solid #910C0C;
+    }
+
+    &.yellow {
+        background: #F9C700;
+        border: 2px solid #A37F00;
+        position: relative;
+
+        &.ltr:not(:first-child) {
+            margin-left: -6px;
+        }
+
+        &.rtl:not(:first-child) {
+            margin-right: -6px;
+        }
+    }
+}

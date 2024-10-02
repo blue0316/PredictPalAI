@@ -1,0 +1,85 @@
+// AttackerTable.scss
+.attacker-table {
+    background-color: #1f2937; // Tailwind 'bg-gray-900'
+    padding: 1.5rem; // Tailwind 'p-6'
+    border-radius: 0.5rem; // Tailwind 'rounded-lg'
+    margin-top: 2rem; // Tailwind 'mt-8'
+  
+    h2 {
+      color: white; // Tailwind 'text-white'
+      font-size: 1.125rem; // Tailwind 'text-lg'
+      margin-bottom: 1rem; // Tailwind 'mb-4'
+      display: flex;
+      align-items: center; // Tailwind 'flex items-center'
+    }
+  
+    table {
+      width: 100%; // Tailwind 'w-full'
+      color: white; // Tailwind 'text-white'
+  
+      th, td {
+        text-align: center; // Tailwind 'text-center'
+        padding: 0.5rem 0; // Tailwind 'py-2'
+      }
+  
+      th {
+        text-align: left; // Tailwind 'text-left'
+      }
+  
+      thead {
+        border-bottom: 1px solid #374151; // Tailwind 'border-b border-gray-700'
+      }
+  
+      tbody tr {
+        border-bottom: 1px solid #374151; // Tailwind 'border-b border-gray-700'
+  
+        &.gold {
+          background-color: #fbbf24; // Tailwind 'bg-yellow-300'
+        }
+  
+        &.silver {
+          background-color: #d1d5db; // Tailwind 'bg-gray-300'
+        }
+  
+        &.bronze {
+          background-color: #fb923c; // Tailwind 'bg-orange-300'
+        }
+      }
+  
+      td .medal-indicator {
+        width: 1rem; // Tailwind 'w-4'
+        height: 1rem; // Tailwind 'h-4'
+        border-radius: 50%; // Tailwind 'rounded-full'
+        margin-right: 0.5rem; // Tailwind 'mr-2'
+  
+        &.gold {
+          background-color: #fbbf24; // Tailwind 'bg-yellow-400'
+        }
+  
+        &.silver {
+          background-color: #9ca3af; // Tailwind 'bg-gray-400'
+        }
+  
+        &.bronze {
+          background-color: #fb923c; // Tailwind 'bg-orange-400'
+        }
+      }
+    }
+  
+    .medal-legend {
+      margin-top: 1rem; // Tailwind 'mt-4'
+      display: flex;
+      justify-content: flex-end; // Tailwind 'flex justify-end'
+      gap: 1rem; // Tailwind 'space-x-4'
+  
+      .legend-item {
+        display: flex;
+        align-items: center; // Tailwind 'flex items-center'
+  
+        .medal-indicator {
+          margin-right: 0.5rem; // Tailwind 'mr-2'
+        }
+      }
+    }
+  }
+  

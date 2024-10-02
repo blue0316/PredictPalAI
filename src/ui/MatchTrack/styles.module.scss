@@ -1,0 +1,38 @@
+.wrapper {
+    position: relative;
+    z-index: 10;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.track {
+    width: 100%;
+    height: 2px;
+    background: var(--accent);
+    position: relative;
+
+    &_marker {
+        position: absolute;
+        top: 50%;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--accent);
+        transform: translateY(-50%);
+
+        &.start {
+            left: 0;
+        }
+
+        &.middle {
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        &.end {
+            right: 0;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.container {
+    padding: 30px;
+    border-bottom: 1px dashed;
+
+    &.light {
+        border-color: var(--nav-arrow);
+    }
+
+    &.dark {
+        border-color: rgba(105, 109, 110, 0.3);
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+        border: none;
+    }
+}
+
+.text {
+    margin: 16px 0 20px;
+    max-width: 315px;
+}

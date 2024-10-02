@@ -1,0 +1,41 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    //height: 516px;
+
+    .media {
+        height: 320px;
+        border-radius: 8px;
+    }
+
+    .main {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        &_title {
+            display: inline-block;
+            margin: 5px 0 7px;
+            max-width: 220px;
+        }
+    }
+}
+
+// iPhone XR
+@media screen and (min-width: 414px) {
+    .container {
+        flex-direction: row;
+        align-items: stretch;
+
+        .media {
+            height: 160px;
+            width: 120px;
+        }
+
+        .main {
+            flex: 1;
+            height: auto;
+        }
+    }
+}

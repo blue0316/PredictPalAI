@@ -1,0 +1,19 @@
+.item {
+    padding: 16px var(--card-padding);
+    border-bottom: 1px solid var(--border);
+
+    &:first-child {
+        padding-top: 0;
+    }
+
+    &:last-child {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+}
+
+.popup {
+    max-width: 500px;
+    padding: 0;
+    overflow-y: auto;
+}

@@ -1,0 +1,64 @@
+.container {
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: calc(100% - 2px);
+        height: calc(100% - 2px);
+        border-radius: 4px;
+        border: 1px solid var(--widget);
+        z-index: 1;
+    }
+
+    &.light:after {
+        background: linear-gradient(360deg, #FFFFFF 0%, #EFF1FF 100%);
+        mix-blend-mode: normal;
+        opacity: 0.5;
+    }
+
+    &.dark:after {
+        background: linear-gradient(360deg, #0B102C 0%, #000001 100%);
+    }
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+}
+
+.media {
+    position: absolute;
+    top: 50%;
+    left: -5%;
+    width: 70%;
+    height: auto;
+    transform: translateY(-50%);
+
+    // iPhone XR
+    @media screen and (min-width: 414px) {
+        width: 100%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.temp {
+    font-size: 1.25rem;
+    font-weight: 300;
+    letter-spacing: 0.2px;
+    font-family: var(--heading-font);
+    color: var(--header);
+
+    &_num {
+        margin-right: 4px;
+        font-weight: 800;
+        line-height: 1.25;
+    }
+}
+
+.conditions {
+    color: var(--btn-text);
+}
