@@ -11,16 +11,16 @@ const floatingAnimation = {
     duration: 3,
     ease: "easeInOut",
     repeat: Infinity,
-    repeatType: "loop"
+    repeatType: "loop",
   },
 };
 
 const MainPage = () => {
-  const navigate = useNavigate()
-  
+  const navigate = useNavigate();
+
   const signInNavigator = () => {
     navigate("/login");
-  }
+  };
 
   return (
     <LandingLayout title="PredictPalAI">
@@ -32,8 +32,7 @@ const MainPage = () => {
         height={1073}
         transition={{ duration: 1 }}
         whileHover={{ scale: 1.05 }}
-        
-        animate={floatingAnimation} 
+        animate={floatingAnimation}
       />
 
       <DateDisplay />
