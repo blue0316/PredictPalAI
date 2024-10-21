@@ -11,7 +11,7 @@ import avatar from '@assets/tickets/avatar.webp';
 
 const User = () => {
     return (
-        <Spring className="card d-flex flex-column">
+        <Spring className="card flex flex-col">
             <LazyImage className={styles.cover} src={fcb} alt="cover" />
             <div className={styles.main}>
                 <LazyImage className={styles.main_avatar} src={avatar} alt="Bryan Christensen"/>

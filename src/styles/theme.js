@@ -28,6 +28,10 @@ export default createGlobalStyle`
       light: "var(--border-light)",
       dark: "var(--border-dark)",
     })};
+    --border-invert: ${theme("theme", {
+      light: "var(--border-dark)",
+      dark: "var(--border-light)",
+    })};
     --header: ${theme("theme", {
       light: "var(--header-light)",
       dark: "var(--header-dark)",
@@ -45,16 +49,16 @@ export default createGlobalStyle`
       dark: "var(--widget-light)",
     })};
     --highlight: ${theme("theme", {
-      light: "var(--olive)",
+      light: "var(--orange)",
       dark: "var(--accent)",
     })};
     --highlight-invert: ${theme("theme", {
       light: "var(--accent)",
-      dark: "var(--olive)",
+      dark: "var(--orange)",
     })};
     --tooltip-bg: ${theme("theme", {
-      light: "var(--widget)",
-      dark: "var(--border)",
+      light: "var(--light-gray)",
+      dark: "var(--tooltip)",
     })};
     --nav-arrow-color: ${theme("theme", {
       light: "var(--header)",
@@ -75,6 +79,10 @@ export default createGlobalStyle`
     --score-alt: ${theme("theme", {
       light: "var(--border)",
       dark: "var(--black-3)",
+    })};
+    --text-glow: ${theme("theme", {
+      light: "#121C2266",
+      dark: "#f5c45166",
     })};
   }
 `;

@@ -13,8 +13,8 @@ const MatchCard = ({match, index}) => {
             <div className={styles.main}>
                 <MatchScoreItem match={match} withLogo/>
             </div>
-            <div className={`${styles.footer} d-flex align-items-center g-10 border-top text-12`}>
-                <span className="text-600 text-highlight">{latestEvent.minute}'</span>
+            <div className={`${styles.footer} flex items-center gap-2.5 border-top text-12`}>
+                <span className="font-semibold text-highlight">{latestEvent.minute}'</span>
                 <span className="text-overflow">{latestEvent.event}</span>
             </div>
         </Spring>

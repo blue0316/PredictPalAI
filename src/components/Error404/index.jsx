@@ -19,7 +19,7 @@ const Error404 = () => {
     const {theme} = useThemeProvider();
 
     return (
-        <Spring className={`${styles.container} card d-flex align-items-center flex-1`}>
+        <Spring className={`${styles.container} card flex items-center flex-1`}>
             <div className={styles.media}>
                 <img className={classNames(styles.media_img, {[styles.visible]: theme === 'light'})}
                      src={light404}

@@ -18,13 +18,13 @@ const PlayerHighlight = () => {
     const {theme, direction} = useThemeProvider();
 
     return (
-        <Spring className={`${styles.container} card h-1 no-shadow card-padded`}>
+        <Spring className={`${styles.container} card height-w-1 no-shadow card-padded`}>
             <LazyImage className={`${styles.bg} cover`} src={cover} alt="media" />
             <Goal className={styles.bg_text}/>
             <img className={`${styles.player} ${direction === 'rtl' ? styles.rtl : ''}`}
                        src={hazard}
                        alt="Eden Hazard" />
-            <div className={`${styles.main} d-flex flex-column justify-content-between h-100`}>
+            <div className={`${styles.main} flex flex-col justify-between h-full`}>
                 <div>
                     <LazyImage className="club-logo" src={realmadrid} alt="Real Madrid" />
                     <h2 className={`${styles.name} light`}>Eden Hazard</h2>

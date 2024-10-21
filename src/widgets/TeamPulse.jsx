@@ -15,10 +15,10 @@ const TeamPulse = () => {
     ];
 
     return (
-        <Spring className="card h-1 d-flex flex-column justify-content-between card-padded">
+        <Spring className="card height-w-1 flex flex-col justify-between card-padded">
             <ClubInfo id="chelsea" title="FC Chelsea" subtitle="London, UK"/>
-            <div className="d-flex justify-content-between">
-                <div className="d-flex flex-column g-4">
+            <div className="flex justify-between">
+                <div className="flex flex-col gap-1">
                     <h3>34 pts</h3>
                     <ProgressInfo progress={2} text="positions"/>
                 </div>

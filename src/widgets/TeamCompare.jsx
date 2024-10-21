@@ -23,7 +23,7 @@ const TeamCompare = () => {
     ]
 
     return (
-        <Spring className="card d-flex flex-column g-30 card-padded">
+        <Spring className="card flex flex-col g-30 card-padded">
             <div className="tab-nav col-2">
                 <TabButton
                     title="Barcelona"
@@ -40,16 +40,16 @@ const TeamCompare = () => {
                     color="accent"
                 />
             </div>
-            <div className="d-flex flex-column justify-content-between flex-1 g-24">
+            <div className="flex flex-col justify-between flex-1 gap-6">
                 {
                     data.find(item => item.name === selected) && (
                         <>
-                            <div className="d-flex flex-column g-8">
-                                <h6 className="label">Goals: <span className="text-700">{data.find(item => item.name === selected).goals}</span></h6>
+                            <div className="flex flex-col gap-2">
+                                <h6 className="label">Goals: <span className="font-bold">{data.find(item => item.name === selected).goals}</span></h6>
                                 <Progress value={30} barColor="purple" trackColor="accent"/>
                             </div>
-                            <div className="d-flex flex-column g-8">
-                                <h6 className="label">Total attempts: <span className="text-700">{data.find(item => item.name === selected).attempts}</span></h6>
+                            <div className="flex flex-col gap-2">
+                                <h6 className="label">Total attempts: <span className="font-bold">{data.find(item => item.name === selected).attempts}</span></h6>
                                 <Progress value={60} barColor="purple" trackColor="accent"/>
                             </div>
                         </>

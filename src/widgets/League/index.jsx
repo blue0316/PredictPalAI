@@ -19,13 +19,13 @@ const League = () => {
     return (
         <Spring className="card card-padded">
             <LeagueHeader img={bundesliga}
-                          title={<>German <span className="d-block">Bundes Liga</span></>}
+                          title={<>German <span className="block">Bundes Liga</span></>}
                           subtitle="Regular Championship" />
-            <div className={`${styles.stats} d-flex flex-column g-10`}>
+            <div className={`${styles.stats} flex flex-col gap-2.5`}>
                 <AnimatedCount className={`${styles.stats_num} h1`} count={71} suffix="%" />
                 <span>of customers recommend this league</span>
             </div>
-            <div className="d-flex flex-column g-16">
+            <div className="flex flex-col gap-4">
                 {
                     stats.map((item, index) => (
                         <LeagueRatingItem key={index} {...item} />

@@ -39,7 +39,7 @@ const PlayerSpeed = () => {
     });
 
     return (
-        <Spring className={`card d-flex flex-column ${width < 414 ? 'g-20' : 'g-30'}`}>
+        <Spring className={`card flex flex-col ${width < 414 ? 'gap-5' : 'g-30'}`}>
             <PlayerInfo wrapperClass="card_header"
                         avatar={avatar}
                         title="Gareth Bale"
@@ -47,7 +47,7 @@ const PlayerSpeed = () => {
                         number={11} />
             <div className="border-top flex-1 card-padded">
                 <Wrapper>
-                    <svg className="w-100" {...gauge.getSVGProps()} style={{overflow: 'visible'}}>
+                    <svg className="w-full" {...gauge.getSVGProps()} style={{overflow: 'visible'}}>
                         <g id="arcs">
                             <path
                                 {...gauge.getArcProps({
@@ -101,7 +101,7 @@ const PlayerSpeed = () => {
                         </g>
                     </svg>
                 </Wrapper>
-                <div className="d-flex flex-column align-items-center justify-content-center">
+                <div className="flex flex-col items-center justify-center">
                     <h3>27.8 km/h</h3>
                     <span className="label h6">87 meters</span>
                 </div>

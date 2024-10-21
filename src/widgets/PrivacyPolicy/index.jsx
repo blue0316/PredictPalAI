@@ -112,12 +112,12 @@ const PrivacyPolicy = () => {
   }, [deleteUserProfile, navigate, password, user, userId]);
 
   return (
-    <Spring className="card card-padded d-flex flex-column g-20">
+    <Spring className="card card-padded flex flex-col gap-5">
       <h3>Privacy Policy</h3>
       <div>
-        <div className={`${styles.main} d-flex flex-column g-20`}>
-          <div className="d-flex flex-column g-6">
-            <div className="d-flex align-items-center justify-content-between g-20">
+        <div className={`${styles.main} flex flex-col gap-5`}>
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center justify-between gap-5">
               <h4>Block DMs</h4>
               <Switch
                 id="block-dms"
@@ -129,8 +129,8 @@ const PrivacyPolicy = () => {
               Toggle this setting to block or allow direct messages.
             </p>
           </div>
-          <div className="d-flex flex-column g-6">
-            <div className="d-flex align-items-center justify-content-between g-20">
+          <div className="flex flex-col gap-1.5">
+            <div className="flex items-center justify-between gap-5">
               <h4>Private Account</h4>
               <Switch
                 id="private-account"
@@ -143,12 +143,12 @@ const PrivacyPolicy = () => {
             </p>
           </div>
         </div>
-        <div className="d-flex flex-column g-16">
-          <div className="d-flex flex-column g-6">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-1.5">
             <h4>Delete Account:</h4>
             <p>Permanently delete your account.</p>
           </div>
-          <div className="d-flex flex-column g-16">
+          <div className="flex flex-col gap-4">
             <PasswordInput
               placeholder="Account password"
               value={password}

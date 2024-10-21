@@ -62,9 +62,9 @@ const TeamResults = () => {
 
     return (
         <Spring className={`${styles.container} card`}>
-            <div className={`${styles.container_item} d-flex flex-column justify-content-between card-padded`}>
+            <div className={`${styles.container_item} flex flex-col justify-between card-padded`}>
                 <h3>Results</h3>
-                <div className="d-flex flex-column justify-content-between flex-1">
+                <div className="flex flex-col justify-between flex-1">
                     <ResponsiveContainer className="flex-1" width="100%" height="100%">
                         <PieChart>
                             <Pie data={pieData}
@@ -86,7 +86,7 @@ const TeamResults = () => {
                             <Tooltip content={<ChartTooltip/>}/>
                         </PieChart>
                     </ResponsiveContainer>
-                    <div className="d-flex align-items-center justify-content-center g-14">
+                    <div className="flex items-center justify-center gap-3.5">
                         {
                             PIE_COLORS[theme].map((color, index) => (
                                 <LegendItem key={index} color={color} text={pieData[index].name}/>
@@ -95,8 +95,8 @@ const TeamResults = () => {
                     </div>
                 </div>
             </div>
-            <div className={`${styles.container_item} d-flex flex-column g-30 card-padded`}>
-                <div className="d-flex flex-column g-16">
+            <div className={`${styles.container_item} flex flex-col g-30 card-padded`}>
+                <div className="flex flex-col gap-4">
                     <h3>Passes stats</h3>
                     <div className="tab-nav col-2">
                         <TabButton title="Barcelona"

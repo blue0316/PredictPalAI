@@ -36,11 +36,11 @@ const Map = () => {
 
 const LocalFans = () => {
     return (
-        <Spring className="card h-2 p-relative">
+        <Spring className="card height-w-2 relative">
             <Map/>
-            <div className="d-flex flex-column justify-content-between h-100 p-relative z-2">
+            <div className="flex flex-col justify-between h-full relative z-2">
                 <ClubInfo wrapperClass="card_header" id="bvb" title="Local fans" subtitle="Borussia Dortmund"/>
-                <div className="card_footer d-flex flex-column g-8">
+                <div className="card_footer flex flex-col gap-2">
                     <AnimatedCount className="h1" count={70525} formattedDecimals={3} isFormatted/>
                     <p className="text-12">Fans Clubs in North and South America</p>
                 </div>

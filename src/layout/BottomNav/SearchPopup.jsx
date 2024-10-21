@@ -22,9 +22,9 @@ const SearchPopup = ({open, onClose}) => {
 
     return (
         <Popup open={open} onClose={handleClose}>
-            <div className="d-flex flex-column g-16">
+            <div className="flex flex-col gap-4">
                 <h3>Search</h3>
-                <form className="d-flex g-4" onSubmit={handleSubmit(onSubmit)}>
+                <form className="flex gap-1" onSubmit={handleSubmit(onSubmit)}>
                     <input className={classNames('field', {'field--error': errors.search})}
                            type="search"
                            placeholder="Search for liga soccer..."

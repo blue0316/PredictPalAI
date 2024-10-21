@@ -27,8 +27,8 @@ const MatchesOverview = () => {
     }, [activeTab]);
 
     return (
-        <Spring className="card h-3">
-            <Tabs className="h-100" value={activeTab}>
+        <Spring className="card height-w-3">
+            <Tabs className="h-full" value={activeTab}>
                 <div className="card-padded" ref={ref}>
                     <TabsList className="tab-nav col-2">
                         <TabButton title="Live"
@@ -41,8 +41,8 @@ const MatchesOverview = () => {
                 </div>
                 <ScrollContainer height={height}>
                     <div className="track" style={{padding: '0 var(--card-padding)'}} ref={trackRef}>
-                        <TabPanel className="h-100" value="live" onClick={() => setActiveTab('live')}>
-                            <div className="d-flex flex-column g-24" style={{paddingBottom: 24}}>
+                        <TabPanel className="h-full" value="live" onClick={() => setActiveTab('live')}>
+                            <div className="flex flex-col gap-6" style={{paddingBottom: 24}}>
                                 {
                                     matchesLive.map((match, index) => (
                                         <MatchCard key={index} match={match} index={index}/>
@@ -50,8 +50,8 @@ const MatchesOverview = () => {
                                 }
                             </div>
                         </TabPanel>
-                        <TabPanel className="h-100" value="finished" onClick={() => setActiveTab('finished')}>
-                            <div className="d-flex flex-column g-24" style={{paddingBottom: 24}}>
+                        <TabPanel className="h-full" value="finished" onClick={() => setActiveTab('finished')}>
+                            <div className="flex flex-col gap-6" style={{paddingBottom: 24}}>
                                 {
                                     matchesFinished.map((match, index) => (
                                         <MatchCard key={index} match={match} index={index}/>

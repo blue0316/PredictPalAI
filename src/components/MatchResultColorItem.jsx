@@ -67,13 +67,13 @@ const MatchResultColorItem = ({match, index, type = 'group', standalone = false}
     ]
 
     return (
-        <Spring className="h-100" type={standalone ? 'fade' : 'slideUp'} index={index}>
+        <Spring className="h-full" type={standalone ? 'fade' : 'slideUp'} index={index}>
             <StyledItem className={match.active ? 'active' : ''} color1={match.team1.color} color2={match.team2.color}>
-                <div className="main d-flex align-items-center justify-content-between">
+                <div className="main flex items-center justify-between">
                     {
                         type === 'group' ?
                             <>
-                                <div className="d-flex align-items-center g-14">
+                                <div className="flex items-center gap-3.5">
                                     <span className="player-number h3">
                                         {match.team1.score}
                                     </span>
@@ -82,7 +82,7 @@ const MatchResultColorItem = ({match, index, type = 'group', standalone = false}
                                         <span className="text-12">Group {match.group}</span>
                                     </div>
                                 </div>
-                                <div className="d-flex align-items-center g-14">
+                                <div className="flex items-center gap-3.5">
                                     <div className="text-right">
                                         <h3>{match.team2.countryCode}</h3>
                                         <span className="text-12">Group {match.group}</span>
@@ -108,9 +108,9 @@ const MatchResultColorItem = ({match, index, type = 'group', standalone = false}
                 </div>
                 {
                     match.active && (
-                        <div className="match p-relative flex-1" ref={ref}>
+                        <div className="match relative flex-1" ref={ref}>
                             <MatchProgress currentMinute={55} containerWidth={width}/>
-                            <div className="d-flex flex-column g-8">
+                            <div className="flex flex-col gap-2">
                                 <MatchEventText minute={72} text=""/>
                                 <MatchTrack events={events}/>
                             </div>

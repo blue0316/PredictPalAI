@@ -13,10 +13,10 @@ const ChampionsLeague = () => {
     return (
         <Spring className={`${styles.container} card card--side-shadow`}>
             <h3 className="card_header">Champions League</h3>
-            <DraggableScrollContainer className={`${styles.list} card_footer d-flex`}>
+            <DraggableScrollContainer className={`${styles.list} card_footer flex`}>
                 {
                     CLUBS.map((club, index) => (
-                        <Spring className={`${styles.list_item} d-flex flex-column align-items-center g-14`}
+                        <Spring className={`${styles.list_item} flex flex-col items-center gap-3.5`}
                                 key={index}
                                 index={index}
                                 type="slideLeft">

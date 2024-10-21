@@ -36,7 +36,7 @@ const Todo = ({data, variant}) => {
                                            color={checkboxColor}
                                            checked={complete}
                                            onChange={() => dispatch(toggleComplete({id}))}/>
-                            <div className="d-flex flex-column g-2 flex-1">
+                            <div className="flex flex-col gap-0.5 flex-1">
                                 <input className={`${styles.title} text-overflow`} type="text" defaultValue={name} readOnly={true}/>
                                 <span className="label h6">
                                     {dayjs(timestamp).format('DD MMM YYYY / HH:mm')}
@@ -59,9 +59,9 @@ const Todo = ({data, variant}) => {
             case 'planner':
                 return (
                     <div className={`${styles.planner_item} ${styles[theme]} ${complete ? styles.checked : ''}`} tabIndex={0}>
-                        <div className="d-flex flex-column g-8">
+                        <div className="flex flex-col gap-2">
                             <span className={styles.title}>{name}</span>
-                            <div className="d-flex align-items-center g-8">
+                            <div className="flex items-center gap-2">
                                     <span className={styles.category_color}
                                           style={{backgroundColor: `var(--${checkboxColor})`}}/>
                                     <span className={`${theme === 'dark' ? styles.timestamp : ''} label h6`}>

@@ -51,12 +51,12 @@ const NotificationsSchedule = () => {
   }, [dispatch, settings, updateUserProfile, userId, value]);
 
   return (
-    <Spring className="card card-padded d-flex flex-column g-20">
+    <Spring className="card card-padded flex flex-col gap-5">
       <div>
         <h3>Notifications Schedule</h3>
         <p className="text-12">Choose how often you want to receive alerts</p>
       </div>
-      <div className="d-flex flex-column g-16">
+      <div className="flex flex-col gap-4">
         <DoubleRangeSlider
           value={value}
           min={0}

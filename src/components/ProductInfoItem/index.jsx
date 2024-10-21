@@ -7,7 +7,7 @@ import PropTypes from 'prop-types';
 const ProductAdditionalInfo = ({property, value}) => {
     return (
         <li className={styles.row}>
-            <span className="text-600">{property}</span>
+            <span className="font-semibold">{property}</span>
             <span>{value}</span>
         </li>
     )

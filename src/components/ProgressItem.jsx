@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 const ProgressItem = ({title, value, barColor, trackColor}) => {
     return (
-        <div className="d-flex flex-column g-10">
+        <div className="flex flex-col gap-2.5">
             <h6 className="label lh-1">{title}</h6>
             <div className="progress-item__progress">
                 <Progress

@@ -85,9 +85,9 @@ const LiveMatches = ({variant = "big"}) => {
     }, [mainSwiper, thumbsSwiper, direction]);
 
     return (
-        <Spring className="card h-2 no-shadow p-relative">
+        <Spring className="card height-w-2 no-shadow relative">
             <span className={`${styles.live} tag tag--accent tag--overlay animated h6`}>Live</span>
-            <Swiper className="h-100"
+            <Swiper className="h-full"
                     modules={[EffectFade, Pagination, Thumbs, Autoplay]}
                     autoplay={{delay: 2500, disableOnInteraction: false}}
                     effect="fade"
@@ -101,7 +101,7 @@ const LiveMatches = ({variant = "big"}) => {
                 {
                     data.map(item => (
                         <SwiperSlide key={item.id}>
-                            <img className="h-100" src={item.cover} alt={item.id}/>
+                            <img className="h-full" src={item.cover} alt={item.id}/>
                         </SwiperSlide>
                     ))
                 }

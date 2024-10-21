@@ -66,10 +66,10 @@ const TaskList = () => {
     }, [formVisible]);
 
     return (
-        <Spring className="card h-2 d-flex flex-column justify-content-between">
-            <div className={`${styles.header} card_header d-flex`} ref={headerRef}>
+        <Spring className="card height-w-2 flex flex-col justify-between">
+            <div className={`${styles.header} card_header flex`} ref={headerRef}>
                 <h3>Tasks</h3>
-                <div className="d-flex g-16">
+                <div className="flex gap-4">
                     {
                         TODO_LEGEND.map((item, index) => (
                             <LegendItem key={index} {...item}/>
@@ -80,10 +80,10 @@ const TaskList = () => {
             <ScrollContainer height={headerHeight + footerHeight}>
                 <div className={`${styles.main} track`} ref={trackRef}>
                     <AddFormContainer open={formVisible}>
-                        <form className="d-flex flex-column g-20"
+                        <form className="flex flex-col gap-5"
                               onSubmit={handleSubmit(onSubmit)}
                               style={{padding: '20px 30px 10px'}}>
-                            <div className="d-flex flex-column g-20">
+                            <div className="flex flex-col gap-5">
                                 <input className={classNames('field', {'field--error': errors.title})}
                                        type="text"
                                        placeholder="Task name"
@@ -100,7 +100,7 @@ const TaskList = () => {
                                                               className={classNames('field', {'field--error': errors.type})}/>
                                             )}/>
                             </div>
-                            <div className="d-grid col-2 g-20">
+                            <div className="grid col-2 gap-5">
                                 <button className="btn">Submit</button>
                                 <button className="btn btn--outlined" type="reset" onClick={onReset}>
                                     Cancel
@@ -112,7 +112,7 @@ const TaskList = () => {
                 </div>
             </ScrollContainer>
             <div className="card_footer" ref={footerRef} style={{paddingTop: 20}}>
-                <button className="btn w-100" onClick={() => setFormVisible(true)} disabled={formVisible}>
+                <button className="btn w-full" onClick={() => setFormVisible(true)} disabled={formVisible}>
                     Add new task
                 </button>
             </div>

@@ -9,7 +9,7 @@ import avatar from '@assets/players/11.webp';
 
 const HotField = () => {
     return (
-        <Spring className="card d-flex flex-column justify-content-between card-padded g-20">
+        <Spring className="card flex flex-col justify-between card-padded gap-5">
             <PlayerInfo avatar={avatar}
                         title="Gareth Bale"
                         subtitle="Field presence areas"

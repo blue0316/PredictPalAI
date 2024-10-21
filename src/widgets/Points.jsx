@@ -14,8 +14,8 @@ const Points = () => {
     ];
 
     return (
-        <Spring className="card h-1 d-flex flex-column g-10">
-            <div className="card_header d-flex flex-column g-4">
+        <Spring className="card height-w-1 flex flex-col gap-2.5">
+            <div className="card_header flex flex-col gap-1">
                 <h3>FC Chelsea</h3>
                 <span className="text-12 text-overflow">Average attendance</span>
             </div>

@@ -29,10 +29,10 @@ const ProductColorBars = () => {
 
 
     return (
-        <Spring className="card card--side-shadow d-flex flex-column g-20">
+        <Spring className="card card--side-shadow flex flex-col gap-5">
             <h3 style={{padding: '30px 30px 0'}}>T-Shirt Colors</h3>
             <DraggableScrollContainer wrapperEL="ul"
-                                      className="d-flex justify-content-between g-10"
+                                      className="flex justify-between gap-2.5"
                                       style={{padding: '0 30px 20px'}}>
                 {
                     data.map((item, index) => (

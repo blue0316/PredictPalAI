@@ -42,21 +42,21 @@ const SidebarFavClubList = () => {
   }, []);
 
   return (
-    <div className="d-flex flex-column g-16">
-      <h3 className="text-14 text-400 text-uppercase">Favorite club</h3>
-      <ul className="d-flex flex-column g-20">
+    <div className="flex flex-col gap-4">
+      <h3 className="text-14 font-normal uppercase">Favorite club</h3>
+      <ul className="flex flex-col gap-5">
         {teams.map((team) => (
           <li key={team.team.id}>
             <Link
               to={`/team/${team.team.id}`}
-              className="d-flex align-items-center g-16 border-full h4"
+              className="flex items-center gap-4 rounded-full h4"
             >
               <img
                 src={team.team.logo}
                 width={24}
                 height={24}
                 alt="Team Logo"
-                className="min-w-8 w-8 h-8 object-contain border-px border-solid border-full p-px"
+                className="min-w-8 w-8 h-8 object-contain border border-solid rounded-full p-px"
               />
               <span className="text-12 flex-1">{team.team.name}</span>
               <FontAwesomeIcon icon={faStar} style={{ color: "#F5C451" }} />

@@ -7,10 +7,10 @@ import {NavLink} from 'react-router-dom';
 
 const ProductColumnCard = ({product}) => {
     return (
-        <div className="card p-relative">
+        <div className="card relative">
             <img className="cover" src={product.img} alt={product.name}/>
-            <div className={`${styles.main} d-flex flex-column g-8 card-padded`}>
-                <div className="d-flex align-items-center justify-content-between">
+            <div className={`${styles.main} flex flex-col gap-2 card-padded`}>
+                <div className="flex items-center justify-between">
                     <NavLink className="h3 light" to="/product" style={{maxWidth: 178}}>
                         {product.name}
                     </NavLink>

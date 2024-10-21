@@ -27,13 +27,13 @@ const StoreSidebar = () => {
                 }
             }}
         >
-            <div className="d-flex align-items-center justify-content-between" style={{marginBottom: 40}}>
+            <div className="flex items-center justify-between" style={{marginBottom: 40}}>
                 <h2>Filters</h2>
                 <button className="h3" onClick={() => setFiltersOpen(false)} aria-label="Close filters">
                     <i className="icon icon-xmark"/>
                 </button>
             </div>
-            <div className="d-flex flex-column g-30">
+            <div className="flex flex-col g-30">
                 <StoreCategories standalone={false}/>
                 <StorePriceFilter standalone={false}/>
                 <StoreSizesSelector standalone={false}/>

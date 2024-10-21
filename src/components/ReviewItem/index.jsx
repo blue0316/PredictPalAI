@@ -28,7 +28,7 @@ const ReviewItem = ({review, index}) => {
 
     return (
         <Spring className={styles.container} type="slideUp" index={index}>
-            <div className="d-flex flex-column g-20">
+            <div className="flex flex-col gap-5">
                 <h3>{review.title}</h3>
                 <p>{review.text}</p>
             </div>
@@ -36,12 +36,12 @@ const ReviewItem = ({review, index}) => {
                 <CustomRating value={review.rating}/>
             </div>
             <div className={styles.footer}>
-                <div className="d-flex align-items-center g-20">
+                <div className="flex items-center gap-5">
                     <img className="square-avatar" src={review.avatar} alt={review.name}/>
-                    <span className="text-600">{review.name}</span>
+                    <span className="font-semibold">{review.name}</span>
                 </div>
-                <div className="d-flex align-items-center g-16">
-                    <button className="d-flex g-8 align-items-center"
+                <div className="flex items-center gap-4">
+                    <button className="flex gap-2 items-center"
                             aria-label="This review was helpful"
                             onClick={handleLike}>
                         <span className={`${styles.thumbs} ${styles.up}`}>
@@ -50,7 +50,7 @@ const ReviewItem = ({review, index}) => {
                         </span>
                         <span className="label h6">({liked.count})</span>
                     </button>
-                    <button className="d-flex g-8 align-items-center"
+                    <button className="flex gap-2 items-center"
                             aria-label="This review was not helpful"
                             onClick={handleDislike}>
                         <span className={`${styles.thumbs} ${styles.down}`}>

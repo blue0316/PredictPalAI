@@ -23,21 +23,21 @@ const BasicProductDisplay = () => {
 
     return (
         <Spring className={`${styles.container} card card-padded`}>
-            <div className="d-flex flex-column g-20">
+            <div className="flex flex-col gap-5">
                 <div className={styles.media}>
                     <span className="tag tag--overlay tag--store label h6">Sale</span>
                     <LazyImage className={styles.media_img} src={product} alt="product"/>
                 </div>
-                <div className="d-flex flex-column g-14">
-                    <div className="d-flex align-items-center justify-content-between g-24">
+                <div className="flex flex-col gap-3.5">
+                    <div className="flex items-center justify-between gap-6">
                         <NavLink className="flex-1" to="/product" ref={ref}>
                             <TruncatedText className="h3" text="Nike Lime Yellow FC Barcelona Core T-shirt for men" width={width} />
                         </NavLink>
                         <Like color="light"/>
                     </div>
-                    <div className="d-flex align-items-center justify-content-between">
+                    <div className="flex items-center justify-between">
                         <Price price={254.99}/>
-                        <div className="d-flex g-20">
+                        <div className="flex gap-5">
                             <CompareButton/>
                             <IconButton/>
                         </div>

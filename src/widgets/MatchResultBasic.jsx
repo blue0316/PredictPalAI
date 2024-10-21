@@ -18,9 +18,9 @@ const data = [
 
 const MatchResultBasic = () => {
     return (
-        <Spring className="card h-4">
+        <Spring className="card height-w-4">
             <ScrollContainer height={0}>
-                <div className="track d-flex flex-column g-20" style={{padding: 20}}>
+                <div className="track flex flex-col gap-5" style={{padding: 20}}>
                     {
                         data.map((item, index) => (
                             <MatchResultBasicItem key={index} data={item} index={index}/>

@@ -25,10 +25,10 @@ const LatestMessages = () => {
     });
 
     return (
-        <Spring className="card h-2">
+        <Spring className="card height-w-2">
             <h3 className={styles.header} ref={ref}>Latest messages</h3>
             <ScrollContainer height={height} bg="widget-bg">
-                <div className={`${styles.main} track d-flex flex-column g-10`}>
+                <div className={`${styles.main} track flex flex-col gap-2.5`}>
                     {
                         uniqueDates.map((date, index) => {
                             const isToday = dayjs().format('DD.MM.YY') === date;

@@ -54,8 +54,8 @@ const ActiveActionsChart = () => {
     }, [width]);
 
     return (
-        <Spring className="card h-2 d-flex flex-column g-30 card-padded">
-            <div className="d-flex flex-column g-20">
+        <Spring className="card height-w-2 flex flex-col g-30 card-padded">
+            <div className="flex flex-col gap-5">
                 <ClubInfo id="tottenham" title="Active actions" subtitle="Tottenham, London"/>
                 <div className="tab-nav col-2">
                     <TabButton

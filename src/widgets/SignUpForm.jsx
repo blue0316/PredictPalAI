@@ -120,7 +120,7 @@ const SignUpForm = ({ standalone = true }) => {
 
   return (
     <Wrapper {...wrapperProps}>
-      <div className="d-flex flex-column g-4">
+      <div className="flex flex-col gap-1">
         <h3>Create new account</h3>
         <p className="text-12">
           Fill out the form below to create a new account
@@ -128,7 +128,7 @@ const SignUpForm = ({ standalone = true }) => {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div
-          className="d-flex flex-column g-20"
+          className="flex flex-col gap-5"
           style={{ margin: "20px 0 30px" }}
         >
           <input
@@ -197,7 +197,7 @@ const SignUpForm = ({ standalone = true }) => {
           {errors.passwordConfirm && <p className="error">{errors.passwordConfirm.message}</p>}
         </div>
 
-        <div className="d-flex justify-content-between align-items-center g-16">
+        <div className="flex justify-between items-center gap-4">
           <button type="submit" className="btn flex-1" disabled={!isValid}>
             Create account
           </button>

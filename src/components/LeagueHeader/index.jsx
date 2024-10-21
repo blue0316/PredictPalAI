@@ -13,11 +13,11 @@ const LeagueHeader = ({img, title, subtitle, variant = 'full'}) => {
     const titleClass = variant === 'full' ? 'text-20' : '';
 
     return (
-        <div className="d-flex align-items-center g-20">
+        <div className="flex items-center gap-5">
             <LazyImage className={classNames(styles.media, {[styles.compact]: variant !== 'full'})}
                        src={img}
                        alt="media"/>
-            <div className="d-flex flex-column g-4">
+            <div className="flex flex-col gap-1">
                 <Title className={titleClass}>{title}</Title>
                 {(subtitle && variant === 'full') && <span className="text-12">{subtitle}</span>}
             </div>

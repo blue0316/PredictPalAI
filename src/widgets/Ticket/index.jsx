@@ -74,7 +74,7 @@ const Ticket = () => {
                     <span className="h3">20:10</span>
                 </div>
             </div>
-            <div className="d-flex flex-column g-12 card-padded">
+            <div className="flex flex-col gap-3 card-padded">
                 <img className={classNames(styles.code, theme === 'light' && styles.light)} src={barcode}
                      alt="barcode"/>
                 <span className="h6 label">32056 - 65651 - 56465 - 09484</span>

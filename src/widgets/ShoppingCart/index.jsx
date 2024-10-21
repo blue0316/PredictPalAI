@@ -35,7 +35,7 @@ const ShoppingCart = ({isPopup}) => {
         onClose: () => setCartOpen(false),
         popupClass: styles.popup
     } : {
-        className: 'card h-2 d-flex flex-column'
+        className: 'card height-w-2 flex flex-col'
     };
 
     const data = [
@@ -89,17 +89,17 @@ const ShoppingCart = ({isPopup}) => {
                 Shopping Cart
             </h3>
             <ScrollContainer height={headerHeight + footerHeight}>
-                <div className="track d-flex flex-column flex-1">
+                <div className="track flex flex-col flex-1">
                     {
                         data.map(item => {
                             const price = `$${item.price.toFixed(2)}`;
 
                             return (
-                                <div className={`${styles.item} d-flex align-items-center justify-content-between g-20`}
+                                <div className={`${styles.item} flex items-center justify-between gap-5`}
                                      key={item.id}>
-                                    <div className="d-flex align-items-center flex-1 g-10">
+                                    <div className="flex items-center flex-1 gap-2.5">
                                         <img className="square-avatar" src={item.img} alt={item.title}/>
-                                        <div className="d-flex flex-column flex-1" ref={nameRef}>
+                                        <div className="flex flex-col flex-1" ref={nameRef}>
                                             <NavLink to="/product">
                                                 <TruncatedText className="h4" text={item.title} width={width} lines={1}/>
                                             </NavLink>
@@ -110,7 +110,7 @@ const ShoppingCart = ({isPopup}) => {
                                     </div>
                                     {
                                         isPopup ?
-                                            <div className="d-flex g-10">
+                                            <div className="flex gap-2.5">
                                                 <Like isCartAction/>
                                                 <CompareButton isCartAction/>
                                                 <IconButton icon="trash" ariaLabel="Remove product" isCartAction/>
@@ -124,13 +124,13 @@ const ShoppingCart = ({isPopup}) => {
                     }
                 </div>
             </ScrollContainer>
-            <div className="card-padded d-flex flex-column g-20" ref={footerRef}>
+            <div className="card-padded flex flex-col gap-5" ref={footerRef}>
                 {
                     isPopup && (
-                        <p className="d-flex justify-content-between h3">Total: <span>$985.90</span></p>
+                        <p className="flex justify-between h3">Total: <span>$985.90</span></p>
                     )
                 }
-                <button className="btn w-100">Proceed to checkout</button>
+                <button className="btn w-full">Proceed to checkout</button>
             </div>
         </Wrapper>
     )

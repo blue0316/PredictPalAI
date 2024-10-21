@@ -35,10 +35,10 @@ const ProductVertical = () => {
     }, [swiper, direction]);
 
     return (
-        <Spring className="card d-flex flex-column card-padded">
+        <Spring className="card flex flex-col card-padded">
             <div className="flex-1">
-                <div className="d-flex flex-column g-16">
-                    <div className="d-flex flex-column g-10">
+                <div className="flex flex-col gap-4">
+                    <div className="flex flex-col gap-2.5">
                         <span className="label label--store h6">Сity backpacks</span>
                         <div className={styles.title} ref={titleRef}>
                             <TruncatedText className="h3" text="Gazelle Super x Alltimers Backpack" width={titleWidth}/>
@@ -63,12 +63,12 @@ const ProductVertical = () => {
                         <img src={img3} alt="img3"/>
                     </SwiperSlide>
                 </Swiper>
-                <div className="d-flex flex-column g-30">
+                <div className="flex flex-col g-30">
                     <p>
                         Knuckle rally save bat center field full count swing grass. League can of corn slide
                         doubleheader hall of fame perfect game dodgers dodgers bunt. League can of corn slide.
                     </p>
-                    <ul className="d-flex flex-column g-8">
+                    <ul className="flex flex-col gap-2">
                         <ProductInfoItem property="Brand:" value="Nike"/>
                         <ProductInfoItem property="Color:" value="Black"/>
                         <ProductInfoItem property="Fabric:" value="100% cotton"/>
@@ -76,9 +76,9 @@ const ProductVertical = () => {
                     </ul>
                 </div>
             </div>
-            <div className={`${styles.footer} d-flex justify-content-between`}>
+            <div className={`${styles.footer} flex justify-between`}>
                 <IconButton/>
-                <div className="d-flex align-items-center g-20">
+                <div className="flex items-center gap-5">
                     <CompareButton/>
                     <Like color="light"/>
                 </div>

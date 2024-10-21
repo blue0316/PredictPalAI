@@ -46,7 +46,7 @@ const PlayerRow = ({player, index}) => {
                 <div>
                     <LazyImage className="media" src={player.avatar} alt={player.name} data-captain={player.isCaptain}/>
                 </div>
-                <div className="main d-flex align-items-center justify-content-between">
+                <div className="main flex items-center justify-between">
                     {player.name} ({player.number})
                     {player.substitutes && <SubstitutionIcon className="icon"/>}
                 </div>

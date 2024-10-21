@@ -53,7 +53,7 @@ const MatchResultBasicItem = ({data, index}) => {
         <Spring type="slideUp" index={index}>
             <StyledAccordion expanded={expanded === index} onChange={handleChange(index)}>
                 <StyledAccordionSummary>
-                    <div className="d-flex align-items-center flex-1 g-20 card-padded">
+                    <div className="flex items-center flex-1 gap-5 card-padded">
                         <div className="h3">
                             {data.currentMinute}'
                         </div>

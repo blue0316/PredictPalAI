@@ -42,7 +42,7 @@ const Navigator = ({active, setActive}) => {
     return (
         <div className={`${styles.navigator} ${theme === 'light' ? styles.light : styles.dark}`}>
             <Swiper
-                className="h-100"
+                className="h-full"
                 slidesPerView="auto"
                 spaceBetween={10}
                 centeredSlides={true}
@@ -71,9 +71,9 @@ const MonthMatches = () => {
     const [selectedDay, setSelectedDay] = useState(parseInt(dayjs().format('DD')));
 
     return (
-        <Spring className="card d-flex flex-column">
-            <div className="card_header d-flex flex-column g-10" style={{paddingBottom: 20}}>
-                <div className="d-flex justify-content-between align-items-center">
+        <Spring className="card flex flex-col">
+            <div className="card_header flex flex-col gap-2.5" style={{paddingBottom: 20}}>
+                <div className="flex justify-between items-center">
                     <h3>{dayjs().format('MMMM')} matches</h3>
                     <NavLink className="text-button" to="/schedule">Scheduler</NavLink>
                 </div>
@@ -82,7 +82,7 @@ const MonthMatches = () => {
             <div className={styles.grid}>
                 <div className={styles.scroll}>
                     <ScrollContainer height={0}>
-                        <div className={`${styles.scroll_track} ${styles[direction]} track d-flex flex-column g-20`}>
+                        <div className={`${styles.scroll_track} ${styles[direction]} track flex flex-col gap-5`}>
                             {
                                 matches.map((match, index) => (
                                     <MatchMonthCard match={match} index={index} key={index}/>

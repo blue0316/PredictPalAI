@@ -36,9 +36,9 @@ const SliderWrapper = ({children}) => {
 
     return (
         <Spring>
-            <div className="p-relative">
+            <div className="relative">
                 <Swiper
-                    className="h-100"
+                    className="h-full"
                     onSwiper={setSwiper}
                     modules={[Navigation, Autoplay]}
                     navigation

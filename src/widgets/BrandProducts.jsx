@@ -24,9 +24,9 @@ const BrandProducts = () => {
     }, [swiper, direction]);
 
     return (
-        <Spring className="h-2 h-100 p-relative">
+        <Spring className="height-w-2 h-full relative">
             <Swiper
-                className="h-100"
+                className="h-full"
                 spaceBetween={24}
                 slidesPerView={1}
                 onSwiper={setSwiper}

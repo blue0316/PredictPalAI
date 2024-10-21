@@ -13,17 +13,17 @@ const StoreSupport = () => {
 
     return (
         <Spring className="card">
-            <div className={`${styles.main} d-flex flex-column g-16`}>
+            <div className={`${styles.main} flex flex-col gap-4`}>
                 <span>We will call you back</span>
-                <div className="d-flex align-items-center g-14">
+                <div className="flex items-center gap-3.5">
                     <IconButton color="blue-gradient" icon="phone-light" onClick={() => ref.current.click()}/>
-                    <div className="d-flex flex-column g-4">
+                    <div className="flex flex-col gap-1">
                         <a className="h2" href="tel:+88003254486" ref={ref}>8 800 3254486</a>
-                        <h6 className="label text-highlight lh-1">24/7 Support</h6>
+                        <h6 className="label text-highlight lheight-w-1">24/7 Support</h6>
                     </div>
                 </div>
             </div>
-            <div className={`${styles.footer} d-grid col-2 g-24`}>
+            <div className={`${styles.footer} grid col-2 gap-6`}>
                 <button className="btn">Start chat</button>
                 <button className="btn btn--outlined">Voice call</button>
             </div>

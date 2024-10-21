@@ -8,16 +8,16 @@ const InfoTabsNav = ({variant = 'main'}) => {
     const [active, setActive] = useState('lineups');
 
     return (
-        <div className="d-grid col-2">
+        <div className="grid col-2">
             <button className={`btn--switch ${active === 'lineups' && 'active'} ${variant} `}
                     onClick={() => setActive('lineups')}>
-                <span className="p-relative z-2">
+                <span className="relative z-2">
                     Lineups
                 </span>
             </button>
             <button className={`btn--switch ${active === 'goals' && 'active'} ${variant} `}
                     onClick={() => setActive('goals')}>
-                <span className="p-relative z-2">
+                <span className="relative z-2">
                     Goals
                 </span>
             </button>

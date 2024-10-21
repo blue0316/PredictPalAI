@@ -56,6 +56,9 @@ import { onAuthStateChanged } from "firebase/auth";
 import { login, logout, authCheckComplete } from "@features/users/userSlice";
 import { useDispatch } from "react-redux";
 import { auth } from "./firebase/firebase";
+import VideoGallery from "@pages/VideoGallery";
+import VideoAnalysis from "@pages/VideoAnalysis";
+import AttackPlanGenerate from "@pages/AttackPlanGenerate";
 
 // pages
 const MainPage = lazy(() => import("@pages/MainPage"));
@@ -88,8 +91,10 @@ const App = () => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         dispatch(login(user));
+        localStorage.setItem('userToken', user.accessToken);
       } else {
         dispatch(logout());
+        localStorage.removeItem('userToken');
       }
       dispatch(authCheckComplete());
     });
@@ -151,7 +156,7 @@ const App = () => {
                     </>
                   )}
                   <div className="app_container">
-                    <div className="app_container-content d-flex flex-column flex-1">
+                    <div className="app_container-content flex flex-col flex-1">
                       <Suspense fallback={<LoadingScreen />}>
                         <Routes>
                           <Route path="*" element={<PageNotFound />} />
@@ -204,11 +209,34 @@ const App = () => {
                             }
                           />
                           <Route
+                            path="/video-gallery"
+                            element={
+                              <PrivateRoute>
+                                <VideoGallery />
+                              </PrivateRoute>
+                            }
+                          />
+                          <Route
+                            path="/video-analysis"
+                            element={
+                              <PrivateRoute>
+                                <VideoAnalysis />
+                              </PrivateRoute>
+                            }
+                          />
+                          <Route
+                            path="/generate-attack-plans"
+                            element={
+                              <PrivateRoute>
+                                <AttackPlanGenerate />
+                              </PrivateRoute>
+                            }
+                          />
+                          <Route
                             path="/settings"
                             element={
                               <PrivateRoute>
-                                {/* <Settings /> */}
-                                <LoadingScreen />
+                                <Settings />
                               </PrivateRoute>
                             }
                           />

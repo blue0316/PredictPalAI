@@ -39,7 +39,7 @@ const BassPossessionAreaChartMini = () => {
     }
 
     return (
-        <Spring className="card h-1 card--side-shadow d-flex flex-column">
+        <Spring className="card height-w-1 card--side-shadow flex flex-col">
             <div className="card_header">
                 <h3>Ball possession</h3>
                 <span className="text-12">Tottenham vs. Wolves</span>
@@ -67,8 +67,8 @@ const BassPossessionAreaChartMini = () => {
                           {...areaProps}/>
                 </AreaChart>
             </ResponsiveContainer>
-            <div className="card_footer d-flex justify-content-between" style={footerStyles}>
-                <div className="d-flex g-16">
+            <div className="card_footer flex justify-between" style={footerStyles}>
+                <div className="flex gap-4">
                     <span className="tag h6 dark" style={{backgroundColor: 'var(--blue)'}}>
                         Tottenham
                     </span>

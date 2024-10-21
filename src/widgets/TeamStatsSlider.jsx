@@ -32,8 +32,8 @@ const TeamStatsSlider = () => {
     }, [direction, swiper]);
 
     return (
-        <Spring className="w-100 h-100 p-relative">
-            <Swiper className="w-100 h-100"
+        <Spring className="w-full h-full relative">
+            <Swiper className="w-full h-full"
                     style={{paddingTop: 8, marginTop: -8}}
                     onSwiper={setSwiper}
                     modules={[Autoplay]}
@@ -50,7 +50,7 @@ const TeamStatsSlider = () => {
                     spaceBetween={24}>
                 {
                     data.map((item, index) => (
-                        <SwiperSlide className="w-100 h-100"
+                        <SwiperSlide className="w-full h-full"
                                      key={index}
                                      style={{
                                          width: 175,

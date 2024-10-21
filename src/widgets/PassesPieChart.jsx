@@ -26,7 +26,7 @@ const PassesPieChart = () => {
     const [selectedHalf, setSelectedHalf] = useState('first');
 
     return (
-        <Spring className="card d-flex flex-column justify-content-between">
+        <Spring className="card flex flex-col justify-between">
             <h3 className="card_header">Passes stats</h3>
             <div style={{height: 300}}>
                 <ResponsiveContainer width="100%" height="100%">

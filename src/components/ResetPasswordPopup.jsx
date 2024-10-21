@@ -41,16 +41,16 @@ const ResetPasswordPopup = ({ open, onClose }) => {
 
   return (
     <Popup open={open} onClose={handleClose}>
-      <div className="d-flex flex-column g-20">
-        <div className="d-flex flex-column g-10">
+      <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-2.5">
           <h2>Reset Password</h2>
           <p>
             Enter your email address below and we'll send you a link to reset
             your password.
           </p>
         </div>
-        <div className="d-flex flex-column g-16">
-          <form className="d-flex g-10" onSubmit={handleSubmit(onSubmit)}>
+        <div className="flex flex-col gap-4">
+          <form className="flex gap-2.5" onSubmit={handleSubmit(onSubmit)}>
             <input
               className={classNames("field", { "field--error": errors.email })}
               type="text"

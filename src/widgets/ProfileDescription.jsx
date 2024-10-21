@@ -60,11 +60,11 @@ const ProfileDescription = () => {
   };
 
   return (
-    <Spring className="card card-padded h-2 d-flex flex-column g-20">
+    <Spring className="card card-padded height-w-2 flex flex-col gap-5">
       <h3>Description</h3>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="d-flex flex-column flex-1 g-30"
+        className="flex flex-col flex-1 g-30"
       >
         <Controller
           name="Bio"
@@ -82,7 +82,7 @@ const ProfileDescription = () => {
             </>
           )}
         />
-        <div className="d-flex flex-column g-16">
+        <div className="flex flex-col gap-4">
           <button type="submit" className="btn" disabled={!isDirty}>
             {loading ? "Updating..." : "Update"}
           </button>

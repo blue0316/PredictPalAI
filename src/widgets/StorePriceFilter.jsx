@@ -12,7 +12,7 @@ const valuetext = (value) => {
 
 const StorePriceFilter = ({standalone = true}) => {
     const Wrapper = standalone ? Spring : 'div';
-    const wrapperProps = standalone ? {className: 'card d-flex flex-column justify-content-between card-padded'} : {className: 'd-flex flex-column justify-content-between g-24'};
+    const wrapperProps = standalone ? {className: 'card flex flex-col justify-between card-padded'} : {className: 'flex flex-col justify-between gap-6'};
     const min = 5, max = 9999;
     const [value, setValue] = useState([min, max]);
 
@@ -26,7 +26,7 @@ const StorePriceFilter = ({standalone = true}) => {
                 <h3>Price range</h3>
                 <p className="text-12">Technical and tactical actions</p>
             </div>
-            <div className="d-flex flex-column g-24">
+            <div className="flex flex-col gap-6">
                 <DoubleRangeSlider
                     ariaLabel="Price range"
                     value={value}
@@ -36,7 +36,7 @@ const StorePriceFilter = ({standalone = true}) => {
                     valueLabelDisplay="auto"
                     valueText={valuetext}
                 />
-                <div className="d-flex justify-content-between">
+                <div className="flex justify-between">
                     <Price price={value} isRange/>
                     <button className="btn btn--sm">Apply</button>
                 </div>

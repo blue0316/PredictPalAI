@@ -52,10 +52,10 @@ const NotificationsSettings = () => {
   );
 
   return (
-    <Spring className="card card-padded d-flex flex-column g-20">
+    <Spring className="card card-padded flex flex-col gap-5">
       <h3>Notifications Settings</h3>
-      <div className="d-flex flex-column g-14">
-        <div className="d-flex align-items-center g-12">
+      <div className="flex flex-col gap-3.5">
+        <div className="flex items-center gap-3">
           <BasicCheckbox
             id="email_notifications"
             color="grass"
@@ -72,7 +72,7 @@ const NotificationsSettings = () => {
           />
           <label htmlFor="email_notifications">Email Notifications</label>
         </div>
-        <div className="d-flex align-items-center g-12">
+        <div className="flex items-center gap-3">
           <BasicCheckbox
             id="push_notifications"
             color="grass"
@@ -89,7 +89,7 @@ const NotificationsSettings = () => {
           />
           <label htmlFor="push_notifications">Push Notifications</label>
         </div>
-        <div className="d-flex align-items-center g-12">
+        <div className="flex items-center gap-3">
           <BasicCheckbox
             id="new_comment_replies"
             color="grass"
@@ -106,7 +106,7 @@ const NotificationsSettings = () => {
           />
           <label htmlFor="new_comment_replies">New comment replies</label>
         </div>
-        <div className="d-flex align-items-center g-12">
+        <div className="flex items-center gap-3">
           <BasicCheckbox
             id="new_messages"
             color="grass"

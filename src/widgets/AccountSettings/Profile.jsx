@@ -118,7 +118,7 @@ const Profile = () => {
   };
 
   return (
-    <form className="d-flex flex-column g-20" onSubmit={handleSubmit(onSubmit)}>
+    <form className="flex flex-col gap-5" onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.row}>
         <input
           className={classNames("field", { "field--error": errors.Name })}

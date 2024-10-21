@@ -30,7 +30,7 @@ const Trigger = () => {
 
     return (
         <StyledTrigger top={0} innerZ={999} activeClass="is-sticky">
-            <div className="d-flex align-items-center justify-content-between flex-1">
+            <div className="flex items-center justify-between flex-1">
                 <h3>Filters</h3>
                 <button className="h3" onClick={() => setFiltersOpen(true)} aria-label="Open filters">
                     <i className="icon icon-sliders"/>

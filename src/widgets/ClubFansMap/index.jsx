@@ -39,12 +39,12 @@ const ClubFansMap = ({id}) => {
     const club = CLUBS.find(club => club.id === id);
 
     return (
-        <Spring className="card h-1 card-padded p-relative">
+        <Spring className="card height-w-1 card-padded relative">
             <Map/>
-            <div className={`${styles.content} d-flex flex-column justify-content-between p-relative h-100`}>
+            <div className={`${styles.content} flex flex-col justify-between relative h-full`}>
                 <h3>{club.shortName} fans</h3>
-                <div className="d-flex flex-column g-4">
-                    <div className="d-flex align-items-center g-8">
+                <div className="flex flex-col gap-1">
+                    <div className="flex items-center gap-2">
                         <img className="club-logo club-logo--sm" src={club.logo} alt={club.name}/>
                         <AnimatedCount className="h2" count={102000} isFormatted/>
                     </div>

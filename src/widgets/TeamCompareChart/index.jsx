@@ -86,9 +86,9 @@ const TeamCompareChart = () => {
     }
 
     return (
-        <Spring className="card h-2 d-flex flex-column g-30">
+        <Spring className="card height-w-2 flex flex-col g-30">
             <div className="card_header">
-                <div className="d-flex align-items-center justify-content-between p-relative">
+                <div className="flex items-center justify-between relative">
                     <StyledClubInfo>
                         <ClubInfo id="bayern"/>
                     </StyledClubInfo>
@@ -98,9 +98,9 @@ const TeamCompareChart = () => {
                     </StyledClubInfo>
                 </div>
             </div>
-            <div className="d-flex flex-column border-top flex-1 card-padded">
-                <div className="d-flex justify-content-between p-relative">
-                    <div className="d-flex align-items-center g-20">
+            <div className="flex flex-col border-top flex-1 card-padded">
+                <div className="flex justify-between relative">
+                    <div className="flex items-center gap-5">
                         <button data-direction="prev" onClick={navigate} aria-label="Previous">
                             <i className="icon-arrow-left"/>
                         </button>
@@ -111,7 +111,7 @@ const TeamCompareChart = () => {
                         </h2>
                     </div>
                     <span className={styles.separator}/>
-                    <div className="d-flex align-items-center g-20">
+                    <div className="flex items-center gap-5">
                         <h2 className={`${styles.b} ${styles.num}`}>
                             <AnimatedCount
                                 count={getAverageValues(team_compare[Object.keys(team_compare)[index]]).averageB.toFixed(2)}

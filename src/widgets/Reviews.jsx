@@ -58,8 +58,8 @@ const Reviews = ({standalone, wrapperClass}) => {
     }, [activeTab, isFormOpen]);
 
     return (
-        <Wrapper className={standalone ? 'card h-3' : wrapperClass}>
-            <div className={`${standalone ? 'card_header' : ''} d-flex flex-column g-16`}
+        <Wrapper className={standalone ? 'card height-w-3' : wrapperClass}>
+            <div className={`${standalone ? 'card_header' : ''} flex flex-col gap-4`}
                  ref={headerRef}
                  style={{paddingBottom: 24}}>
                 <h3>Reviews</h3>
@@ -78,7 +78,7 @@ const Reviews = ({standalone, wrapperClass}) => {
                         standalone &&
                         <AddFormContainer open={isFormOpen}>
                             <form onSubmit={handleSubmit(onSubmit)} style={{marginBottom: 30}}>
-                                <div className="d-flex flex-column g-10">
+                                <div className="flex flex-col gap-2.5">
                                     <input className={classNames('field', {'field--error': errors.title})}
                                            type="text"
                                            placeholder="Title"
@@ -87,7 +87,7 @@ const Reviews = ({standalone, wrapperClass}) => {
                                               placeholder="Your review"
                                               {...register('text', {required: true})}/>
                                 </div>
-                                <div className="d-flex align-items-center justify-content-between"
+                                <div className="flex items-center justify-between"
                                      style={{margin: '15px 0 20px'}}>
                                     <span className="label h6">Your rating:</span>
                                     <Controller name="rating"
@@ -98,7 +98,7 @@ const Reviews = ({standalone, wrapperClass}) => {
                                                                   onChange={(value) => field.onChange(value)}/>
                                                 )}/>
                                 </div>
-                                <div className="d-grid col-2 g-10">
+                                <div className="grid col-2 gap-2.5">
                                     <button className="btn" type="submit">
                                         Submit
                                     </button>
@@ -109,7 +109,7 @@ const Reviews = ({standalone, wrapperClass}) => {
                             </form>
                         </AddFormContainer>
                     }
-                    <div className="d-flex flex-column g-24">
+                    <div className="flex flex-col gap-6">
                         {
                             getReviews().map((review, index) => (
                                 <ReviewItem review={review} index={index} key={review.id}/>
@@ -121,7 +121,7 @@ const Reviews = ({standalone, wrapperClass}) => {
             {
                 standalone &&
                 <div className={standalone ? 'card-padded' : 'pt-30'} ref={footerRef}>
-                    <button className="btn w-100" onClick={() => setIsFormOpen(true)} disabled={isFormOpen}>
+                    <button className="btn w-full" onClick={() => setIsFormOpen(true)} disabled={isFormOpen}>
                         Leave a review
                     </button>
                 </div>

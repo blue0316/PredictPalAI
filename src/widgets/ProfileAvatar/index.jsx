@@ -113,7 +113,7 @@ const ProfileAvatar = () => {
   return (
     <Spring className={`${styles.card} card card-padded`}>
       <h3 className={styles.title}>My Profile</h3>
-      <div className={`${styles.container} d-flex align-items-center`}>
+      <div className={`${styles.container} flex items-center`}>
         <div className={styles.wrapper}>
           <input type="file" onChange={handleUpload} ref={inputRef} hidden />
           <div>
@@ -141,7 +141,7 @@ const ProfileAvatar = () => {
             actions={submenuActions}
           />
         </div>
-        <div className="d-flex flex-column g-4">
+        <div className="flex flex-col gap-1">
           <h3 className="text-overflow" style={{
             maxWidth: "160px"
           }}>

@@ -7,9 +7,12 @@ import instagramIcon from "../../assets/Instagram.svg";
 import youtubeIcon from "../../assets/YouTube.svg";
 import logo from "../../assets/logo/logo-light.png";
 import ButtonWithHoverEffect from "@components/ButtonWithHoverEffect";
+import { useSelector } from "react-redux";
 
 const SidebarTwo = () => {
   const location = useLocation();
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
+
   return (
     <div className={styles.sidebar}>
       <div className={styles.logo}>
@@ -17,14 +20,25 @@ const SidebarTwo = () => {
       </div>
       <ul className={styles.navLinks}>
         <li className={styles.navLinkWrapper}>
-          <Link
-            className={`${styles.navLink} ${
-              location.pathname === "/" ? styles.navLink_active : ""
-            }`}
-            to="/"
-          >
-            Home
-          </Link>
+          {isAuthenticated ? (
+            <Link
+              className={`${styles.navLink} ${
+                location.pathname === "/dashboard" ? styles.navLink_active : ""
+              }`}
+              to="/dashboard"
+            >
+              Dashboard
+            </Link>
+          ) : (
+            <Link
+              className={`${styles.navLink} ${
+                location.pathname === "/" ? styles.navLink_active : ""
+              }`}
+              to="/"
+            >
+              Home
+            </Link>
+          )}
         </li>
         <li className={styles.navLinkWrapper}>
           <Link

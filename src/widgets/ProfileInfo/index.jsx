@@ -9,29 +9,29 @@ const ProfileInfo = () => {
   const profileData = useSelector((state) => state.user?.profile);
   
   return (
-    <Spring className="card d-flex flex-column g-16 card-padded">
+    <Spring className="card flex flex-col gap-4 card-padded">
       <h3>Profile info</h3>
-      <ul className="d-flex flex-column justify-content-between flex-1 g-14">
+      <ul className="flex flex-col justify-between flex-1 gap-3.5">
         <li className={styles.item}>
-          <span className="text-600 text-header">Full Name</span>
+          <span className="font-semibold text-header">Full Name</span>
           <span className={`${styles.value} text-overflow`}>
             {profileData?.Name || "Anonymous User"}
           </span>
         </li>
         <li className={styles.item}>
-          <span className="text-600 text-header">Phone</span>
+          <span className="font-semibold text-header">Phone</span>
           <span className={`${styles.value} text-overflow`}>
             {profileData?.Phone || "Not registered"}
           </span>
         </li>
         <li className={styles.item}>
-          <span className="text-600 text-header">Full Name</span>
+          <span className="font-semibold text-header">Full Name</span>
           <span className={`${styles.value} text-overflow`}>
             {profileData?.Email}
           </span>
         </li>
         <li className={styles.item}>
-          <span className="text-600 text-header">Location</span>
+          <span className="font-semibold text-header">Location</span>
           <span className={`${styles.value} text-overflow`}>
             {profileData?.Country
               ? `${profileData?.City ? `${profileData?.City.label}, ` : ""}${

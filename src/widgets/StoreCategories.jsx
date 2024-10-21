@@ -34,7 +34,7 @@ const Category = styled.div`
 const StoreCategories = ({standalone = true}) => {
     const {direction} = useThemeProvider();
     const Wrapper = standalone ? Spring : 'div';
-    const wrapperProps = standalone ? {className: 'card d-flex flex-column g-20 card-padded'} : {className: 'd-flex flex-column g-20'};
+    const wrapperProps = standalone ? {className: 'card flex flex-col gap-5 card-padded'} : {className: 'flex flex-col gap-5'};
 
     const data = [
         {id: 'swim', name: 'Swimwear', qty: 24},
@@ -46,10 +46,10 @@ const StoreCategories = ({standalone = true}) => {
     return (
         <Wrapper {...wrapperProps}>
             <h3>Categories</h3>
-            <div className="d-flex flex-column g-12">
+            <div className="flex flex-col gap-3">
                 {
                     data.map(item => (
-                        <Category className="d-flex align-items-center g-12" key={item.id}>
+                        <Category className="flex items-center gap-3" key={item.id}>
                             <BasicCheckbox id={item.id} color="grass"/>
                             <label className="item text-16" htmlFor={item.id}>
                                 {item.name}

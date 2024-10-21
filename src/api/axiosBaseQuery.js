@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
 const axiosBaseQuery =
-  ({ baseUrl } = { baseUrl: '' }) =>
+  ({ baseUrl, headers } = { baseUrl: "", headers: {} }) =>
   async ({ url, method, data }) => {
     try {
-      const result = await axios({ url: baseUrl + url, method, data });
+      const result = await axios({ url: baseUrl + url, method, data, headers });
       return { data: result.data };
     } catch (axiosError) {
       let err = axiosError;
