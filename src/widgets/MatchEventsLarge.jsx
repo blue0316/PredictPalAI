@@ -36,13 +36,13 @@ const MatchEventsLarge = () => {
     ]
 
     return (
-        <Spring className="card d-flex flex-column">
-            <Header className="d-flex align-items-center justify-content-between card-padded p-relative">
+        <Spring className="card flex flex-col">
+            <Header className="flex items-center justify-between card-padded relative">
                 <ClubInfo id="bayern"/>
                 <Score team1={0} team2={2}/>
                 <ClubInfo id="barcelona" wrapperClass="flex-row-reverse text-right"/>
             </Header>
-            <div className="d-flex flex-column g-20 flex-1 p-relative card-padded"
+            <div className="flex flex-col gap-5 flex-1 relative card-padded"
                  ref={ref}
                  style={{paddingTop: 20}}>
                 <MatchProgress currentMinute={79} containerWidth={width}/>

@@ -16,7 +16,9 @@ const ThemeToggle = ({ label = true, size = "md" }) => {
       htmlFor="theme"
       className={`theme ${direction === "rtl" ? "theme--rtl" : ""}`}
     >
-      {label && <span>Light</span>}
+      {label && (
+        <span className={direction === "rtl" ? "pl-2" : "pr-2"}>Light</span>
+      )}
       <span className="theme__toggle-wrap">
         <input
           id="theme"
@@ -41,7 +43,9 @@ const ThemeToggle = ({ label = true, size = "md" }) => {
           <span className="theme__icon-part"></span>
         </span>
       </span>
-      {label && <span>Dark</span>}
+      {label && (
+        <span className={direction === "rtl" ? "pr-2" : "pl-2"}>Dark</span>
+      )}
     </label>
   );
 };

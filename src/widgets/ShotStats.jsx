@@ -78,9 +78,9 @@ const ShotsStats = () => {
     }
 
     return (
-        <Spring className="card h-2 d-flex flex-column p-relative">
-            <div className="d-flex flex-column g-16 flex-1">
-                <div className="card_header d-flex flex-column g-20">
+        <Spring className="card height-w-2 flex flex-col relative">
+            <div className="flex flex-col gap-4 flex-1">
+                <div className="card_header flex flex-col gap-5">
                     <ClubInfo title="Shots stats" subtitle="Manchester City" id="mancity"/>
                     <div className="tab-nav col-2">
                         <TabButton title="First half" active={selectedHalf === 'first'}
@@ -121,11 +121,11 @@ const ShotsStats = () => {
                     </ScatterChart>
                 </ResponsiveContainer>
             </div>
-            <div className="card_footer d-flex flex-column g-8" style={infoStyles}>
+            <div className="card_footer flex flex-col gap-2" style={infoStyles}>
                 <div>
                     <span className="h1">18</span> shots
                 </div>
-                <div className="d-flex g-14">
+                <div className="flex gap-3.5">
                     <LegendItem color="salmon" text="miss"/>
                     <LegendItem color="grass" text="On target"/>
                 </div>

@@ -20,9 +20,9 @@ const SettingsPopup = ({open, onClose}) => {
 
     return (
         <Popup open={open} onClose={onClose}>
-            <div className="d-flex flex-column g-20">
+            <div className="flex flex-col gap-5">
                 <h3>Quick settings</h3>
-                <div className="d-flex flex-column g-8">
+                <div className="flex flex-col gap-2">
                     <div className={styles.menu_item}>
                         <h4>Dark mode</h4>
                         <Switch checked={theme === 'dark'} onChange={toggleTheme} id="dark-mode"/>

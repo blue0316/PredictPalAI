@@ -18,16 +18,16 @@ const GeneralSupport = () => {
     const {theme, direction} = useThemeProvider();
 
     return (
-        <Spring className="card d-flex flex-column h-1 card-padded p-relative">
+        <Spring className="card flex flex-col height-w-1 card-padded relative">
             <div className={classNames(`cover ${styles[direction]}`, { [styles.cover_dark]: theme === 'dark' })}>
                 <img src={theme === 'light' ? support_light : support_dark } alt="media" height="100%"/>
             </div>
-            <div className="d-flex flex-column justify-content-between align-items-start flex-1 p-relative z-2">
+            <div className="flex flex-col justify-between items-start flex-1 relative z-2">
                 <div>
                     <h3>Get support</h3>
                     <p className="text-12">We will call you back</p>
                 </div>
-                <a className="d-inline-flex align-items-center g-10 h3" href="tel:+1234567890">
+                <a className="inline-flex items-center gap-2.5 h3" href="tel:+1234567890">
                     <i className="icon-phone-solid" />
                     8 800 325 44 86
                 </a>

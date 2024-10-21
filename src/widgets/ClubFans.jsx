@@ -15,10 +15,10 @@ const ClubFans = ({id}) => {
     const club = CLUBS.find(club => club.id === id);
 
     return (
-        <div className="card h-1 d-flex flex-column border-color-bottom" style={{borderColor: `var(--${club.color})`}}>
-            <div className="d-flex flex-column g-16 flex-1 card-padded">
+        <div className="card height-w-1 flex flex-col border-color-bottom" style={{borderColor: `var(--${club.color})`}}>
+            <div className="flex flex-col gap-4 flex-1 card-padded">
                 <LazyImage className="club-logo club-logo--md" src={club.logo} alt={club.name}/>
-                <div className="d-flex align-items-center g-14">
+                <div className="flex items-center gap-3.5">
                     <Like isLiked readonly/>
                     <AnimatedCount className="h2" count={getRandomInt(1000, 13000)}/>
                 </div>

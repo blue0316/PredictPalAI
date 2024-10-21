@@ -15,9 +15,9 @@ const Merch = () => {
     const {direction} = useThemeProvider();
 
     return (
-        <Spring className={`${styles.wrapper} card h-1`}>
+        <Spring className={`${styles.wrapper} card height-w-1`}>
             <div className={`${styles.main} ${styles[direction]}`}>
-                <div className="d-flex flex-column g-8">
+                <div className="flex flex-col gap-2">
                     <span className="text-12">Official league ball</span>
                     <h3 className={styles.main_title}>Adidas Replique Ball</h3>
                 </div>

@@ -31,7 +31,6 @@ body {
     flex-direction: column;
     align-items: stretch;
     flex: 1;
-    margin: 15px 15px 70px;
   }
 
   &.fluid {
@@ -46,15 +45,13 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-  }
 
-  @media screen and (min-width: 768px) {
-    .app_container {
-      margin-bottom: 40px;
-    }
+    --body-font: "Inter";
+    --heading-font: "Inter";
 
-    .layout {
-      margin: -20px -25px;
+    @media (max-width: 768px) {
+      padding: 0 16px;
+      gap: 16px;
     }
   }
 
@@ -63,7 +60,6 @@ body {
     grid-template-columns: minmax(0, 250px) minmax(0, (calc(100% - 250px)));
 
     .app_container {
-      margin: 30px 40px 40px;
       grid-area: 1 / 2 / 2 / 3;
     }
   }
@@ -83,4 +79,22 @@ body {
 input,
 input::placeholder {
   color: var(--text);
+}
+
+.glow-sm {
+  text-shadow: 0 0 2px var(--text-glow), 0 0 4px var(--text-glow);
+}
+
+.glow {
+  text-shadow: 0 0 5px #f5c451, 0 0 10px #f5c451, 0 0 15px #f5c451,
+    0 0 20px #f5c451, 0 0 25px #f5c451;
+}
+
+.dashboard-wrapper {
+  --body-font: "Inter", sans-serif;
+  --heading-font: "Inter", sans-serif;
+}
+
+video.control-forbidden::-webkit-media-controls {
+  display: none;
 }

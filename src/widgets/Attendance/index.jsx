@@ -12,13 +12,13 @@ const Attendance = () => {
     const {theme} = useThemeProvider();
 
     return (
-        <Spring className="card h-1 d-flex flex-column justify-content-between g-12 p-relative">
-            <div className="card_header d-flex flex-column p-relative z-2">
+        <Spring className="card height-w-1 flex flex-col justify-between gap-3 relative">
+            <div className="card_header flex flex-col relative z-2">
                 <AnimatedCount className="h2 text-20" count={82754} separator="."/>
                 <span className="text-12 text-overflow">Today attendance</span>
             </div>
             <div className={`${styles.media} ${styles[theme]}`}/>
-            <div className="card_footer p-relative z-2">
+            <div className="card_footer relative z-2">
                 <h3>Santiago Bernabéu Stadium</h3>
                 <span className="text-12">Mardid</span>
             </div>

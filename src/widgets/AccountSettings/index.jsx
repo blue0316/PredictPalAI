@@ -4,9 +4,9 @@ import Profile from '@widgets/AccountSettings/Profile';
 
 const AccountSettings = () => {
     return (
-        <Spring className="card h-100 d-flex flex-column justify-content-between  card-padded">
+        <Spring className="card h-full flex flex-col justify-between  card-padded">
             <h3>Account Settings</h3>
-            <div className="d-flex flex-column justify-content-between">
+            <div className="flex flex-col justify-between">
                 {/* <Tabs value={activeTab}>
                     <TabsList className={`${styles.tabs_list} tab-nav col-2`}>
                         <TabButton title={width >= 375 ? 'Edit Profile' : 'Profile'}

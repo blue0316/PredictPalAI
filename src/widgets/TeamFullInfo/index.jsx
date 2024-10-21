@@ -32,9 +32,9 @@ const TeamFullInfo = ({id}) => {
 
     return (
         <Spring className={`${styles.container} card`}>
-            <div className="d-flex flex-column g-20">
+            <div className="flex flex-col gap-5">
                 <ClubFullInfo club={club}/>
-                <div className="d-flex flex-column g-1">
+                <div className="flex flex-col gap-px">
                     {
                         dataArr.map((player, index) => (
                             <PlayerRow key={index} player={player} index={index}/>
@@ -42,7 +42,7 @@ const TeamFullInfo = ({id}) => {
                     }
                 </div>
             </div>
-            <div className="d-flex flex-column g-20">
+            <div className="flex flex-col gap-5">
                 <h3>Lineups</h3>
                 <Lineups wrapperClass={styles.field} withField/>
             </div>

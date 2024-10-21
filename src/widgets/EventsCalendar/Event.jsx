@@ -95,14 +95,14 @@ const Event = ({event, view}) => {
                          ref={ref}
                          onClick={view !== 'day' ? () => setPopupOpen(true) : null}
             >
-                <TruncatedText className="text p-relative z-2" text={event.name} lines={1} width={width}/>
+                <TruncatedText className="text relative z-2" text={event.name} lines={1} width={width}/>
             </StyledEvent>
             {
                 view !== 'day' &&
                 <Popup
                     open={popupOpen}
                     onClose={() => setPopupOpen(false)}>
-                    <div className="d-flex flex-column g-4">
+                    <div className="flex flex-col gap-1">
                         <h3>{event.name}</h3>
                         <span className="label h5">
                             {formattedDate(event.start)} - {formattedDate(event.end)}

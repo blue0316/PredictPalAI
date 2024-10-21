@@ -28,13 +28,13 @@ const PlayerVerticalProgress = () => {
     ];
 
     return (
-        <Spring className="card d-flex flex-column justify-content-between card--side-shadow g-16">
+        <Spring className="card flex flex-col justify-between card--side-shadow gap-4">
             <PlayerInfo wrapperClass="card-padded"
                         style={{paddingBottom: 0}}
                         title="Gareth Bale"
                         subtitle="Minutes played"
                         number={11}/>
-            <DraggableScrollContainer className="d-flex g-16" style={{padding: '0 30px 20px'}}>
+            <DraggableScrollContainer className="flex gap-4" style={{padding: '0 30px 20px'}}>
                 {
                     data.map((item, i) => (
                         <LabeledProgress value={item.value}

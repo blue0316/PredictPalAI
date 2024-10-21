@@ -27,7 +27,7 @@ const BallPossessionAreaChart = () => {
     }
 
     return (
-        <Spring className="card h-1 d-flex flex-column g-10">
+        <Spring className="card height-w-1 flex flex-col gap-2.5">
             <div className={`${styles.header} card_header`}>
                 <ClubInfo id="realmadrid" title="Ball possession" subtitle="Inter, Milan"/>
                 <Navigator className={styles.header_navigator} text={ball_possession[index].label} handler={navigate}/>

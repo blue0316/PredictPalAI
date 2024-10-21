@@ -25,10 +25,10 @@ const MatchResultColor = () => {
     }, [group]);
 
     return (
-        <Spring className="card h-4">
+        <Spring className="card height-w-4">
             <SelectionList options={GROUPS_OPTIONS} active={group} setActive={setGroup} innerRef={ref}/>
             <ScrollContainer height={height}>
-                <div className="track d-flex flex-column g-20" ref={trackRef} style={{padding: 20}}>
+                <div className="track flex flex-col gap-5" ref={trackRef} style={{padding: 20}}>
                     {
                         groupMatches.map((match, index) => (
                             <MatchResultColorItem key={match.id} match={match} index={index}/>

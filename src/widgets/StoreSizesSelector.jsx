@@ -25,13 +25,13 @@ const StoreSizesSelector = ({standalone = true}) => {
 
     return (
         <Wrapper {...wrapperProps}>
-            <div className="d-flex justify-content-between" style={headerStyles}>
+            <div className="flex justify-between" style={headerStyles}>
                 <h3>Select size</h3>
                 <button className="text-button" onClick={() => setPopupOpen(true)}>
                     Size table
                 </button>
             </div>
-            <div className="d-flex flex-wrap g-16" style={mainStyles}>
+            <div className="flex flex-wrap gap-4" style={mainStyles}>
                 {
                     SIZES.map(size => (
                         <SizeSelector key={size} size={size}/>

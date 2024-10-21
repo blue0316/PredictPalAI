@@ -26,7 +26,7 @@ const MatchResultFinals = () => {
         <Spring className="card">
             <SelectionList options={FINALS_OPTIONS} active={selected} setActive={setSelected} />
             <div className={styles.container}>
-                <div className="d-flex flex-column g-20">
+                <div className="flex flex-col gap-5">
                     {
                         finals[selected].map((match, index) => (
                             <MatchResultColorItem key={`${selected}-${index}`} match={match} index={index} type="final" />

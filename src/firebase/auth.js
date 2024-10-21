@@ -12,12 +12,24 @@ import {
 
 export { auth };
 
-export const signInWithGoogle = () => {
-  return signInWithPopup(auth, googleProvider);
+export const signInWithGoogle = async () => {
+  try {
+    const result = await signInWithPopup(auth, googleProvider);
+    return result.user;
+  } catch (error) {
+    console.error("Google sign-in error:", error);
+    throw error;
+  }
 };
 
-export const signInWithEmail = (email, password) => {
-  return signInWithEmailAndPassword(auth, email, password);
+export const signInWithEmail = async (email, password) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    return userCredential.user;
+  } catch (error) {
+    console.error("Email sign-in error:", error);
+    throw error;
+  }
 };
 
 export const onAuthStateChanged = (callback) => {

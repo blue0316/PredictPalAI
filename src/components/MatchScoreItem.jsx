@@ -23,9 +23,9 @@ const Item = ({isLeader, withLogo, team, variant}) => {
     }
 
     return (
-        <div className={`${isLeader ? 'text-700 h3' : ''} d-flex justify-content-between align-items-center g-20`}
+        <div className={`${isLeader ? 'font-bold h3' : ''} flex justify-between items-center gap-5`}
              style={itemStyles}>
-            <div className="d-flex align-items-center g-8 flex-1" ref={ref}>
+            <div className="flex items-center gap-2 flex-1" ref={ref}>
                 {
                     withLogo &&
                     <img style={logoStyles} src={getClubInfo(team.id).logo} alt={getClubInfo(team.id).name}/>
@@ -49,7 +49,7 @@ const MatchScoreItem = ({match, variant = 'card', withLogo}) => {
     }
 
     return (
-        <div className={`d-flex flex-column ${variant === 'card' ? 'g-6' : 'g-8'}`}>
+        <div className={`flex flex-col ${variant === 'card' ? 'gap-1.5' : 'gap-2'}`}>
             <Item isLeader={getLeader() === match.team1.id}
                   withLogo={withLogo}
                   variant={variant}

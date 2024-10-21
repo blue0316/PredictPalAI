@@ -53,7 +53,7 @@ const LineDotsChart = () => {
     ];
 
     return (
-        <Spring className="card h-1 d-flex flex-column g-10 card-padded pb-0">
+        <Spring className="card height-w-1 flex flex-col gap-2.5 card-padded pb-0">
             <PlayerInfo number={7} title="João Félix" subtitle="Minutes played"/>
             <ResponsiveContainer className="flex-1" width="100%" height="100%">
                 <ScatterChart margin={{top: 0, right: 5, bottom: 0, left: 5}} data={data}>

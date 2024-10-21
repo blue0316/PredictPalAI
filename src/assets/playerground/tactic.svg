@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 509 298" width="763.5px" height="447px" xmlns="http://www.w3.org/2000/svg">
+    <g id="board_svg_markup" transform="matrix(0.760491, 0, 0, 0.760491, 154.249054, -45.927643)">
+        <!-- Main green background -->
+        <path d="M-191.673 63.401H455.483V448.874H-191.673V63.401Z" fill="#5E9D44" />
+
+        <!-- Lighter green stripes -->
+        <path
+            d="M-191.673 63.401H-127.001V448.874H-191.673V63.401ZM-62.329 63.401H2.343V448.874H-62.329V63.401ZM67.015 63.401H131.687V448.874H67.015V63.401ZM196.359 63.401H261.031V448.874H196.359V63.401ZM325.703 63.401H390.375V448.874H325.703V63.401ZM455.047 63.401H455.483V448.874H455.047V63.401Z"
+            fill="#72A653" />
+
+        <!-- White border around the field -->
+        <path d="M-191.673 63.401H455.483V448.874H-191.673V63.401Z" fill="none" stroke="#ffffff" stroke-width="3.111" />
+
+        <!-- Inner field lines and markings -->
+        <path data-role="board-markup"
+            d="M-191.673 128.081H-87.314V384.194H-191.673V128.081ZM-191.673 194.956H-154.787V317.319H-191.673V194.956ZM-86.658 209.073C-55.494 232.711 -55.494 279.565 -86.658 303.202M131.905 63.401V448.874M351.124 128.081H455.483V384.194H351.124V128.081ZM418.597 194.956H455.483V317.319H418.597V194.956ZM350.468 209.073C319.304 232.711 319.304 279.565 350.468 303.202M131.905 256.138Z"
+            fill="none" stroke="#ffffff" stroke-width="2" />
+
+        <!-- Side goal areas -->
+        <path data-role="board-markup"
+            d="M-191.673 227.811H-199.652V284.465H-191.673V227.811ZM455.483 227.811H463.462V284.465H455.483V227.811Z"
+            fill="url(#grid_3_white)" stroke="#ffffff" stroke-width="2" />
+
+        <!-- Small center circle -->
+        <circle data-role="board-markup" cx="-123.479" cy="256.138" r="2.126" fill="#ffffff" />
+
+        <!-- Large center circle -->
+        <circle data-role="board-markup" cx="131.905" cy="256.138" r="62.55" fill="none" stroke="#ffffff"
+            stroke-width="2" />
+
+        <!-- Center dot -->
+        <circle data-role="board-markup" cx="131.905" cy="256.138" r="2.126" fill="#ffffff" />
+
+        <!-- Small circle on the other side -->
+        <circle data-role="board-markup" cx="387.289" cy="256.138" r="2.126" fill="#ffffff" />
+    </g>
+</svg>

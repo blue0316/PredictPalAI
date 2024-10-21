@@ -11,12 +11,12 @@ import avatar from '@assets/fans/press.webp';
 
 const PRCard = () => {
     return (
-        <Spring className="card h-2 d-flex flex-column">
+        <Spring className="card height-w-2 flex flex-col">
             <LazyImage className={styles.media} src={cover} alt="media"/>
-            <div className={`${styles.main} d-flex flex-column flex-1`}>
-                <div className="d-flex flex-column align-items-center g-24">
+            <div className={`${styles.main} flex flex-col flex-1`}>
+                <div className="flex flex-col items-center gap-6">
                     <LazyImage className="avatar" src={avatar} alt="Tom Glover"/>
-                    <div className="d-flex flex-column g-4">
+                    <div className="flex flex-col gap-1">
                         <h2>Tom Glover</h2>
                         <span className="text-12">Press officer</span>
                     </div>
@@ -25,7 +25,7 @@ const PRCard = () => {
                     Is your capability prepared for wholesale proposition growth? Seamless visibilities proactively
                     enable senior synergies.
                 </p>
-                <div className="d-flex justify-content-center g-20">
+                <div className="flex justify-center gap-5">
                     <button className="btn">Start chat</button>
                     <button className="btn btn--outlined">Call</button>
                 </div>

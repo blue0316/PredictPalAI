@@ -15,12 +15,12 @@ const Coach = () => {
     const {direction} = useThemeProvider();
 
     return (
-        <div className="card h-1 border-color-bottom card-padded p-relative" style={{borderColor: 'var(--accent)'}}>
+        <div className="card height-w-1 border-color-bottom card-padded relative" style={{borderColor: 'var(--accent)'}}>
             <div className={`${styles.media} ${styles[direction]}`}>
                 <img src={zidane} alt="Zinedine Zidane"/>
             </div>
-            <div className="d-flex flex-column justify-content-between h-100">
-                <div className="d-flex flex-column g-4">
+            <div className="flex flex-col justify-between h-full">
+                <div className="flex flex-col gap-1">
                     <span className="text-12">Head coach</span>
                     <h3>Zinedine <span className={styles.lastName}>Zidane</span></h3>
                 </div>

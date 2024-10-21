@@ -24,8 +24,8 @@ const AddTodo = ({isVisible, visibilityHandler}) => {
     return (
         <Collapse in={isVisible}>
             <Grow in={isVisible} timeout={700}>
-                <form className="d-flex flex-column g-20 card-padded">
-                    <div className="d-flex flex-column g-20">
+                <form className="flex flex-col gap-5 card-padded">
+                    <div className="flex flex-col gap-5">
                         <input type="text"
                                value={task}
                                onChange={e => setTask(e.target.value)}
@@ -34,7 +34,7 @@ const AddTodo = ({isVisible, visibilityHandler}) => {
                                {...register('task', {required: true})}/>
                         <div></div>
                     </div>
-                    <div className="d-grid col-2 g-20">
+                    <div className="grid col-2 gap-5">
                         <button className="btn accept">Add</button>
                         <button className="btn decline">Cancel</button>
                     </div>

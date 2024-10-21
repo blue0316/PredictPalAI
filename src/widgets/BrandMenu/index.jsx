@@ -52,10 +52,10 @@ const BrandMenu = () => {
     ]
 
     return (
-        <Spring className="card h-2">
+        <Spring className="card height-w-2">
             <Header ref={ref}>
                 <LazyImage src={nike} alt="Nike"/>
-                <div className="d-flex flex-column g-2">
+                <div className="flex flex-col gap-0.5">
                     <h3 className="text-20">Nike</h3>
                     <a className="text-12" href="https://www.nike.com" rel="noreferrer noopener" target="_blank">
                         www.nike.com
@@ -71,10 +71,10 @@ const BrandMenu = () => {
                                     <i className="icon icon-caret-down"/> {item.title}
                                 </StyledAccordionSummary>
                                 <StyledAccordionDetails>
-                                    <ul className="d-flex flex-column g-8">
+                                    <ul className="flex flex-col gap-2">
                                         {
                                             item.items.map((item, index) => (
-                                                <li className="d-flex g-16" key={index}>
+                                                <li className="flex gap-4" key={index}>
                                                     <button className="link">{item.title}</button>
                                                     <span className="label h6">{item.qty}</span>
                                                 </li>

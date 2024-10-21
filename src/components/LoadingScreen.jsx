@@ -7,7 +7,7 @@ import ball from '@assets/ball.json';
 
 const LoadingScreen = () => {
     return (
-        <Spring className="d-flex align-items-center justify-content-center flex-1 w-100 h-100 filter-gray">
+        <Spring className="flex items-center justify-center flex-1 w-full h-full filter-gray">
             <Lottie animationData={ball} />
         </Spring>
     )

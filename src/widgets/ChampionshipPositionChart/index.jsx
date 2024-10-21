@@ -42,10 +42,10 @@ const ChampionshipPositionChart = () => {
         }
     }
     return (
-        <Spring className="card h-1 d-flex flex-column">
+        <Spring className="card height-w-1 flex flex-col">
             <div className={`${styles.header} card_header`}>
-                <div className="d-flex align-items-center flex-1 g-20">
-                    <div className="d-flex g-14">
+                <div className="flex items-center flex-1 gap-5">
+                    <div className="flex gap-3.5">
                         <button className="nav-arrow" aria-label="Previous" data-direction="prev" onClick={navigate}>
                             <i className="icon icon-arrow-left"/>
                         </button>
@@ -57,7 +57,7 @@ const ChampionshipPositionChart = () => {
                         <TruncatedText width={titleWidth} text="Championship position"/>
                     </h3>
                 </div>
-                <div className="d-flex g-16">
+                <div className="flex gap-4">
                     <span className="tag h6 dark" style={{backgroundColor: 'var(--blue)'}}>
                         Tottenham
                     </span>

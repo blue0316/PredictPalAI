@@ -22,13 +22,13 @@ const TrainingsPlanner = () => {
     const isSmallScreen = useWindowSize().width < 414;
 
     return (
-        <Spring className="card h-2">
-            <div className="card_header d-flex flex-column g-20" ref={headerRef} style={{paddingBottom: 20}}>
-                <div className="d-flex justify-content-between align-items-center">
+        <Spring className="card height-w-2">
+            <div className="card_header flex flex-col gap-5" ref={headerRef} style={{paddingBottom: 20}}>
+                <div className="flex justify-between items-center">
                     <h3>Trainings {!isSmallScreen && 'planner'}</h3>
                     <NavLink className="text-button" to="/schedule">Scheduler</NavLink>
                 </div>
-                <div className="d-flex flex-wrap g-20">
+                <div className="flex flex-wrap gap-5">
                     <SelectionButton type="group"
                                      text={dayjs().format('MMMM')}
                                      onClick={() => setSelectedMonth(dayjs().format('MMMM'))}
@@ -44,7 +44,7 @@ const TrainingsPlanner = () => {
                 </div>
             </div>
             <ScrollContainer height={headerHeight}>
-                <div className="track d-flex flex-column g-20 card-padded" style={{paddingTop: 0}}>
+                <div className="track flex flex-col gap-5 card-padded" style={{paddingTop: 0}}>
                     {currentTodos.length !== 0 ? <DnDLayout variant="planner" data={currentTodos}/> : null}
                 </div>
             </ScrollContainer>

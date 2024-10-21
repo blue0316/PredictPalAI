@@ -19,17 +19,17 @@ const ProductRowCard = ({product, isSlide = false}) => {
     const {width: windowWidth} = useWindowSize();
 
     return (
-        <Wrapper className={`${styles.container} card card-padded ${windowWidth >= 414 ? 'h-1' : ''}`}>
+        <Wrapper className={`${styles.container} card card-padded ${windowWidth >= 414 ? 'height-w-1' : ''}`}>
             <img className={styles.media} src={product.img} alt={product.name}/>
             <div className={styles.main} ref={ref}>
-                <div className="d-flex flex-column flex-1">
+                <div className="flex flex-col flex-1">
                     <span className="label label--store h6">{product.category}</span>
                     <Link className={styles.main_title} to="/product">
                         <TruncatedText className="h3" width={width} text={product.name}/>
                     </Link>
                     <CustomRating value={product.rating}/>
                 </div>
-                <div className="d-flex align-items-center justify-content-between">
+                <div className="flex items-center justify-between">
                     <Price price={product.price}/>
                     <IconButton/>
                 </div>

@@ -126,7 +126,7 @@ const SelectionList = ({active, setActive, options, innerRef}) => {
                     <i className="icon icon-chevron-right"/>
                 </button>
             </div>
-            <Swiper className="selection-list w-100 h-100"
+            <Swiper className="selection-list w-full h-full"
                     onSwiper={setSwiper}
                     slidesPerView="auto"
                     spaceBetween={12}

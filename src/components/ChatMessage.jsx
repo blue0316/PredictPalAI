@@ -49,7 +49,7 @@ const ChatMessage = ({sender, message, timestamp, index}) => {
     return (
         <Spring type="slideUp" index={index}>
             <MessageHeader>
-                <span className="sender text-12 text-600">{sender.name}</span>
+                <span className="sender text-12 font-semibold">{sender.name}</span>
                 <span className="timestamp text-10">{dayjs(timestamp).format('HH:mm')}</span>
             </MessageHeader>
             <MessageContainer>

@@ -27,17 +27,17 @@ const PlayerMultiProgress = () => {
     }
 
     return (
-        <Spring className="card d-flex flex-column">
+        <Spring className="card flex flex-col">
             <PlayerInfo wrapperClass="card-padded"
                         title="Gareth Bale"
                         subtitle="Technical and tactical actions"
                         number={11}/>
-            <div className="card_footer d-flex flex-column justify-content-end flex-1 g-24 border-top card-padded"
+            <div className="card_footer flex flex-col justify-end flex-1 gap-6 border-top card-padded"
                  style={{paddingTop: 20}}>
-                <div className={`${styles.info} d-flex g-12 h2`}>
+                <div className={`${styles.info} flex gap-3 h2`}>
                     <span>457</span>
                     <span className={styles.info_separator}/>
-                    <span className={`${styles.info_progress} d-flex align-items-center g-12`}>
+                    <span className={`${styles.info_progress} flex items-center gap-3`}>
                         6 <i className="icon-chevron-up"/>
                     </span>
                 </div>

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const GooeyNavigation = () => {
   const [hoverIndex, setHoverIndex] = useState(null);
+  const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
 
   // Handle hover and touchstart
   const handleMouseOver = (index) => {
@@ -23,7 +25,9 @@ const GooeyNavigation = () => {
             {[...Array(5)].map((_, index) => (
               <li
                 key={index}
-                className={`${styles.listItem} ${hoverIndex === index ? styles.gooHover : ""}`}
+                className={`${styles.listItem} ${
+                  hoverIndex === index ? styles.gooHover : ""
+                }`}
               ></li>
             ))}
           </ul>
@@ -38,7 +42,7 @@ const GooeyNavigation = () => {
                   <polyline points="9 22 9 12 15 12 15 22" />
                 </svg>
               ),
-              to: "/",
+              to: isAuthenticated ? "/dashboard" : "/",
             },
             {
               icon: (
@@ -188,7 +192,9 @@ const GooeyNavigation = () => {
               onMouseOut={handleMouseOut}
               onTouchStart={() => handleMouseOver(index)}
               onTouchEnd={handleMouseOut}
-              className={`${styles.listItem} ${hoverIndex === index ? "hover" : ""}`}
+              className={`${styles.listItem} ${
+                hoverIndex === index ? "hover" : ""
+              }`}
             >
               <Link to={item.to}>{item.icon}</Link>
             </li>

@@ -51,11 +51,11 @@ const LeagueStandings = () => {
     const tableData = league_standings.sort((a, b) => b.pts - a.pts);
 
     return (
-        <Spring className="card d-flex flex-column g-20 card-padded">
-            <LeagueHeader title={<>English <span className="d-block">Premier League</span></>}
+        <Spring className="card flex flex-col gap-5 card-padded">
+            <LeagueHeader title={<>English <span className="block">Premier League</span></>}
                           img={english_premier}
                           variant="compact"/>
-            <div className="d-flex flex-column g-4">
+            <div className="flex flex-col gap-1">
                 <TableHeader className={`label h6 ${direction}`}>
                     <span className="flex-1">Club</span>
                     <div className="points">
@@ -65,7 +65,7 @@ const LeagueStandings = () => {
                     </div>
                     <span>PTS</span>
                 </TableHeader>
-                <div className="d-flex flex-column g-1">
+                <div className="flex flex-col gap-px">
                     {
                         tableData.map((item, index) => (
                             <TeamScoreRow key={index} data={item} index={index} variant="league"/>

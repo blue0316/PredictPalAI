@@ -28,7 +28,7 @@ const data = [
 
 const SimpleProductsGroup = () => {
     return (
-        <div className="d-grid g-20 h-100">
+        <div className="grid gap-5 h-full">
             {
                 data.map(product => (
                     <SimpleProduct key={product.id} product={product}/>

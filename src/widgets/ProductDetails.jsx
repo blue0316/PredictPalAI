@@ -3,7 +3,7 @@ import Spring from '@components/Spring';
 
 const ProductDetails = () => {
     return (
-        <Spring className="card d-flex flex-column g-16 card-padded">
+        <Spring className="card flex flex-col gap-4 card-padded">
             <h3>Product Details</h3>
             <p>
                 Designed with an intentionally oversized fit, this tee is ready for whatever the day brings. With a

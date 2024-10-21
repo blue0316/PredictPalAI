@@ -20,22 +20,22 @@ const PlayerDiscipline = ({clubID = 'realmadrid', firstName = 'Manuel', lastName
     }
 
     return (
-        <div className="card h-1 d-flex flex-column g-20">
-            <div className="card_header d-flex flex-column g-16 flex-1">
+        <div className="card height-w-1 flex flex-col gap-5">
+            <div className="card_header flex flex-col gap-4 flex-1">
                 <LazyImage className="club-logo club-logo--md" src={club.logo} alt={club.name} />
                 <h3>
                     {firstName}
-                    <span className="d-block">{lastName}</span>
+                    <span className="block">{lastName}</span>
                 </h3>
             </div>
-            <div className="card_footer--sm justify-content-between">
-                <div className="d-flex align-items-center g-8">
+            <div className="card_footer--sm justify-between">
+                <div className="flex items-center gap-2">
                     <div className={styles.card_wrapper}>
                         {drawYellowCards()}
                     </div>
                     <span className="label h6">{yellow}</span>
                 </div>
-                <div className="d-flex align-items-center g-8">
+                <div className="flex items-center gap-2">
                     <span className={`${styles.card} ${styles.red}`}/>
                     <span className="label h6">{red}</span>
                 </div>

@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
 const SizeGuide = ({open, onClose}) => {
     return (
         <Popup open={open} onClose={onClose}>
-            <div className="d-flex flex-column g-16">
+            <div className="flex flex-col gap-4">
                 <h2 className="text-center">Size Chart</h2>
-                <div className="d-flex flex-column g-30">
+                <div className="flex flex-col g-30">
                     <div className={`${styles.header} ${styles.row}`}>
                         <span></span>
                         <span className="h4">Chest(in)</span>

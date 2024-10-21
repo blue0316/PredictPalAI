@@ -22,17 +22,17 @@ const MatchMonthCard = ({match, index, variant = 'basic'}) => {
     const team2 = getClubInfo(match.team2.id);
 
     return (
-        <Spring className={`${styles.container} ${styles[theme]} h-100`} type="slideUp" index={index}>
-            <div className="card-padded d-flex flex-column g-20"
+        <Spring className={`${styles.container} ${styles[theme]} h-full`} type="slideUp" index={index}>
+            <div className="card-padded flex flex-col gap-5"
                  style={{paddingBottom: variant !== 'extended' ? 'var(--card-padding)' : 10}}>
-                <div className="d-flex align-items-center justify-content-between p-relative">
+                <div className="flex items-center justify-between relative">
                     <img className="club-logo" src={team1.logo} alt={team1.name}/>
                     <Score team1={match.team1.score} team2={match.team2.score} variant="alt"/>
                     <img className="club-logo" src={team2.logo} alt={team2.name}/>
                 </div>
                 {
                     width >= 414 && (
-                        <div className="d-flex justify-content-between g-30">
+                        <div className="flex justify-between g-30">
                             <div style={{minWidth: 0}}>
                                 <h3>{team1.shortName}</h3>
                                 <p className="text-12 text-overflow">{team1.city}, {team1.country}</p>

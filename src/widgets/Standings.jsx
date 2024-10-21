@@ -27,12 +27,12 @@ const Standings = () => {
     ];
 
     return (
-        <Spring className="card d-flex flex-column g-16 card-padded">
-            <div className="d-flex flex-column">
+        <Spring className="card flex flex-col gap-4 card-padded">
+            <div className="flex flex-col">
                 <h3>Group E</h3>
                 <p className="text-12">Standing after group stage</p>
             </div>
-            <div className="d-flex flex-column g-2">
+            <div className="flex flex-col gap-0.5">
                 {
                     data.map((item, index) => (
                         <TeamScoreRow key={index} data={item} index={index} />

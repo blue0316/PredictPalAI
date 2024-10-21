@@ -91,16 +91,16 @@ const ChangePassword = () => {
   };
 
   return (
-    <Spring className="card d-flex flex-column h-2 justify-content-between g-24 card-padded">
-      <div className="d-flex flex-column g-8">
+    <Spring className="card flex flex-col height-w-2 justify-between gap-6 card-padded">
+      <div className="flex flex-col gap-2">
         <h3>Change password</h3>
         <p className="text-overflow">Change or reset your account password</p>
       </div>
       <form
-        className="d-flex flex-column g-40"
+        className="flex flex-col gap-10"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <div className="d-flex flex-column g-20">
+        <div className="flex flex-col gap-5">
           <Controller
             control={control}
             name="passwordOld"
@@ -169,7 +169,7 @@ const ChangePassword = () => {
             Reset password?
           </button>
         </div>
-        <div className="d-flex flex-column g-16">
+        <div className="flex flex-col gap-4">
           <button className="btn" type="submit" disabled={loading}>
             {loading ? "Changing..." : "Change password"}
           </button>

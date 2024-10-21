@@ -32,16 +32,16 @@ const TeamStatsProgress = () => {
     }
 
     return (
-        <Spring className={`card d-flex flex-column ${width < 414 ? 'g-20' : 'g-30'}`}>
+        <Spring className={`card flex flex-col ${width < 414 ? 'gap-5' : 'g-30'}`}>
             <ClubInfo wrapperClass="card_header"
                       id="manunited"
                       title="Manchester United"
                       subtitle="First half statistics" />
-            <div className="d-flex flex-column justify-content-between flex-1 border-top card-padded  g-20">
+            <div className="flex flex-col justify-between flex-1 border-top card-padded  gap-5">
                 {
                     data.map((item, index) => (
-                        <div key={index} className="d-flex flex-column g-4">
-                            <div className="d-flex justify-content-between label h6">
+                        <div key={index} className="flex flex-col gap-1">
+                            <div className="flex justify-between label h6">
                                 <span>{item.name}</span>
                                 <span>{item.value}</span>
                             </div>

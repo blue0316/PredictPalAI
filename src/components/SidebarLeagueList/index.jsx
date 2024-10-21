@@ -49,21 +49,21 @@ const SidebarLeagueList = () => {
   }, []);
 
   return (
-    <div className="d-flex flex-column g-16">
-      <h3 className="text-14 text-400 text-uppercase">Football League</h3>
-      <ul className="d-flex flex-column g-20">
+    <div className="flex flex-col gap-4">
+      <h3 className="text-14 font-normal uppercase">Football League</h3>
+      <ul className="flex flex-col gap-5">
         {leagues.map((league) => (
           <li key={league.league.id}>
             <Link
               to={`/league/${league.league.id}`}
-              className="d-flex align-items-center g-16 border-full h4"
+              className="flex items-center gap-4 rounded-full h4"
             >
               <img
                 src={league.league.logo}
                 width={24}
                 height={24}
                 alt="League Logo"
-                className="min-w-8 w-8 h-8 object-contain border-px border-solid border-full p-px"
+                className="min-w-8 w-8 h-8 object-contain border border-solid rounded-full p-px"
               />
               <span className="text-12">{league.league.name}</span>
             </Link>

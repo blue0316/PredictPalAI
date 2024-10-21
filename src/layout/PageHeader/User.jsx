@@ -59,10 +59,10 @@ const User = () => {
   ];
 
   return (
-    <div className="d-flex align-items-center g-16">
+    <div className="flex items-center gap-4">
       <div className={styles.avatar}>
         <img
-          className="c-pointer"
+          className="cursor-pointer"
           src={profile?.Avatar || userPic}
           alt="user"
           onClick={handleClick}
@@ -77,7 +77,7 @@ const User = () => {
           </button>
         )}
       </div>
-      <div className="d-flex flex-column">
+      <div className="flex flex-col">
         <span
           className="h4"
           style={{

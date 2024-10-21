@@ -58,11 +58,11 @@ const Testimonials = () => {
     }, [isFormOpen]);
 
     return (
-        <Spring className="card h-2">
+        <Spring className="card height-w-2">
             <ScrollContainer height={height} isCompact>
                 <div className="track" ref={trackRef}>
                     <AddFormContainer open={isFormOpen}>
-                        <form className="card_header d-flex flex-column g-16" onSubmit={handleSubmit(onSubmit)}>
+                        <form className="card_header flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
                             <textarea className={classNames('field', {'field--error': errors.text})}
                                       placeholder="Your comment"
                                       {...register('text', {required: true})}/>
@@ -70,7 +70,7 @@ const Testimonials = () => {
                                    type="text"
                                    placeholder="Your name"
                                    {...register('author', {required: true})}/>
-                            <div className="d-flex align-items-center justify-content-between">
+                            <div className="flex items-center justify-between">
                                 Rate:
                                 <Controller name="rating"
                                             control={control}
@@ -80,7 +80,7 @@ const Testimonials = () => {
                                                               onChange={(value) => field.onChange(value)}/>
                                             )}/>
                             </div>
-                            <div className="d-grid col-2 g-10">
+                            <div className="grid col-2 gap-2.5">
                                 <button className="btn" type="submit">Submit</button>
                                 <button className="btn btn--outlined" type="reset" onClick={onReset}>
                                     Cancel
@@ -96,7 +96,7 @@ const Testimonials = () => {
                 </div>
             </ScrollContainer>
             <div className="card-padded" ref={ref}>
-                <button className="btn w-100" onClick={() => setIsFormOpen(true)} disabled={isFormOpen}>
+                <button className="btn w-full" onClick={() => setIsFormOpen(true)} disabled={isFormOpen}>
                     Add new comment
                 </button>
             </div>

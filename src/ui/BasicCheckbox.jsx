@@ -48,7 +48,7 @@ const StyledCheckbox = styled.div`
 
 const BasicCheckbox = ({id, onChange, innerRef, color, ...props}) => {
     return (
-        <StyledCheckbox className="d-flex align-items-center justify-content-center" color={color}>
+        <StyledCheckbox className="flex items-center justify-center" color={color}>
             <input type="checkbox" id={id} onChange={onChange} ref={innerRef} {...props}/>
             <label htmlFor={id}/>
         </StyledCheckbox>

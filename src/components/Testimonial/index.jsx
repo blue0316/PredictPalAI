@@ -19,7 +19,7 @@ const Testimonial = ({data, index}) => {
                 <i className="icon icon-quote"/>
             </span>
             <p className={styles.text}>{data.text}</p>
-            <div className="d-flex justify-content-between">
+            <div className="flex justify-between">
                 <CustomRating value={data.rating} />
                 <span className="text-12">{data.author}</span>
             </div>

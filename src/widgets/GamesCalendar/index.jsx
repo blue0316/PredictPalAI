@@ -20,10 +20,10 @@ const EventsList = ({events, color}) => {
     const sortedEvents = events.sort((a, b) => dayjs(a.date).isAfter(dayjs(b.date)) ? 1 : -1);
 
     return (
-        <div className="d-flex flex-column g-8">
+        <div className="flex flex-col gap-2">
             {
                 sortedEvents.map((event, index) => (
-                    <div className="popup_event d-flex flex-column g-2" key={index}>
+                    <div className="popup_event flex flex-col gap-0.5" key={index}>
                         <h5 className="title">
                             <span className="title_color" style={{backgroundColor: `var(--${color(event.date)})`}}/>
                             {event.title}
@@ -78,12 +78,12 @@ const GamesCalendar = () => {
     }
 
     return (
-        <CalendarContainer className="card h-2 p-relative">
+        <CalendarContainer className="card height-w-2 relative">
             <div className="main">
                 <h3>Games calendar</h3>
                 <Calendar {...config}/>
             </div>
-            <div className="d-flex flex-wrap g-14 card-padded border-top">
+            <div className="flex flex-wrap gap-3.5 card-padded border-top">
                 {
                     legend.map((item, index) => (
                         <LegendItem key={index} text={item.label} color={item.color}/>

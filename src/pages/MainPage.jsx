@@ -46,7 +46,7 @@ const MainPage = () => {
       >
         <h3 className={styles.title}>Don't Miss the Game</h3>
 
-        <div className="p-relative">
+        <div className="relative">
           <p className={styles.loremText}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua.

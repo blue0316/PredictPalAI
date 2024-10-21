@@ -24,9 +24,9 @@ const TabletHeader = ({ title }) => {
 
   return (
     <div
-      className={`${styles.tablet} d-flex align-items-center justify-content-between g-20`}
+      className={`${styles.tablet} flex items-center justify-between px-6 py-4 gap-5 border-border border-b border-solid`}
     >
-      <div className="d-flex align-items-center flex-1 g-30">
+      <div className="flex items-center g-30">
         <SidebarTrigger />
         <div className="flex-1" ref={ref}>
           <TruncatedText
@@ -37,10 +37,8 @@ const TabletHeader = ({ title }) => {
           />
         </div>
       </div>
-      <div className="d-flex align-items-center g-20">
-        <Search />
-        <User />
-      </div>
+      <Search />
+      <User />
     </div>
   );
 };
@@ -61,22 +59,25 @@ const DesktopHeader = ({ title }) => {
 
   return (
     <div
-      className={`${styles.desktop} d-flex justify-content-between align-items-center g-20`}
+      className={`flex justify-between items-center ${
+        theme === "dark" ? "bg-body-dark" : "bg-body-light"
+      } border-border px-6 py-4 gap-5 border-b border-solid`}
     >
-      <div className="d-flex align-items-center flex-1 g-30">
+      {" "}
+      <div className="flex items-center g-30">
         {width < 1920 && <SidebarTrigger />}
         <div className="flex-1" ref={ref}>
           <TruncatedText
             className={`${styles.title} h2`}
             text={title}
-            width={titleWidth}
+            width={220}
             lines={1}
           />
         </div>
       </div>
-      <div className="d-flex align-items-center">
-        <Search />
-        <div className="d-flex g-30" style={{ margin: "0 24px" }}>
+      <Search />
+      <div className="flex items-center">
+        <div className={`flex g-30 ${direction === "rtl" ? "pl-4" : "pr-4"}`}>
           <ThemeToggle label={false} />
           {isStoreRoute && (
             <button

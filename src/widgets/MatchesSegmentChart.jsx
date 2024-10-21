@@ -48,7 +48,7 @@ const MatchesSegmentChart = () => {
     ];
 
     return (
-        <Spring className="card h-2 d-flex flex-column justify-content-between g-24 card-padded">
+        <Spring className="card height-w-2 flex flex-col justify-between gap-6 card-padded">
             <ClubInfo id="bayern" title="Bayern Munich" subtitle="Munich, Germany"/>
             <Wrapper className="flex-1">
                 <div className="info">
@@ -78,7 +78,7 @@ const MatchesSegmentChart = () => {
                     </PieChart>
                 </ResponsiveContainer>
             </Wrapper>
-            <div className="d-flex align-items-center justify-content-center g-14">
+            <div className="flex items-center justify-center gap-3.5">
                 <LegendItem color="grass" text="Wins"/>
                 <LegendItem color="salmon" text="Losses"/>
                 <LegendItem color="purple" text="Draws"/>

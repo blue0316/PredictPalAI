@@ -22,7 +22,7 @@ const PassesPolarChart = () => {
     ]
 
     return (
-        <Spring className="card d-flex flex-column card-padded g-30">
+        <Spring className="card flex flex-col card-padded g-30">
             <h3>Passes stats</h3>
             <div className={width >= 768 ? 'flex-1' : ''} style={{height: 240}}>
                 <ResponsiveContainer width="100%" height="100%">
@@ -55,7 +55,7 @@ const PassesPolarChart = () => {
                     </RadarChart>
                 </ResponsiveContainer>
             </div>
-            <div className="d-flex justify-content-center g-20">
+            <div className="flex justify-center gap-5">
                 <LegendItem color="accent" text="Juventus"/>
                 <LegendItem color="red" text="Bayern"/>
             </div>

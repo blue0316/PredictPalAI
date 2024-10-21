@@ -58,15 +58,15 @@ const Weather = () => {
     }, [coords]);
 
     return (
-        <Spring className={`${styles.container} ${styles[theme]} card h-1`}>
-            <div className={`${styles.content} d-flex flex-column justify-content-between h-100`}>
+        <Spring className={`${styles.container} ${styles[theme]} card height-w-1`}>
+            <div className={`${styles.content} flex flex-col justify-between h-full`}>
                 {
                     weather && (
                         <>
-                            <div className="flex-1 p-relative">
+                            <div className="flex-1 relative">
                                 <img className={styles.media} src={weather.icon} alt={weather.conditions}/>
                             </div>
-                            <div className="card_footer d-flex flex-column align-items-start">
+                            <div className="card_footer flex flex-col items-start">
                             <span className={styles.temp}>
                                 <span className={styles.temp_num}>{weather.temp}</span>
                                 {weather.units}

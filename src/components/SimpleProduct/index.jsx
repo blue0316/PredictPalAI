@@ -31,9 +31,9 @@ const SimpleProduct = ({product}) => {
     }, [swiper, direction]);
 
     return (
-        <Spring className="card h-2 d-flex flex-column justify-content-between card-padded">
-            <div className="d-flex flex-column g-8">
-                <div className="d-flex align-items-center justify-content-between">
+        <Spring className="card height-w-2 flex flex-col justify-between card-padded">
+            <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between">
                     <div className={styles.title} ref={ref}>
                         <NavLink className="h3" to="/product">
                             <TruncatedText text={product.name} width={width}/>
@@ -63,9 +63,9 @@ const SimpleProduct = ({product}) => {
                     ))
                 }
             </Swiper>
-            <div className="d-flex justify-content-between">
+            <div className="flex justify-between">
                 <Price price={product.price}/>
-                <div className="d-flex align-items-center g-20">
+                <div className="flex items-center gap-5">
                     <CompareButton/>
                     <IconButton/>
                 </div>

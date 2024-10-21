@@ -17,11 +17,11 @@ const PlayerFullInfo = () => {
     const {direction} = useThemeProvider();
 
     return (
-        <Spring className="card h-2 d-flex flex-column">
-            <div className="p-relative flex-1">
-                <div className={`${styles.main} ${styles[direction]} d-flex flex-column g-16`}>
+        <Spring className="card height-w-2 flex flex-col">
+            <div className="relative flex-1">
+                <div className={`${styles.main} ${styles[direction]} flex flex-col gap-4`}>
                     <span className="player-number">8</span>
-                    <div className="d-flex flex-column">
+                    <div className="flex flex-col">
                         <h2 className="text-20">Toni Kroos</h2>
                         <span className="text-12">Central Midfielder</span>
                     </div>

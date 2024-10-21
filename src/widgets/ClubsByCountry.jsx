@@ -18,10 +18,10 @@ const ClubsByCountry = () => {
     const [ref, {height}] = useMeasure();
 
     return (
-        <Spring className="card h-4">
+        <Spring className="card height-w-4">
             <SelectionList options={countries} active={country} setActive={setCountry} innerRef={ref}/>
             <ScrollContainer height={height}>
-                <div className="track d-flex flex-column g-20" style={{padding: 20}}>
+                <div className="track flex flex-col gap-5" style={{padding: 20}}>
                     {
                         clubs.map((club, index) => (
                             <ClubCard key={`${club.name}-${country}`} country={country} club={club} index={index}/>

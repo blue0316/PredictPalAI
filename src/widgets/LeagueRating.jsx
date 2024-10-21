@@ -33,10 +33,10 @@ const LeagueRating = () => {
     }
 
     return (
-        <Spring className="card d-flex flex-column justify-content-between g-20 card-padded">
+        <Spring className="card flex flex-col justify-between gap-5 card-padded">
             <LeagueHeader img={english_premier} title="English Premier League" subtitle="Regular Championship" />
             <AnimatedCount className="h1 large" count={4.2} decimals={1} />
-            <div className="d-flex flex-column g-24">
+            <div className="flex flex-col gap-6">
                 {
                     Object.keys(data).map((key, index) => (
                         <ProgressItem

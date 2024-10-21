@@ -28,9 +28,9 @@ const MatchLiveEvents = () => {
     ]
 
     return (
-        <Spring className="card h-2 d-flex flex-column">
-            <div className="d-flex flex-column justify-content-between flex-1 p-relative" ref={ref}>
-                <div className="d-flex flex-column g-20 card-padded">
+        <Spring className="card height-w-2 flex flex-col">
+            <div className="flex flex-col justify-between flex-1 relative" ref={ref}>
+                <div className="flex flex-col gap-5 card-padded">
                     <MatchEventText minute={32} text="Man. City conceded a goal"/>
                 </div>
                 <MatchProgress currentMinute={55} containerWidth={width}/>

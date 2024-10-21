@@ -128,10 +128,10 @@ const LoginForm = () => {
       <h1>Account login</h1>
       <form>
         <div
-          className="d-flex flex-column g-10"
+          className="flex flex-col gap-2.5"
           style={{ margin: "20px 0 30px" }}
         >
-          <div className="d-flex flex-column g-20">
+          <div className="flex flex-col gap-5">
             <input
               className={classNames("field", { "field--error": errors.email })}
               type="text"
@@ -156,7 +156,7 @@ const LoginForm = () => {
               )}
             />
           </div>
-          <div className="d-flex align-items-center g-10">
+          <div className="flex items-center gap-2.5">
             <Controller
               control={control}
               name="rememberMe"
@@ -173,7 +173,7 @@ const LoginForm = () => {
           </div>
         </div>
 
-        <div className="d-flex justify-content-between align-items-center g-16">
+        <div className="flex justify-between items-center gap-4">
           <button
             className="btn flex-1"
             type="submit"
@@ -208,7 +208,7 @@ const LoginForm = () => {
       </form>
 
       <div
-        className="d-flex justify-content-center"
+        className="flex justify-center"
         style={{ marginTop: "10px" }}
       >
         <p className="text-12">

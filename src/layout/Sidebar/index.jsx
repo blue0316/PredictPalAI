@@ -55,13 +55,13 @@ const Sidebar = () => {
           width: 250,
         },
       }}
-      className="main-sidebar g-20"
+      className="main-sidebar gap-5"
     >
       <div className="logo-wrapper">
         <Logo size="sm" />
       </div>
-      <h3 className="text-14 text-400 text-uppercase">MENU</h3>
-      <nav className="d-flex flex-column g-16 flex-1">
+      <h3 className="text-14 font-normal uppercase">MENU</h3>
+      <nav className="flex flex-col gap-4 flex-1">
         {LINKS.map((link, index) =>
           link.pages && link.pages.length > 0 ? (
             <StyledAccordion
@@ -73,7 +73,7 @@ const Sidebar = () => {
                 <Link
                   className={`${
                     expanded === `panel${index}` ? "active" : ""
-                  } h4 text-500 text-16`}
+                  } flex h4 font-medium text-16`}
                 >
                   {/* <i className={`icon icon-${link.icon}`} /> */}
                   <FontAwesomeIcon
@@ -98,11 +98,10 @@ const Sidebar = () => {
             <StyledAccordionSummary key={`link-${index}-${link.title}`}>
               <NavLink
                 className={`${
-                  expanded === `panel${index}` ? "active" : ""
-                } h4 text-500 text-16`}
+                  pathname === link.path ? "!text-accent" : ""
+                } flex h4 font-medium text-16`}
                 to={link.path}
               >
-                {/* <i className={`icon icon-${link.icon}`} /> */}
                 <FontAwesomeIcon
                   icon={link.icon}
                   size="lg"
@@ -114,8 +113,8 @@ const Sidebar = () => {
           )
         )}
       </nav>
-      <SidebarLeagueList />
-      <SidebarFavClubList />
+      {/* <SidebarLeagueList />
+      <SidebarFavClubList /> */}
     </StyledDrawer>
   );
 };
