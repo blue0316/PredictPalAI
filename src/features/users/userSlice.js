@@ -10,9 +10,6 @@ const userSlice = createSlice({
   },
   reducers: {
     login: (state, action) => {
-      // const serializableValue = JSON.stringify(action.payload);
-      // const normalObject = JSON.parse(serializableValue);
-      // state.user = normalObject;
       state.user = action.payload;
       state.isAuthenticated = true;
       state.loading = false;
