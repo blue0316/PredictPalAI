@@ -26,9 +26,6 @@ export const videoApi = createApi({
         method: "PUT",
         data: videoMetaData,
       }),
-      // invalidatesTags: (result, error, { videoId }) => [
-      //   { type: "Video", id: videoId },
-      // ],
       invalidatesTags: ["Video"],
     }),
     createVideo: builder.mutation({
@@ -44,9 +41,6 @@ export const videoApi = createApi({
         url: `/videos/${videoId}`,
         method: "DELETE",
       }),
-      // invalidatesTags: (result, error, videoId) => [
-      //   { type: "Video", id: videoId },
-      // ],
       invalidatesTags: ["Video"],
     }),
   }),
