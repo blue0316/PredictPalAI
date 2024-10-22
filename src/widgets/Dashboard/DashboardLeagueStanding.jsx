@@ -20,11 +20,11 @@ const formatDate = (date) => {
 const DashboardLeagueStanding = () => {
   const [tabIndex, setTabIndex] = useState(1);
 
-  const {
-    data: matches,
-    isLoading,
-    error,
-  } = useGetMatchListAllQuery(formatDate(new Date()));
+  // const {
+  //   data: matches,
+  //   isLoading,
+  //   error,
+  // } = useGetMatchListAllQuery(formatDate(new Date()));
 
   return (
     <div className="flex flex-col gap-6 max-md:gap-4 border-b-2 border-solid border-border pb-6 max-md:pb-4">
