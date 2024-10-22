@@ -10,7 +10,11 @@ import PasswordInput from "@components/PasswordInput";
 import ResetPasswordPopup from "@components/ResetPasswordPopup";
 import BasicCheckbox from "@ui/BasicCheckbox";
 
-import { signInWithGoogle, signInWithEmail, onAuthStateChanged } from "../firebase/auth";
+import {
+  signInWithGoogle,
+  signInWithEmail,
+  onAuthStateChanged,
+} from "../firebase/auth";
 import GoogleIcon from "../../src/assets/icons/google.svg";
 import { login, profile } from "../features/users/userSlice";
 import { useCreateUserProfileMutation } from "@api/UserProfle/userProfileApi";
@@ -38,28 +42,30 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleCreate = useCallback(async (newProfileData) => {
-    try {
-      const createdProfile = await createUserProfile(newProfileData).unwrap();
-      return createdProfile.data;
-    } catch (error) {
-      console.error("Failed to create profile:", error);
-    }
-  }, [createUserProfile]);
+  const handleCreate = useCallback(
+    async (newProfileData) => {
+      try {
+        const createdProfile = await createUserProfile(newProfileData).unwrap();
+        return createdProfile.data;
+      } catch (error) {
+        console.error("Failed to create profile:", error);
+      }
+    },
+    [createUserProfile]
+  );
 
   const onSubmit = async (data) => {
     setLoading(true);
     try {
       const userCredential = await signInWithEmail(data.email, data.password);
-      const user = userCredential.user;
 
       const createdProfile = await handleCreate({
-        User_ID: user.uid,
-        Email: user.email,
-        Name: user.displayName,
+        User_ID: userCredential.uid,
+        Email: userCredential.email,
+        Name: userCredential.displayName,
       });
 
-      dispatch(login(user));
+      dispatch(login(userCredential));
       dispatch(profile(createdProfile));
 
       toast.success("Signed in successfully!");
@@ -76,15 +82,14 @@ const LoginForm = () => {
     setGoogleLoading(true);
     try {
       const userCredential = await signInWithGoogle();
-      const user = userCredential.user;
 
       const createdProfile = await handleCreate({
-        User_ID: user.uid,
-        Email: user.email,
-        Name: user.displayName,
+        User_ID: userCredential.uid,
+        Email: userCredential.email,
+        Name: userCredential.displayName,
       });
 
-      dispatch(login(user));
+      dispatch(login(userCredential));
       dispatch(profile(createdProfile));
 
       toast.success("Signed in with Google successfully!");
@@ -207,13 +212,13 @@ const LoginForm = () => {
         </div>
       </form>
 
-      <div
-        className="flex justify-center"
-        style={{ marginTop: "10px" }}
-      >
+      <div className="flex justify-center" style={{ marginTop: "10px" }}>
         <p className="text-12">
           Don't have an account?{" "}
-          <NavLink to="/sign-up" className="text-link text-decoration-underline">
+          <NavLink
+            to="/sign-up"
+            className="text-link text-decoration-underline"
+          >
             Create an account
           </NavLink>
         </p>

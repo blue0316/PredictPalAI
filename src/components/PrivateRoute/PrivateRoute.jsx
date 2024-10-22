@@ -8,9 +8,7 @@ const PrivateRoute = ({ children }) => {
   const isAuthenticated = useSelector((state) => state.user.isAuthenticated);
 
   useEffect(() => {
-    // Simulate an async operation to check authentication
     const checkAuth = async () => {
-      // Simulate a delay for checking authentication
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setLoading(false);
     };
@@ -19,9 +17,6 @@ const PrivateRoute = ({ children }) => {
   }, []);
 
   const userToken = localStorage.getItem('userToken');
-
-  console.log('isAuthenticated:', isAuthenticated); 
-  console.log('userToken:', userToken); 
 
   if (loading) {
     return <LoadingScreen />; // Display a loading screen
