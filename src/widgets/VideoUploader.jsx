@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Spring from "@components/Spring";
 import uploadImg from "@assets/icons/upload.png";
 import { toast } from "react-toastify";
@@ -13,7 +13,8 @@ const VideoUploader = () => {
   const userId = useSelector((state) => state.user?.user?.uid);
 
   const [dragging, setDragging] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const [uploadTime, setUploadTime] = useState(0);
+  const [isUploading, setIsUploading] = useState(false);
   const [videoPreview, setVideoPreview] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const fileInputRef = useRef();
@@ -56,6 +57,8 @@ const VideoUploader = () => {
 
     const fileURL = URL.createObjectURL(file);
     setVideoPreview(fileURL);
+    setIsUploading(true);
+    setUploadTime(0);
 
     try {
       // Generate and upload thumbnail
@@ -96,7 +99,7 @@ const VideoUploader = () => {
       toast.success("Video metadata saved successfully!");
 
       // Reset states after successful upload
-      setProgress(0);
+      setIsUploading(false);
       setVideoPreview(null);
       setImagePreview(null);
     } catch (error) {
@@ -164,7 +167,7 @@ const VideoUploader = () => {
   const handleCancelUpload = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setProgress(0);
+    setIsUploading(false);
     setVideoPreview(null);
     setImagePreview(null);
     toast.info("Upload canceled.");
@@ -180,6 +183,18 @@ const VideoUploader = () => {
     fileInputRef.current.click();
   };
 
+  useEffect(() => {
+    let interval;
+    if (isUploading) {
+      interval = setInterval(() => {
+        setUploadTime((prev) => prev + 1);
+      }, 1000);
+    } else {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval);
+  }, [isUploading]);
+
   return (
     <Spring
       className={`relative card flex flex-col gap-9 card-padded !rounded-lg !p-3 min-h-[400px] ${
@@ -189,12 +204,12 @@ const VideoUploader = () => {
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
     >
-      {progress > 0 && (
+      {isUploading && (
         <div className="absolute top-8 left-8 text-sm p-1 bg-widget rounded">
-          <p>Uploading: {Math.round(progress)}%</p>
+          <p>Uploading... Time: {uploadTime}s</p>
         </div>
       )}
-      {progress > 0 && (
+      {isUploading && (
         <button
           onClick={handleCancelUpload}
           className="absolute top-8 right-8 text-red-500 w-6 h-6 rounded-full border border-solid border-white hover:border-black hover:text-white hover:bg-black transition-all z-10"
